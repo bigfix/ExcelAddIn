@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("IBM Endpoint Manager Excel Connector")]
-[assembly: AssemblyDescription("Lee Wei (leewei@leewei.com)")]
+[assembly: AssemblyTitle("IBM BigFix Excel Connector")]
+[assembly: AssemblyDescription("Lee Wei (leewei@us.ibm.com)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Lee Wei")]
-[assembly: AssemblyProduct("IBM Endpoint Manager Excel Connector")]
+[assembly: AssemblyProduct("IBM BigFix Excel Connector")]
 [assembly: AssemblyCopyright("IBM Forum Community")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -26,8 +26,8 @@ using System.Runtime.InteropServices;
 // You can specify all the value or you can default the Revision and Build Numbers
 // by using the * as shown below:
 
-[assembly: AssemblyVersion("3.3.3.0")]
- 
+[assembly: AssemblyVersion("3.3.8.0")]
+
 //
 // In order to sign your assembly you must specify a key to use. Refer to the
 // Microsoft .NET Framework documentation for more information on assembly signing.
@@ -50,4 +50,4 @@ using System.Runtime.InteropServices;
 //[assembly: AssemblyKeyFile("")]
 //[assembly: AssemblyKeyName("")]
 
-[assembly: AssemblyFileVersionAttribute("3.3.3.0")]
+[assembly: AssemblyFileVersion("3.3.8.0")]

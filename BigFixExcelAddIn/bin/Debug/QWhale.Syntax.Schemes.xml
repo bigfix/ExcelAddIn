@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QWhale.Syntax.Schemes</name>
+    </assembly>
+    <members>
+        <member name="T:QWhale.Syntax.Schemes.LanguageParser">
+            <summary>
+            Represents parser that performs lexical analysis for predefined set of languages.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Schemes.LanguageParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>LanguageParser</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Schemes.LanguageParser.ShouldSerializeXmlScheme">
+            <summary>
+            Indicates whether the XmlScheme property should be persisted.
+            </summary>
+            <returns>True if <c>XmlScheme</c> represents cutom language; otherwise false.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.Schemes.LanguageParser.Language">
+            <summary>
+            Specifies language to analize.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.Schemes.LanguageParser.XmlScheme">
+            <summary>
+            Gets or sets an xml representation of <c>Scheme</c> property.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.Schemes.LanguageParser.Scheme">
+            <summary>
+            Gets or sets list of rules for lexical analysis.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Schemes.Languages">
+            <summary>
+            Defines set of languages to which performed lexical analysis.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -12,6 +12,7 @@
       <fixlets text="Remediated" imageindex="4" tag="Integer"></fixlets>
       <fixlets text="Sites" imageindex="5" tag="Object">
         <fixlets text="Names" imageindex="6" tag="String"></fixlets>
+        <fixlets text="Display Names" imageindex="6" tag="String"></fixlets>
       </fixlets>
       <fixlets text="Source ID" imageindex="6" tag="String"></fixlets>
       <fixlets text="Source Release Date" imageindex="2" tag="Date"></fixlets>
@@ -27,6 +28,7 @@
       <fixlets text="Analysis Flag" imageindex="0" tag="Boolean"></fixlets>
       <fixlets text="Applicable Computers" imageindex="5" tag="Object">
         <fixlets text="Names" imageindex="6" tag="String"/>
+        <fixlets text="Names of BES Computer Groups" imageindex="6" tag="String"/>
       </fixlets>
       <fixlets text="Baseline Flag" imageindex="0" tag="Boolean"></fixlets>
       <fixlets text="Best Activations" imageindex="5" tag="Object">
@@ -71,6 +73,7 @@
     </actions>
     <actions text="Extended Properties" imageindex="5" tag="Object">
         <actions text="Action Script Type" imageindex="6" tag="String"></actions>
+        <actions text="Applicability Relevance" imageindex="6" tag="String"></actions>
         <actions text="Comments" imageindex="5" tag="Object">
           <actions text="Text" imageindex="6" tag="String"></actions>
         </actions>
@@ -298,11 +301,15 @@
       <results_of_bes_fixlets text="Operating System" imageindex="6" tag="String"></results_of_bes_fixlets>
       <results_of_bes_fixlets text="IP Addresses" imageindex="6" tag="String"></results_of_bes_fixlets>
       <results_of_bes_fixlets text="Last Report Time" imageindex="7" tag="Time"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Names of BES Computer Groups" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Text of Comment" imageindex="6" tag="String"></results_of_bes_fixlets>
     </results_of_bes_fixlets>
     <results_of_bes_fixlets text="Fixlet" imageindex="5" tag="SearchableObject">
       <results_of_bes_fixlets text="Analysis Flag" imageindex="0" tag="Boolean"></results_of_bes_fixlets>
       <results_of_bes_fixlets text="Applicable Computer Count" imageindex="4" tag="Integer"></results_of_bes_fixlets>
       <results_of_bes_fixlets text="Category" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="CVE ID List" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Display Name of Site" imageindex="6" tag="String"></results_of_bes_fixlets>
       <results_of_bes_fixlets text="Download Size" imageindex="4" tag="Integer"></results_of_bes_fixlets>
       <results_of_bes_fixlets text="Fixlet Flag" imageindex="0" tag="Boolean"></results_of_bes_fixlets>
       <results_of_bes_fixlets text="ID" imageindex="4" tag="Integer"></results_of_bes_fixlets>
@@ -336,6 +343,8 @@
       <results_of_bes_actions text="Operating System" imageindex="6" tag="String"></results_of_bes_actions>
       <results_of_bes_actions text="IP Addresses" imageindex="6" tag="String"></results_of_bes_actions>
       <results_of_bes_actions text="Last Report Time" imageindex="7" tag="Time"></results_of_bes_actions>
+      <results_of_bes_actions text="Names of BES Computer Groups" imageindex="6" tag="String"></results_of_bes_actions>
+      <results_of_bes_actions text="Text of Comment" imageindex="6" tag="String"></results_of_bes_actions>
     </results_of_bes_actions>
     <results_of_bes_actions text="Detailed Status" imageindex="6" tag="String"></results_of_bes_actions>
     <results_of_bes_actions text="Line Number" imageindex="4" tag="Integer"></results_of_bes_actions>

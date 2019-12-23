@@ -103,6 +103,12 @@ namespace BigFixExcelConnector
             // The following is used to circumvent the error
             ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(delegate { return true; });
 
+            System.Net.ServicePointManager.SecurityProtocol =
+                System.Net.SecurityProtocolType.Tls |
+                System.Net.SecurityProtocolType.Tls11 |
+                System.Net.SecurityProtocolType.Tls12 |
+                System.Net.SecurityProtocolType.Ssl3;
+
             // Get URL, username and password from registry
             RetrieveSettings();
 
@@ -112,7 +118,15 @@ namespace BigFixExcelConnector
 
             String excelVersion = (AddinExpress.MSO.ADXAddinModule.CurrentInstance as AddinModule).ExcelApp.Version;
 
-            if (excelVersion == "15.0")
+            if (excelVersion == "16.0")
+            {
+                excelVersion = excelVersion + " - " + "2016";
+                textBoxExcelVersion.Text = excelVersion;
+                maxCellLength = maxCellLengthExcel14;
+                maxRowsExcel = maxRowsExcel14;
+                maxColumnsExcel = maxColumnsExcel14;
+            }
+            else if (excelVersion == "15.0")
             {
                 excelVersion = excelVersion + " - " + "2013";
                 textBoxExcelVersion.Text = excelVersion;
@@ -223,7 +237,7 @@ namespace BigFixExcelConnector
                     textBoxObjDesc.Text = "BES Computers inspectors return lists of the computers currently visible through the BES Console and Web Reports. Use these inspectors to retrieve computer properties.";
                     break;
                 case "BES Custom Sites":
-                    textBoxObjDesc.Text = "BES Custom Sites inspectors return the names and IDs of the custom site objects. Custom sites are those created locally within an IBM Endpoint Manager installation, rather than those subscribed from IBM Endpoint Manager.";
+                    textBoxObjDesc.Text = "BES Custom Sites inspectors return the names and IDs of the custom site objects. Custom sites are those created locally within an IBM BigFix installation, rather than those subscribed from IBM BigFix.";
                     break;
                 case "BES Fixlets":
                     textBoxObjDesc.Text = "BES Fixlets inspectors allow you to iterate over the BES Fixlet messages to create lists of various Fixlet properties such as name, ID, source severity, source release dates, etc.";
@@ -238,7 +252,7 @@ namespace BigFixExcelConnector
                     textBoxObjDesc.Text = "BES Users inspectors let you keep track of the users authorized to use the BES Console. You can iterate over the users, producing lists containing information such as the name and authorization level.";
                     break;
                 case "BES UnmanagedAssets":
-                    textBoxObjDesc.Text = "BES UnamanagedAssets inspectors provide access to externally sourced data, such as that derived from Nmap scans on client computers. The results, such as OS, Device Type, Network Card Vendor, and Open Ports, are uploaded to the BES Server for storage and analysis. These Inspectors provide a way to monitor and report on mobile or hand-held devices that are not traditional BES Clients, but instead use \"microAgents\" to report their status. For more information on currently supported devices, consult the IBM Endpoint Manager support pages.";
+                    textBoxObjDesc.Text = "BES UnamanagedAssets inspectors provide access to externally sourced data, such as that derived from Nmap scans on client computers. The results, such as OS, Device Type, Network Card Vendor, and Open Ports, are uploaded to the BES Server for storage and analysis. These Inspectors provide a way to monitor and report on mobile or hand-held devices that are not traditional BES Clients, but instead use \"microAgents\" to report their status. For more information on currently supported devices, consult the IBM BigFix support pages.";
                     break;
                 case "BES UnmanagedAsset Fields":
                     textBoxObjDesc.Text = "BES UnmanagedAsset Fields inspectors provide access to the individual fields of various unmanaged assets. Each field consists of a name / value pair, analogous to BES properties. There are three types of fields:\r\n• IdentifyingField: Each asset must have one IdentifyingField, such as a MAC Address, which is used to identify and correlate different reports from the same asset.\r\n• FilterableField: These are displayed in the Console in both the Unmanaged Asset list and the unmanaged asset document, allowing sorting and filtering.\r\n• NonFilterable: These are only displayed in the Unmanaged Assets document, and typically return a large amount of data, such as a list of vulnerabilities.";
@@ -306,7 +320,7 @@ namespace BigFixExcelConnector
 
                 if (resultsSitesTemp == null || refreshContentCache == "True")
                 {
-                    queryString = "(operator site flag of it as string & \"|X|\" & (if (name of it = \"Enterprise Security\") then (\"Patches for Windows (English)\") else (name of it)) & \" (\" & number of fixlets of it as string & \")\") of all bes sites";
+                    queryString = "(operator site flag of it as string & \"|X|\" & (if (name of it = \"Enterprise Security\") then (\"Patches for Windows\") else (name of it)) & \" (\" & number of fixlets of it as string & \")\") of all bes sites";
                     resultsSitesTemp = bes.GetRelevanceResult(queryString, userName, password);
 
                     resultsAllSites = new String[resultsSitesTemp.Length];
@@ -375,7 +389,7 @@ namespace BigFixExcelConnector
 
                 if (resultsAllSites == null || resultsSitesNonOperators == null)
                 {
-                    queryString = "(operator site flag of it as string & \"|X|\" & (if (name of it = \"Enterprise Security\") then (\"Patches for Windows (English)\") else (name of it)) & \" (\" & number of fixlets of it as string & \")\") of all bes sites";
+                    queryString = "(operator site flag of it as string & \"|X|\" & (if (name of it = \"Enterprise Security\") then (\"Patches for Windows\") else (name of it)) & \" (\" & number of fixlets of it as string & \")\") of all bes sites";
 
                     resultsSitesTemp = bes.GetRelevanceResult(queryString, userName, password);
 
@@ -2386,16 +2400,16 @@ namespace BigFixExcelConnector
                         {
                             // If the Attribute is from an object, we need to check for object existance first
                             if (fp.ParentName == "" || fp.ParentName == "Common Properties" || fp.ParentName == "Extended Properties")
-                                PropStr = PropStr + "\n\t(if (exists " + fp.DisplayName + " of it) \n\t\tthen (concatenations \"" + textBoxConcatenationSeparator.Text + "\" of (" + fp.DisplayName + " of it as string)) \n\t\telse (\"" + textBoxNull.Text + "\"))";
+                                PropStr = PropStr + "\n\t(if (exists " + fp.DisplayName + " of it | false) \n\t\tthen (concatenations \"" + textBoxConcatenationSeparator.Text + "\" of (" + fp.DisplayName + " of it as string)) \n\t\telse (\"" + textBoxNull.Text + "\"))";
                             else
-                                PropStr = PropStr + "\n\t(if (exists " + fp.ParentName + " of it and exists " + fp.DisplayName + " of it) \n\t\tthen (concatenations \"" + textBoxConcatenationSeparator.Text + "\" of (" + fp.DisplayName + " of it as string)) \n\t\telse (\"" + textBoxNull.Text + "\"))";
+                                PropStr = PropStr + "\n\t(if (exists " + fp.ParentName + " of it and exists " + fp.DisplayName + " of it | false) \n\t\tthen (concatenations \"" + textBoxConcatenationSeparator.Text + "\" of (" + fp.DisplayName + " of it as string)) \n\t\telse (\"" + textBoxNull.Text + "\"))";
                         }
                         else
                         {
                             if (fp.ParentName == "" || fp.ParentName == "Common Properties" || fp.ParentName == "Extended Properties")
-                                PropStr = PropStr + "\n\t(if (exists " + fp.DisplayName + " of it) \n\t\tthen (" + fp.DisplayName + " of it as string) \n\t\telse (\"" + textBoxNull.Text + "\"))";
+                                PropStr = PropStr + "\n\t(if (exists " + fp.DisplayName + " of it | false) \n\t\tthen (" + fp.DisplayName + " of it as string) \n\t\telse (\"" + textBoxNull.Text + "\"))";
                             else
-                                PropStr = PropStr + "\n\t(if (exists " + fp.ParentName + " of it and exists " + fp.DisplayName + " of it) \n\t\tthen (" + fp.DisplayName + " of it as string) \n\t\telse (\"" + textBoxNull.Text + "\"))";
+                                PropStr = PropStr + "\n\t(if (exists " + fp.ParentName + " of it and exists " + fp.DisplayName + " of it | false) \n\t\tthen (" + fp.DisplayName + " of it as string) \n\t\telse (\"" + textBoxNull.Text + "\"))";
                         }
                     }
 
@@ -2483,7 +2497,7 @@ namespace BigFixExcelConnector
                     {
                         siteName = checkedListBoxSites.CheckedItems[j].ToString();
                         siteName = siteName.Substring(0, siteName.LastIndexOf("(") - 1);
-                        if (siteName == "Patches for Windows (English)")
+                        if (siteName == "Patches for Windows")
                         {
                             siteName = "Enterprise Security";
                         }
@@ -2583,11 +2597,11 @@ namespace BigFixExcelConnector
                     {
                         if (checkBoxConcatenation.Checked)
                         {
-                            PropStr = PropStr + "\n\t(if (exists " + fp.DisplayName + " of it) \n\t\tthen (concatenations \"" + textBoxConcatenationSeparator.Text + "\" of (" + fp.DisplayName + " of it as string)) \n\t\telse (\"" + textBoxNull.Text + "\"))";
+                            PropStr = PropStr + "\n\t(if (exists " + fp.DisplayName + " of it | false) \n\t\tthen (concatenations \"" + textBoxConcatenationSeparator.Text + "\" of (" + fp.DisplayName + " of it as string)) \n\t\telse (\"" + textBoxNull.Text + "\"))";
                         }
                         else
                         {
-                            PropStr = PropStr + "\n\t(if (exists " + fp.DisplayName + " of it) \n\t\tthen (" + fp.DisplayName + " of it as string) \n\t\telse (\"" + textBoxNull.Text + "\"))";
+                            PropStr = PropStr + "\n\t(if (exists " + fp.DisplayName + " of it | false) \n\t\tthen (" + fp.DisplayName + " of it as string) \n\t\telse (\"" + textBoxNull.Text + "\"))";
                         }
                     }
 
@@ -3739,7 +3753,7 @@ namespace BigFixExcelConnector
 
                 if ((webReportsURL == String.Empty || userName == String.Empty || password == String.Empty) && userStarted)
                 {
-                    MessageBox.Show("Please configure login information to IBM Endpoint Manager Web Reports first", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please configure login information to IBM BigFix Web Reports first", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
                 else
@@ -3889,12 +3903,12 @@ namespace BigFixExcelConnector
             }
             else if (ex.Message.ToLower().Contains("object reference not set to an instance of an object"))
             {
-                MessageBox.Show("Error: " + ex.Message + " - Note that this IBM Endpoint Manager AddIn only works for BES 7.2 or above.", "Check IBM Endpoint Manager version", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Error: " + ex.Message + " - Note that this IBM BigFix AddIn only works for BES 7.2 or above.", "Check IBM BigFix version", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (ex.Message.ToLower().Contains("singular expression refers to nonexistent object"))
             {
-                MessageBox.Show("Error from IBM Endpoint Manager:\n" + ex.Message + "\n\nGetting the above error running the Relevance Query.\nIs it possible that some items may have been removed from the backend, such as a Retrieved Property since the query was defined?\n\nTry using the Query Wizard to generate a new report.",
-                    "IBM Endpoint Manager Session Relevance Error",
+                MessageBox.Show("Error from IBM BigFix:\n" + ex.Message + "\n\nGetting the above error running the Relevance Query.\nIs it possible that some items may have been removed from the backend, such as a Retrieved Property since the query was defined?\n\nTry using the Query Wizard to generate a new report.",
+                    "IBM BigFix Session Relevance Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }

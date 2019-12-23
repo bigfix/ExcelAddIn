@@ -119,7 +119,7 @@ namespace BigFixExcelConnector
             // 
             // adxCommandBarBF
             // 
-            this.adxCommandBarBF.CommandBarName = "IBM Endpoint Manager Connector";
+            this.adxCommandBarBF.CommandBarName = "IBM BigFix Connector";
             this.adxCommandBarBF.CommandBarTag = "213e1f18-2807-443f-a71f-be57720e9c4f";
             this.adxCommandBarBF.Controls.Add(this.adxCommandBarButton7);
             this.adxCommandBarBF.Controls.Add(this.adxCommandBarButton8);
@@ -132,9 +132,9 @@ namespace BigFixExcelConnector
             this.adxCommandBarBF.Controls.Add(this.adxCommandBarButton2);
             this.adxCommandBarBF.Controls.Add(this.adxCommandBarButton1);
             this.adxCommandBarBF.Controls.Add(this.adxCommandBarButton6);
-            this.adxCommandBarBF.Description = "IBM Endpoint Manager Connector";
+            this.adxCommandBarBF.Description = "IBM BigFix Connector";
             this.adxCommandBarBF.SupportedApps = AddinExpress.MSO.ADXOfficeHostApp.ohaExcel;
-            this.adxCommandBarBF.UpdateCounter = 22;
+            this.adxCommandBarBF.UpdateCounter = 24;
             // 
             // adxCommandBarButton7
             // 
@@ -296,14 +296,14 @@ namespace BigFixExcelConnector
             // 
             // adxRibbonTab1
             // 
-            this.adxRibbonTab1.Caption = "IBM Endpoint Manager";
+            this.adxRibbonTab1.Caption = "IBM BigFix";
             this.adxRibbonTab1.Controls.Add(this.adxRibbonGroup1);
             this.adxRibbonTab1.Id = "adxRibbonTab_90435f7b6aaa43379be115f0436bc9e5";
             this.adxRibbonTab1.Ribbons = AddinExpress.MSO.ADXRibbons.msrExcelWorkbook;
             // 
             // adxRibbonGroup1
             // 
-            this.adxRibbonGroup1.Caption = "IBM Endpoint Manager Connector";
+            this.adxRibbonGroup1.Caption = "IBM BigFix Connector";
             this.adxRibbonGroup1.Controls.Add(this.adxRibbonButton6);
             this.adxRibbonGroup1.Controls.Add(this.adxRibbonSeparator1);
             this.adxRibbonGroup1.Controls.Add(this.adxRibbonButton8);
@@ -494,13 +494,13 @@ namespace BigFixExcelConnector
             // adxRibbonButton1
             // 
             this.adxRibbonButton1.Caption = "Configuration";
-            this.adxRibbonButton1.Description = "Connnection Settings to IBM Endpoint Manager Web Reports";
+            this.adxRibbonButton1.Description = "Connnection Settings to IBM BigFix Web Reports";
             this.adxRibbonButton1.Id = "adxRibbonButton_a7012dff158c4e15926ce96980b13f61";
             this.adxRibbonButton1.Image = 15;
             this.adxRibbonButton1.ImageList = this.imageListRibbon;
             this.adxRibbonButton1.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.adxRibbonButton1.Ribbons = AddinExpress.MSO.ADXRibbons.msrExcelWorkbook;
-            this.adxRibbonButton1.ScreenTip = "Connnection Settings to IBM Endpoint Manager Web Reports";
+            this.adxRibbonButton1.ScreenTip = "Connnection Settings to IBM BigFix Web Reports";
             this.adxRibbonButton1.Size = AddinExpress.MSO.ADXRibbonXControlSize.Large;
             this.adxRibbonButton1.OnClick += new AddinExpress.MSO.ADXRibbonOnAction_EventHandler(this.adxRibbonButton1_OnClick);
             // 
@@ -511,20 +511,20 @@ namespace BigFixExcelConnector
             // 
             // adxRibbonButton7
             // 
-            this.adxRibbonButton7.Caption = "About IBM Endpoint Manager Connector";
-            this.adxRibbonButton7.Description = "Some Information About the IBM Endpoint Manager Excel Connector";
+            this.adxRibbonButton7.Caption = "About IBM BigFix Connector";
+            this.adxRibbonButton7.Description = "Some Information About the IBM BigFix Excel Connector";
             this.adxRibbonButton7.Id = "adxRibbonButton_7954cb173c2443c3b4f781b54e2fcb74";
             this.adxRibbonButton7.Image = 12;
             this.adxRibbonButton7.ImageList = this.imageListRibbon;
             this.adxRibbonButton7.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.adxRibbonButton7.Ribbons = AddinExpress.MSO.ADXRibbons.msrExcelWorkbook;
-            this.adxRibbonButton7.ScreenTip = "Some Information About the IBM Endpoint Manager Excel Connector";
+            this.adxRibbonButton7.ScreenTip = "Some Information About the IBM BigFix Excel Connector";
             this.adxRibbonButton7.Size = AddinExpress.MSO.ADXRibbonXControlSize.Large;
             this.adxRibbonButton7.OnClick += new AddinExpress.MSO.ADXRibbonOnAction_EventHandler(this.adxRibbonButton7_OnClick);
             // 
             // AddinModule
             // 
-            this.AddinName = "IBM Endpoint Manager Excel Connector";
+            this.AddinName = "IBM BigFix Excel Connector";
             this.SupportedApps = AddinExpress.MSO.ADXOfficeHostApp.ohaExcel;
             this.AddinInitialize += new AddinExpress.MSO.ADXEvents_EventHandler(this.AddinModule_AddinInitialize);
 
@@ -808,11 +808,10 @@ namespace BigFixExcelConnector
                 ShowRelevanceCode showCodeWin = new ShowRelevanceCode();
                 showCodeWin.ShowDialog();
             }
-            catch (Exception ex)
+            catch
             {
                 // MessageBox.Show(ex.Message);
                 MessageBox.Show("There is currently no Relevance statement in the worksheet. Use the Relevance Query Wizard to generate one first.", "No Relevance Statement", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
         }
 
@@ -838,7 +837,7 @@ namespace BigFixExcelConnector
                 // OpenFileDialog exportFile = new OpenFileDialog();
                 SaveFileDialog exportFile = new SaveFileDialog();
                 exportFile.CheckFileExists = false;
-                exportFile.Filter = "IBM Endpoint Manager Excel Connector Export files (*.bce)|*.bce|All files (*.*)|*.*";
+                exportFile.Filter = "IBM BigFix Excel Connector Export files (*.bce)|*.bce|All files (*.*)|*.*";
                 exportFile.Title = "Specify the Export file";
                 exportFile.FileName = System.Windows.Forms.SystemInformation.UserName + ".bce";
 
@@ -954,7 +953,7 @@ namespace BigFixExcelConnector
             {
                 OpenFileDialog importFile = new OpenFileDialog();
                 importFile.CheckFileExists = true;
-                importFile.Filter = "IBM Endpoint Manager Excel Connector Export files (*.bce)|*.bce|All files (*.*)|*.*";
+                importFile.Filter = "IBM BigFix Excel Connector Export files (*.bce)|*.bce|All files (*.*)|*.*";
                 importFile.Title = "Specify the Import file";
 
                 if (importFile.ShowDialog() == DialogResult.OK)
@@ -1175,7 +1174,9 @@ namespace BigFixExcelConnector
         private void showAboutBox()
         {
             AboutBox ab = new AboutBox();
-            ab.MoreRichTextBox.Text = "Developed in C# using IBM Endpoint Manager SOAP API\n\n" + "Please post comments and bug reports at the IBM developerWorks Wiki:\n" + "https://www.ibm.com/developerworks/mydeveloperworks/wikis/home?lang=en#/wiki/Tivoli%20Endpoint%20Manager/page/Excel%20Connector";
+            ab.MoreRichTextBox.Text = "Developed in C# using IBM BigFix SOAP API\n\n" + 
+            "Get more information from the IBM developerWorks BigFix Wiki:\n" + "https://www.ibm.com/developerworks/community/wikis/home?lang=en#/wiki/Tivoli%20Endpoint%20Manager/page/Excel%20Connector" +
+                "\n\nPost questions, comments and bug reports at the IBM BigFix Forum:\n" + "https://forum.bigfix.com/t/bigfix-excel-connector/6152";
             ab.ShowDialog();
         }
         #endregion

@@ -1,0 +1,60 @@
+﻿Changes in version 3.3.8.0
+- (2017/05/04) Switched to .NET Framework 4.5.2 from 2.0
+- (2017/05/04) Supported TLS 1.2
+
+Changes in version 3.3.7.0
+- (2016/08/26) Added additional properties to objects, Display Name of sites
+
+Changes in version 3.3.6.0
+- (2016/07/22) Added additional properties to objects, Comments of Computers. Added (exists xxx | false) clause in the event of empty values
+
+Changes in version 3.3.5.0
+- (2016/07/14) Added additional properties to objects (e.g. Names of BES Computer Groups, CVE ID List to results of BES Fixlets)
+
+Changes in version 3.3.4.0
+- (2016/05/25) Changed name from IBM Endpoint Manager to IBM BigFix
+- (2016/05/25) Upgraded installer to support Excel 15 (MS Office 2016)
+- (2016/05/25) Upgraded Add-in Express from 7.1.4050.1 to 8.1.4350
+
+Changes in version 3.3.3.0
+- (2013/03/15) Changed name from Tivoli Endpoint Manager to IBM Endpoint Manager
+- (2013/03/15) Upgraded installer to support Excel 15 (MS Office 2013)
+- (2013/03/15) Upgraded Add-in Express from 6.4.3056 to 7.1.4050.1
+
+Changes in version 3.3.2.0
+- (9/7/2012) Fixed construct to query BES Property from id of it = (x, y, z) to (item 0 of it = x and item 1 of it = y and item 2 of it = z) of id of it
+
+Changes in version 3.3.1.0
+- (10/17/2011) Changes max rows for Excel 2007 and Excel 2010 to 1,048,575
+
+Changes in version 3.3.0.0
+- (3/30/2011) Changed name from BigFix to Tivoli Endpoint Manager
+- (3/30/2011) For computer properties, changed generated relevance from (if exists result) to (if exists values of results) because some results are NULL.
+- (3/30/2011) Fixed concatenation character %0A not working in Web Reports version 8.1. This is due to Web Reports escaping control characters.
+- (3/30/2011) Fixed Analysis properties for BES Computers not being restored.
+- (3/30/2011) Upgraded Add-in Express from 6.1.3044 to 6.4.3056
+
+Changes in version 1.4.0.0
+- (7/26/2010) Cleared worksheet formatting when returning results from Session Relevance Editor.
+- (7/26/2010) Refreshed content cache when switching Web Reports. 
+
+Changes in version 1.3.0.0
+- (7/26/2010) Fixed bug found by Nick Holmes on Forum http://forum.bigfix.com/viewtopic.php?id=5394. The filter does not work against properties with multiple results.
+
+Changes in version 1.2.0.0
+- (7/24/2010) Supported HTTPS connection with private certificates.
+- (7/24/2010) Fixed problem with Web Reports URL with trailing forward slash (e.g. http://server:80/).
+
+Bug fixes in version 1.1.0.0
+- (7/18/2009) comboBoxProperty for filter name not concatenating property if it is a property of an object.
+- (7/18/2009) When Checking a parent node of a list of property names, and if there are children already checked, they get duplicated in the selected list.
+- (7/21/2009) Tab order for fields (3 of them) used to create a filter corrected.
+- (7/24/2009) Missing Analysis properties if multiple activations. Helped fixed by Stephane Minisini of eSpeed.
+
+Enhancements in version 1.1.0.0 
+- (7/20/2009) Added auto-complete functionality to the comboBoxProperty - to select Properties for filtering.
+- (7/21/2009) Combined 2 BES Site queries into one to improve caching speed.
+- (7/21/2009) Added Remediated attribute to BES Fixlets. Also possible to search on Remediated.
+- (7/21/2009) Made the "Value" column in the filter data grid editable. This makes it easier to change a query criteria.
+
+

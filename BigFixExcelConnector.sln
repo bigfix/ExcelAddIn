@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEM Excel Connector", "BigFixExcelAddIn\IEM Excel Connector.csproj", "{E784AB15-4702-4CF2-BB9D-24B520171BC4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{94955608-38E0-43BE-AE73-0C16012E7445} = {94955608-38E0-43BE-AE73-0C16012E7445}
@@ -16,16 +18,17 @@ EndProject
 Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "EXCEL", "..\..\..\..\..\..\Program Files (x86)\Microsoft Office\Office14\EXCEL.EXE", "{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}"
 	ProjectSection(DebuggerProjectSystem) = preProject
 		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = C:\Program Files (x86)\Microsoft Office\Office14\EXCEL.EXE
+		Executable = C:\Program Files (x86)\Microsoft Office\Root\Office16\EXCEL.EXE
 		RemoteMachine = TRADERS
 		StartingDirectory = C:\Program Files (x86)\Microsoft Office\Office14
 		Environment = Default
 		LaunchingEngine = 5fff7536-0c87-462d-8fd2-7971d948e6dc
+		UseLegacyDebugEngines = No
 		LaunchSQLEngine = No
 		AttachLaunchAction = No
 	EndProjectSection
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IBM_Endpoint_Manager_Excel_Connector_Setup", "IEM_Excel_Connector_Setup\BigFixExcelAddInSetup.vdproj", "{58E7429E-1856-4101-95B3-EEF89C16CB3B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IBM_BigFix_Excel_Connector_Setup", "IEM_Excel_Connector_Setup\BigFixExcelAddInSetup.vdproj", "{58E7429E-1856-4101-95B3-EEF89C16CB3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,12 +80,12 @@ Global
 		{692E9844-1F3D-4303-887A-682373748E58}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{692E9844-1F3D-4303-887A-682373748E58}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{692E9844-1F3D-4303-887A-682373748E58}.Release|x86.ActiveCfg = Release|Any CPU
-		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|x86.ActiveCfg = Debug|x86
-		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|Any CPU.ActiveCfg = Debug|x86
-		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|Mixed Platforms.ActiveCfg = Debug|x86
-		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|x86.ActiveCfg = Debug|x86
+		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|Any CPU.ActiveCfg = Release|x86
+		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|Mixed Platforms.ActiveCfg = Release|x86
+		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|x86.ActiveCfg = Release|x86
+		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|Any CPU.ActiveCfg = Release|x86
+		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|x86.ActiveCfg = Release|x86
 		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|Any CPU.ActiveCfg = Debug
 		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|Any CPU.Build.0 = Debug
 		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|Mixed Platforms.ActiveCfg = Debug

@@ -294,7 +294,7 @@ namespace BigFixExcelConnector
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "ADXExcelTaskPaneSessEditor";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "IBM Endpoint Manager Session Relevance Editor";
+            this.Text = "IBM BigFix Session Relevance Editor";
             this.tabControl1.ResumeLayout(false);
             this.tabPageSessEditor.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

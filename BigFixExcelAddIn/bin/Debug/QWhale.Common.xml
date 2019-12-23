@@ -1,0 +1,3250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QWhale.Common</name>
+    </assembly>
+    <members>
+        <member name="T:QWhale.Common.ISortList`1">
+            <summary>
+            Represents a sorted collection of objects that can be individually accessed by index.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.ISortList`1.FindExact(`0,System.Int32@,System.Collections.Generic.IComparer{`0})">
+            <summary>
+            When implemented by a class, finds the given object in the sorted list with assumption that sorted list do not have any duplicates.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortList`1.FindFirst(`0,System.Int32@,System.Collections.Generic.IComparer{`0})">
+            <summary>
+            When implemented by a class, finds the first occurence of the given object that satisfies searching criteria.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortList`1.FindLast(`0,System.Int32@,System.Collections.Generic.IComparer{`0})">
+            <summary>
+            When implemented by a class, finds the last occurence of the given object that satisfies searching criteria.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortList`1.FindExact(System.Object,System.Int32@,System.Collections.IComparer)">
+            <summary>
+            When implemented by a class, finds the given object in the sorted list with assumption that sorted list do not have any duplicates.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortList`1.FindFirst(System.Object,System.Int32@,System.Collections.IComparer)">
+            <summary>
+            When implemented by a class, finds the first occurence of the given object that satisfies searching criteria.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortList`1.FindLast(System.Object,System.Int32@,System.Collections.IComparer)">
+            <summary>
+            When implemented by a class, finds the last occurence of the given object that satisfies searching criteria.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortList`1.Sort(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Sorts the elements in the entire sort list using the specified comparer.
+            </summary>
+            <param name="comparer">The IComparer implementation to use when comparing elements.</param>
+        </member>
+        <member name="T:QWhale.Common.INotify">
+            <summary>
+            Represents properties and methods to manage notification between objects.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.IUpdate">
+            <summary>
+            Represents properties and methods of updateable objects.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IUpdate.BeginUpdate">
+            <summary>
+            When implemented by a class, prevents object state updating until calling <c>EndUpdate</c> method.
+            </summary>
+            <returns>Number of object state updating locks.</returns>
+        </member>
+        <member name="M:QWhale.Common.IUpdate.EndUpdate">
+            <summary>
+            When implemented by a class, re-enables object state updating, that was turn of by calling <c>BeginUpdate</c> method.
+            </summary>
+            <returns>Number of object state updating locks.</returns>
+        </member>
+        <member name="M:QWhale.Common.IUpdate.DisableUpdate">
+            <summary>
+            When implemented by a class, prevents object state updating until calling <c>EnableUpdate</c> method.
+            </summary>
+            <returns>Number of object state updating locks.</returns>
+        </member>
+        <member name="M:QWhale.Common.IUpdate.EnableUpdate">
+            <summary>
+            When implemented by a class, re-enables object state updating, that was turn of by calling <c>DisableUpdate</c> method.
+            Using DisableUpdate/EnableUpdate to prevent notifying about updating the object state.
+            </summary>
+            <returns>Number of object state updating locks.</returns>
+        </member>
+        <member name="M:QWhale.Common.IUpdate.Update">
+            <summary>
+            When implemented by a class, updates an object state.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IUpdate.UpdateCount">
+            <summary>
+            When implemented by a class, keeps track of calls to <c>BeginUpdate</c> and <c>EndUpdate</c> so that they can be nested.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.INotify.AddNotifier(QWhale.Common.INotifier)">
+            <summary>
+            When implemented by a class, adds new handler to respond a notification.
+            </summary>
+            <param name="sender">Specifies an object that can respond a notification.</param>
+        </member>
+        <member name="M:QWhale.Common.INotify.RemoveNotifier(QWhale.Common.INotifier)">
+            <summary>
+            When implemented by a class, exclude specified handler from notification handlers list.
+            </summary>
+            <param name="sender">Specifies an object that can respond a notification.</param>
+        </member>
+        <member name="M:QWhale.Common.INotify.Notify">
+            <summary>
+            When implemented by a class, notifies all notifiers about updating object state.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.SortRange">
+            <summary>
+            Represents a container for a sorted collection of <c>IRange</c> objects.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.Range">
+            <summary>
+            Represents an pair of two points that defines a scope in a two-dimensional plane.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.IRange">
+            <summary>
+            Represents an pair of two points that defines a scope in a two-dimensional plane.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IRange.StartPoint">
+            <summary>
+            When implemented by a class, gets or sets begin of <c>IRange</c> area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IRange.EndPoint">
+            <summary>
+            When implemented by a class, gets or sets end of <c>IRange</c> area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IRange.Size">
+            <summary>
+            When implemented by a class, gets or sets size of <c>IRange</c> area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IRange.IsEmpty">
+            <summary>
+            When implemented by a class, gets boolea value indicating whether <c>IRange</c> has zero size.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.Range.InsideRange(System.Drawing.Point,System.Drawing.Rectangle)">
+            <summary>
+            Indicates whether specified rectangle contains given position.
+            </summary>
+            <param name="pt">Position to check-up.</param>
+            <param name="rect">Rectangular area to check-up.</param>
+            <returns>True if specified rect contains given Point; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.Range.InsideRange(System.Drawing.Point,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Indicates whether specified rectangle contains given position.
+            </summary>
+            <param name="pt">Position to check-up.</param>
+            <param name="rect">Rectangular area to check-up.</param>
+            <param name="checkMaxInt">Indicates that rectangle may contain Max Integer coordinates</param> 
+            <returns>True if specified rect contains given Point; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.Range.UpdatePos(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Point@,System.Boolean)">
+            <summary>
+            Updates specified position by DeltaX and DeltaY values.
+            </summary>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <param name="pt">Position to update.</param>
+            <param name="endPos">Specifies whether position represents end of range</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.Range.UpdatePos(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@,System.Int32@,System.Boolean)">
+            <summary>
+            Updates specified position by DeltaX and DeltaY values.
+            </summary>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <param name="ch">Horizontal constituent of the position to update.</param>
+            <param name="ln">Vertical constituent of the position to update.</param>
+            <param name="endPos">Specifies whether position represents end of range</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.Range.#ctor">
+            <summary>
+            Initializes a new instance of the <c>Range</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.Range.#ctor(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Initializes a new instance of the <c>Range</c> class with specified parameters.
+            </summary>
+            <param name="startPoint">Start of <c>Range</c> area.</param>
+            <param name="endPoint">End of <c>Range</c> area.</param>
+        </member>
+        <member name="M:QWhale.Common.Range.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <c>Range</c> class with specified parameters.
+            </summary>
+            <param name="x1">X-coordinate of the start of <c>Range</c> area.</param>
+            <param name="y1">Y-coordinate of the start of <c>Range</c> area.</param>
+            <param name="x2">X-coordinate of the end of <c>Range</c> area.</param>
+            <param name="y2">Y-coordinate of the end of <c>Range</c> area.</param>
+        </member>
+        <member name="M:QWhale.Common.Range.ShouldSerializeSize">
+            <summary>
+            Indicates whether the <c>Size</c> property should be persisted.
+            </summary>
+            <returns>Always returns false.</returns>
+        </member>
+        <member name="M:QWhale.Common.Range.Clone">
+            <summary>
+            Creates a new object that is a copy of the current <c>IRange</c> object.
+            </summary>
+            <returns>A new instance of System.Object that is the memberwise clone of the current SortRange object.</returns>
+        </member>
+        <member name="P:QWhale.Common.Range.StartPoint">
+            <summary>
+            Gets or sets begin of <c>IRange</c> area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Range.EndPoint">
+            <summary>
+            Gets or sets end of <c>IRange</c> area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Range.Size">
+            <summary>
+            Gets or sets size of <c>IRange</c> area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Range.IsEmpty">
+            <summary>
+            Gets boolea value indicating whether <c>IRange</c> has zero size.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.ISortRange">
+            <summary>
+            Represents an container for a collection of <c>IRange</c>objects.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.ISortRange.Clear">
+            <summary>
+            When implemented by a class, clears <c>IRange</c> collection.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.ISortRange.Contains(QWhale.Common.IRange)">
+            <summary>
+            When implemented by a class, indicates whether the range container contains a specific <c>IRange</c> entry.
+            </summary>
+            <param name="range">The <c>IRange</c> to locate in the range list.</param>
+            <returns>True if <c>IRange</c> entry is found; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortRange.Add(QWhale.Common.ISortRange)">
+            <summary>
+            When implemented by a class, adds specific <c>ISortRange</c> to range list.
+            </summary>
+            <param name="range"><c>ISortRange</c> to add.</param>
+            <returns>The position into which the new range was added.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortRange.GetRanges(System.Collections.Generic.IList{QWhale.Common.IRange})">
+            <summary>
+            When implemented by a class, fills list specified by Ranges parameter with this <c>ISortRange</c>.
+            </summary>
+            <param name="ranges">Specifies list to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.ISortRange.BlockDeleting(System.Drawing.Rectangle,QWhale.Common.IRangeList,System.Collections.Generic.IComparer{QWhale.Common.IRange})">
+            <summary>
+            When implemented by a class, removes all ranges from specified region.
+            </summary>
+            <param name="rect">Specifies rectangle to remove ranges from.</param>
+            <param name="list">List to update.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.ISortRange.PositionChanged(System.Int32,System.Int32,System.Int32,System.Int32,QWhale.Common.IRangeList,System.Collections.Generic.IComparer{QWhale.Common.IRange})">
+            <summary>
+            When implemented by a class, updates specified position by DeltaX and DeltaY values for any ranges in the collection.
+            </summary>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">Index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <param name="list">List to update.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="P:QWhale.Common.ISortRange.Range">
+            <summary>
+            When implemented by a class, represents current <c>IRange</c> object in the ranges list.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.ISortRange.Ranges">
+            <summary>
+            When implemented by a class, represents collection of <c>IRange</c> objects stored in this range list.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.ISortRange.Index">
+            <summary>
+            When implemented by a class, represents index of this <c>ISortRange</c> within the top level ranges collection.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.SortRange.Clone">
+            <summary>
+            Creates a new object that is a copy of the current <c>ISortRange</c> object.
+            </summary>
+            <returns>A new instance of System.Object that is the memberwise clone of the current SortRange object.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortRange.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <c>SortRange</c> class with specified index.
+            </summary>
+            <param name="index">Index of this new instance within the top level ranges collection.</param>
+        </member>
+        <member name="M:QWhale.Common.SortRange.#ctor(QWhale.Common.IRange,System.Int32)">
+            <summary>
+            Initializes a new instance of the <c>SortRange</c> class with specified settings.
+            </summary>
+            <param name="range">Current <c>IRange</c> object.</param>
+            <param name="index">Index of this new instance within the top level ranges collection.</param>
+        </member>
+        <member name="M:QWhale.Common.SortRange.Clear">
+            <summary>
+            Clears <c>IRange</c> collection.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.SortRange.Contains(QWhale.Common.IRange)">
+            <summary>
+            Indicates whether the range container contains a specific <c>IRange</c> entry.
+            </summary>
+            <param name="range">The <c>IRange</c> to locate in the range list.</param>
+            <returns>True if <c>IRange</c> entry is found; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortRange.Add(QWhale.Common.ISortRange)">
+            <summary>
+            Adds specific <c>ISortRange</c> to range list.
+            </summary>
+            <param name="range"><c>ISortRange</c> to add.</param>
+            <returns>The position into which the new range was added.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortRange.GetRanges(System.Collections.Generic.IList{QWhale.Common.IRange})">
+            <summary>
+            Fills list specified by Ranges parameter with this <c>ISortRange</c>.
+            </summary>
+            <param name="ranges">Specifies list to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.SortRange.PositionChanged(System.Int32,System.Int32,System.Int32,System.Int32,QWhale.Common.IRangeList,System.Collections.Generic.IComparer{QWhale.Common.IRange})">
+            <summary>
+            Updates specified position by DeltaX and DeltaY values for any ranges in the collection.
+            </summary>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">Index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <param name="list">List to update.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortRange.BlockDeleting(System.Drawing.Rectangle,QWhale.Common.IRangeList,System.Collections.Generic.IComparer{QWhale.Common.IRange})">
+            <summary>
+            Removes all ranges from specified region.
+            </summary>
+            <param name="rect">Specifies rectangle to remove ranges from.</param>
+            <param name="list">List to update.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="P:QWhale.Common.SortRange.Ranges">
+            <summary>
+            Represents collection of <c>IRange</c> objects stored in this range list.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SortRange.Index">
+            <summary>
+            Represents index of this <c>ISortRange</c> within the top level ranges collection.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SortRange.StartPoint">
+            <summary>
+            Gets or sets begin of <c>ISortRange</c> area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SortRange.EndPoint">
+            <summary>
+            Gets or sets end of <c>ISortRange</c> area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SortRange.Range">
+            <summary>
+            Represents current <c>IRange</c> object in the ranges list.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.TopRange">
+            <summary>
+            Represents a top range container for a sorted collection of <c>IRange</c> objects.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.TopRange.#ctor">
+            <summary>
+            Initializes a new instance of the <c>TopRange</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.TopRange.Contains(QWhale.Common.IRange)">
+            <summary>
+            Indicates whether the range container contains a specific <c>IRange</c> entry.
+            </summary>
+            <param name="range">The <c>IRange</c> to locate in the range list.</param>
+            <returns>Always return true.</returns>
+        </member>
+        <member name="T:QWhale.Common.IRangeList">
+            <summary>
+            Represents a sorted collection of <c>IRange</c>objects that can be individually accessed by index.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IRangeList.UpdatePosition(QWhale.Common.IRange,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, updates specified position by DeltaX and DeltaY values for specific <c>IRange</c>.
+            </summary>
+            <param name="range"><c>IRange</c> to update.</param>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="T:QWhale.Common.TrialVersion">
+            <summary>
+            Represents method to indicate whether current version is trial.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.TrialVersion.CheckTrialVersion">
+            <summary>
+            Indicates whether current software version is trial and calls trial version dialog warning if necessary.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.HookHandler">
+            <summary>
+            Represents a method that will handle application-defined or library-defined callback function the system calls.
+            </summary>
+            <param name="ncode">Hook code.</param>
+            <param name="wparam">Message identifier or current-process flag.</param>
+            <param name="lparam">Address of structure with message data.</param>
+        </member>
+        <member name="T:QWhale.Common.EnumChildProc">
+            <summary>
+            Represents a method that will handle application-defined function used with the EnumWindows or EnumDesktopWindows functions.
+            </summary>
+            <param name="hwnd">Handle to a top-level window.</param>
+            <param name="lparam">Specifies the application-defined value given in EnumWindows or EnumDesktopWindows.</param>
+        </member>
+        <member name="T:QWhale.Common.OSUtils">
+            <summary>
+            Represents native Win32 API methods.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.ShowWindowTopMost(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Places the window above all non-topmost windows.
+            </summary>
+            <param name="hwnd">Handle to the window.</param>
+            <param name="x">Specifies the new position of the left side of the window, in client coordinates.</param>
+            <param name="y">Specifies the new position of the top of the window, in client coordinates.</param>
+            <param name="cx">Specifies the new width of the window, in pixels.</param>
+            <param name="cy">Specifies the new height of the window, in pixels.</param>
+            <returns>True if success; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.EnumChildWindows(System.IntPtr,QWhale.Common.EnumChildProc,System.IntPtr)">
+            <summary>
+            The EnumChildWindows function enumerates the child windows that belong to the specified parent window by passing the handle of each child window, in turn, to an application-defined callback function. EnumChildWindows continues until the last child window is enumerated or the callback function returns false.
+            </summary>
+            <param name="hwndParent">Identifies the parent window whose child windows are to be enumerated.</param>
+            <param name="lpEnumFunc">Points to an application-defined callback function.</param>
+            <param name="lparam">Specifies a 32-bit, application-defined value to be passed to the callback function.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetText(System.IntPtr)">
+            <summary>
+            Retrieves text that corresponds to a window.
+            </summary>
+            <param name="hwnd">Handle of window.</param>
+            <returns>Text that corresponds to a window.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.SetText(System.IntPtr,System.String)">
+            <summary>
+            Sets the text of a window.
+            </summary>
+            <param name="hwnd">Handle of the window.</param>
+            <param name="text">New text of the window.</param>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetClassName(System.IntPtr)">
+            <summary>
+            The GetClassName function retrieves the name of the class to which the specified window belongs.
+            </summary>
+            <param name="hwnd">Identifies the window and, indirectly, the class to which the window belongs.</param>
+            <returns>Name of the class.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetScreenCaps">
+            <summary>
+            Retrieves size in pixels per logical inch of entire screen.
+            </summary>
+            <returns>Size of entire screen.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetWindowDC(System.IntPtr)">
+            <summary>
+            Retrieves the device context (DC) for the entire window.
+            </summary>
+            <param name="hwnd">Handle to the window with a device context that is to be retrieved.</param>
+            <returns>If the function succeeds, the return value is a handle to a device context for the specified window; otherwise return value is null.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.ReleaseDC(System.IntPtr,System.IntPtr)">
+            <summary>
+            Releases a device context (DC), freeing it for use by other applications.
+            </summary>
+            <param name="hwnd">Handle to the window whose DC is to be released.</param>
+            <param name="hdc">Handle to the DC to be released.</param>
+            <returns>The return value indicates whether the DC was released. If the DC was released, the return value is 1; otherwise the return value is zero.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.SetScrollBar(System.IntPtr,System.Boolean,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Sets the parameters of a scroll bar, including the minimum and maximum scrolling positions, the page size, and the position of the scroll box (thumb).
+            </summary>
+            <param name="handle">Handle to a scroll bar control or a window with a standard scroll bar.</param>
+            <param name="flat">Indicates whether scroll bar is flat.</param>
+            <param name="size">Specifies the maximum scrolling position.</param>
+            <param name="pageSize">Specifies the page size.</param>
+            <param name="isVertical">Indicates whether scroll bar is vertical or horizontal.</param>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.SetScrollPos(System.IntPtr,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Sets the position of the scroll box (thumb) in the specified scroll bar.
+            </summary>
+            <param name="handle">Handle to a scroll bar control or a window with a standard scroll bar.</param>
+            <param name="flat">Indicates whether scroll bar is flat.</param>
+            <param name="pos">Specifies the position of the scroll box.</param>
+            <param name="isVertical">Indicates whether scroll bar is vertical or horizontal.</param>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetScrollPos(System.IntPtr,System.Boolean,System.Boolean)">
+            <summary>
+            Retrieves the current position of the scroll box (thumb) in the specified scroll bar.
+            </summary>
+            <param name="handle">Handle to a scroll bar control or a window with a standard scroll bar.</param>
+            <param name="flat">Indicates whether scroll bar is flat.</param>
+            <param name="isVertical">Indicates whether scroll bar is vertical or horizontal.</param>
+            <returns>If the function succeeds, the return value is the current position of the scroll box; otherwise zero.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetScrollSize(System.IntPtr,System.Boolean,System.Boolean)">
+            <summary>
+            Retrieves the page size of the scroll box (thumb) in the specified scroll bar.
+            </summary>
+            <param name="handle">Handle to a scroll bar control or a window with a standard scroll bar.</param>
+            <param name="flat">Indicates whether scroll bar is flat.</param>
+            <param name="isVertical">Indicates whether scroll bar is vertical or horizontal.</param>
+            <returns>If the function succeeds, the return value is the page size of the scroll box; otherwise zero.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetScrollSize(System.Boolean)">
+            <summary>
+            Retrieves dimension of the arrow bitmap of a scroll bar, in pixels.
+            </summary>
+            <param name="isVertical">Indicates whether scroll bar is vertical.</param>
+            <returns>Dimension of the arrow bitmap.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.ScrollWindow(System.IntPtr,System.Int32,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Scrolls the contents of the specified window's client area.
+            </summary>
+            <param name="handle">Handle to the window where the client area is to be scrolled.</param>
+            <param name="x">Specifies the amount of horizontal scrolling.</param>
+            <param name="y">Specifies the amount of vertical scrolling.</param>
+            <param name="rect">Rectangle that specifies the portion of the client area to be scrolled.</param>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetScrollType(System.Int32)">
+            <summary>
+            Converts given code to the type of scroll event action.
+            </summary>
+            <param name="code">Code to convert.</param>
+            <returns>ScrollEventType of scroll event action.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.InitializeFlatSB(System.IntPtr)">
+            <summary>
+            Initializes flat scroll bars for a particular window.
+            </summary>
+            <param name="handle">Handle to the window that will receive flat scroll bars.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.UninitializeFlatSB(System.IntPtr)">
+            <summary>
+            Uninitializes flat scroll bars for a particular window.
+            </summary>
+            <param name="handle">Handle to the window with the flat scroll bars that will be uninitialized.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetDoubleClickTime">
+            <summary>
+            Retrieves retrieves the current double-click time for the mouse.
+            </summary>
+            <returns>returns the current double-click time, in milliseconds.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.SendMessage(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            The SendMessage function sends the specified message to a window or windows. The function calls the window procedure for the specified window and does not return until the window procedure has processed the message.
+            </summary>
+            <param name="hwnd">Identifies the window whose window procedure will receive the message.</param>
+            <param name="msg">Specifies the message to be sent. </param>
+            <param name="wparam">Specifies additional message-specific information. </param>
+            <param name="lparam">Specifies additional message-specific information. </param>
+            <returns>Result of the message processing and depends on the message sent.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.PostMessage(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            Places a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread to process the message.
+            </summary>
+            <param name="hwnd">Handle to the window whose window procedure is to receive the message.</param>
+            <param name="msg">Specifies the message to be posted.</param>
+            <param name="wparam">Specifies additional message-specific information.</param>
+            <param name="lparam">Specifies additional message-specific information.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.SetMouseHook(QWhale.Common.HookHandler)">
+            <summary>
+            Installs hook procedure that monitors mouse messages into a hook chain.
+            </summary>
+            <param name="lpfn">Hook procedure.</param>
+            <returns>If the function succeeds, the return value is the handle to the hook procedure; otherwise return value is null.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.SetWndProcHook(QWhale.Common.HookHandler)">
+            <summary>
+            Installs hook procedure that monitors messages before the system sends them to the destination window procedure into a hook chain.
+            </summary>
+            <param name="lpfn">Hook procedure.</param>
+            <returns>If the function succeeds, the return value is the handle to the hook procedure; otherwise return value is null.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.ReleaseHook(System.IntPtr)">
+            <summary>
+            Removes a hook procedure installed in a hook chain.
+            </summary>
+            <param name="hhk">Handle to the hook to be removed.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.CallNextHook(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            Passes the hook information to the next hook procedure in the current hook chain. A hook procedure can call this function either before or after processing the hook information.
+            </summary>
+            <param name="hhk">Handle to the current hook.</param>
+            <param name="nCode">Hook code passed to the current hook procedure.</param>
+            <param name="wparam">Specifies the wparam value passed to the current hook procedure.</param>
+            <param name="lparam">Specifies the lparam value passed to the current hook procedure.</param>
+            <returns>This value is returned by the next hook procedure in the chain.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.GetMouseHookHandle(System.IntPtr,System.Drawing.Point@)">
+            <summary>
+            Get structure associated with mouse hook.
+            </summary>
+            <param name="lparam">mouse hook data</param>
+            <param name="pt">mouse point</param>
+            <returns>window handle sending mouse message</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.IsMouseMsg(System.Int32)">
+            <summary>
+            Indicates whether specified message is mouse message.
+            </summary>
+            <param name="msg">Message to check-up.</param>
+            <returns>True if it is mouse message; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.SetCursor(System.IntPtr)">
+            <summary>
+            The SetCursor function establishes the cursor shape.
+            </summary>
+            <param name="handle">Identifies the cursor.</param>
+            <returns>The handle to the previous cursor if success; otherwise null.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.CreateCaret(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            Creates a new shape for the system caret and assigns ownership of the caret to the specified window.
+            </summary>
+            <param name="handle">Handle to the window that owns the caret.</param>
+            <param name="nWidth">Specifies the width of the caret in logical units.</param>
+            <param name="nHeight">Specifies the height of the caret in logical units.</param>
+            <returns>If the function succeeds, the return value is nonzero; otherwise zero.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.ShowCaret(System.IntPtr)">
+            <summary>
+            Makes the caret visible on the screen at the caret's current position.
+            </summary>
+            <param name="handle">Handle to the window that owns the caret.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.DestroyCaret">
+            <summary>
+            Destroys the caret's current shape, frees the caret from the window, and removes the caret from the screen.
+            </summary>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.SetCaretPos(System.Int32,System.Int32)">
+            <summary>
+            Moves the caret to the specified coordinates.
+            </summary>
+            <param name="x">Specifies the new x-coordinate of the caret.</param>
+            <param name="y">Specifies the new y-coordinate of the caret.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.ExcludeClipRect(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            The ExcludeClipRect function creates a new clipping region that consists of the existing clipping region minus the specified rectangle.
+            </summary>
+            <param name="hdc">Identifies the device context. </param>
+            <param name="l">Specifies the logical x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="t">Specifies the logical y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="r">Specifies the logical x-coordinate of the lower-right corner of the rectangle.</param>
+            <param name="b">Specifies the logical y-coordinate of the lower-right corner of the rectangle.</param>
+            <returns>Specifies type of new clipping region.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.LoWord(System.IntPtr)">
+            <summary>
+            Retrieves the low-order word from the specified value.
+            </summary>
+            <param name="value">Specifies the value to be converted.</param>
+            <returns>The return value is the low-order word of the specified value.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.HiWord(System.IntPtr)">
+            <summary>
+            Retrieves the high-order word from the given value.
+            </summary>
+            <param name="value">Specifies the value to be converted.</param>
+            <returns>The return value is the high-order word of the specified value.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.InitCommonControls">
+            <summary>
+            Registers and initializes the common control window classes.
+            </summary>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.MessageBeep">
+            <summary>
+            Plays default waveform sound.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.Beep(System.Int32,System.Int32)">
+            <summary>
+            Generates simple tones on the speaker.
+            </summary>
+            <param name="freq">Frequency of the sound, in hertz.</param>
+            <param name="duration">Duration of the sound, in milliseconds.</param>
+        </member>
+        <member name="M:QWhale.Common.OSUtils.Sleep(System.Int32)">
+            <summary>
+            Suspends the execution of the current thread for a specified interval
+            </summary>
+            <param name="milliSeconds">Specifies time, in milliseconds, for which to suspend execution.</param>
+        </member>
+        <member name="T:QWhale.Common.GdiFontInfos">
+            <summary>
+            Represents collection of GdiFontInfo elements.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.FontInfos">
+            <summary>
+            Represents collection of FontInfo elements.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.FontInfos.#ctor(System.Drawing.Font,System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <c>FontInfos</c> class with specified parameters.
+            </summary>
+            <param name="font">Specifies Font for this new instance.</param>
+            <param name="dc">Handle to the device context.</param>
+        </member>
+        <member name="M:QWhale.Common.FontInfos.#ctor(System.IntPtr,System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <c>FontInfos</c> class with specified parameters.
+            </summary>
+            <param name="hFont">Specifies Font for this new instance.</param>
+            <param name="dc">Handle to the device context.</param>
+        </member>
+        <member name="M:QWhale.Common.FontInfos.Finalize">
+            <summary>
+            Destroys the instance of the <c>FontInfos</c> class.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.FontInfos.InitStyle(System.Drawing.FontStyle)">
+            <summary>
+            Adds specified style to the style collection.
+            </summary>
+            <param name="style">Style to add.</param>
+            <returns>FontInfo that corresponds to the specified style.</returns>
+        </member>
+        <member name="M:QWhale.Common.FontInfos.InitStyle(System.String,System.Drawing.FontStyle,System.Int32)">
+            <summary>
+            Adds specified style to the style collection.
+            </summary>
+            <param name="fontName">Specifies Font Name</param>
+            <param name="fontHeight">Specifies Font Height</param>
+            <param name="style">Style to add.</param>
+            <returns>FontInfo that corresponds to the specified style.</returns>
+        </member>
+        <member name="P:QWhale.Common.FontInfos.CurrentInfo">
+            <summary>
+            Represents current FontInfo object.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.FontInfos.IsMonoSpaced">
+            <summary>
+            Represents a value indicating whether current font is monospaced.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.FontInfos.FontHeight">
+            <summary>
+            Represents height of the current font.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiFontInfos.#ctor(System.Drawing.Font,System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <c>GdiFontInfos</c> class with specified parameters.
+            </summary>
+            <param name="font">Specifies Font for this new instance.</param>
+            <param name="dc">Handle to the device context.</param>
+        </member>
+        <member name="T:QWhale.Common.INotifier">
+            <summary>
+            Represents method that informs object about changes in linked objects.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.INotifier.Notification(System.Object,System.EventArgs)">
+            <summary>
+            When implemented by a class, updates control's content according to the parameters of notification.
+            </summary>
+            <param name="sender">The source of the notification.</param>
+            <param name="e">An EventArgs that contains the event data.</param>
+        </member>
+        <member name="T:QWhale.Common.XPThemeName">
+            <summary>
+            Represents color theme names.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.XPThemeName.None">
+            <summary>
+            Defines that no color theme is available.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.XPThemeName.Blue">
+            <summary>
+            Defines blue color theme.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.XPThemeName.HomeStead">
+            <summary>
+            Defines HomeStead color theme.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.XPThemeName.Metallic">
+            <summary>
+            Defines metallic color theme.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.XPThemeName.Custom">
+            <summary>
+            Defines custom color theme.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.XPThemes">
+            <summary>
+            This class provides functionality to draw control's background with various visual styles.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.#cctor">
+            <summary>
+            Initializes a new instance of the <c>XPThemes</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.GetGroupCaptionColor(System.Boolean)">
+            <summary>
+            Returns color of the group caption with current color theme.
+            </summary>
+            <param name="hot">Specifies if the group is hot.</param>
+            <returns>The Color structure that specifies color of the group caption.</returns>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.GetGroupItemCaptionColor(System.Boolean)">
+            <summary>
+            Returns color of the group item caption with current color theme.
+            </summary>
+            <param name="hot">Specifies if the item is hot.</param>
+            <returns>The Color structure that specifies color of the group item caption.</returns>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.DrawGroupBackground(QWhale.Common.IPainter,System.Drawing.Rectangle)">
+            <summary>
+            Draws the group background within the specified rectangle with current theme.
+            </summary>
+            <param name="painter">Specifies <c>IPainter</c> object used to draw text and graphic primitives.</param>
+            <param name="rect">The Rectangle that represents the dimensions of the group.</param>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.DrawBackground(QWhale.Common.IPainter,System.Drawing.Rectangle,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Draws the control background within the specified rectangle with current theme.
+            </summary>
+            <param name="painter">Specifies <c>IPainter</c> object used to draw text and graphic primitives.</param>
+            <param name="rect">The Rectangle that represents the dimensions of the control.</param>
+            <param name="startColor">Specifies start background color for gradient background painting when no theme is available.</param>
+            <param name="endColor">Specifies end background color for gradient background painting when no theme is available.</param>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.DrawRect(System.Drawing.Rectangle)">
+            <summary>
+            Returns the rectangle object displaced relatively specified rectangle object by <c>Offset</c> value.
+            </summary>
+            <param name="sourceRect">The source Rectangle object.</param>
+            <returns>Offset rectangle.</returns>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.DoneTheme">
+            <summary>
+            Destroys current theme before initialization new theme.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.InitTheme">
+            <summary>
+            Initializes a new theme.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.DrawEditBorder(QWhale.Common.IPainter,System.Drawing.Rectangle)">
+            <summary>
+            Draws border of edit control within the specified rectangle with current theme.
+            </summary>
+            <param name="painter">Specifies <c>IPainter</c> object used to draw text and graphic primitives.</param>
+            <param name="rect">The Rectangle that represents the dimensions of the control.</param>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.DrawEditBorder(System.IntPtr,System.Drawing.Rectangle)">
+            <summary>
+            Draws border of edit control within the specified rectangle with current theme.
+            </summary>
+            <param name="dc">Handle to a device context used for drawing the theme-defined background image.</param>
+            <param name="rect">The Rectangle that represents the dimensions of the control.</param>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.DrawPushButton(QWhale.Common.IPainter,System.Drawing.Rectangle,System.Boolean,System.Boolean)">
+            <summary>
+            Draws button within the specified rectangle with current theme.
+            </summary>
+            <param name="painter">Specifies <c>IPainter</c> object used to draw text and graphic primitives.</param>
+            <param name="rect">The Rectangle that represents the dimensions of the control.</param>
+            <param name="pressed">Specifies if the button is pressed.</param>
+            <param name="hot">Specifies if the button is hot.</param>
+        </member>
+        <member name="M:QWhale.Common.XPThemes.DrawCheckBox(QWhale.Common.IPainter,System.Drawing.Rectangle,System.Boolean,System.Boolean)">
+            <summary>
+            Draws check box within the specified rectangle with current theme.
+            </summary>
+            <param name="painter">Specifies <c>IPainter</c> object used to draw text and graphic primitives.</param>
+            <param name="rect">The Rectangle that represents the dimensions of the control.</param>
+            <param name="pressed">Specifies if the button is pressed.</param>
+            <param name="hot">Specifies if the button is hot.</param>
+        </member>
+        <member name="P:QWhale.Common.XPThemes.Offset">
+            <summary>
+            Sets the value that specifies two-dimensional shift matrix.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.XPThemes.CurrentTheme">
+            <summary>
+            Represents name of current color theme.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.Painter">
+            <summary>
+            Encapsulates a drawing surface, providing properties and methods used to draw text and graphic primitives.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.Painter.#ctor">
+            <summary>
+            Initializes a new instance of the <c>Painter</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.Painter.Finalize">
+            <summary>
+            Destroys the instance of the <c>Painter</c> class.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.Painter.Clear">
+            <summary>
+            Resets all <c>Painter</c> properties to the initial state.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.Font">
+            <summary>
+            Gets or sets font of the device context currently associated with the <c>Painter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.FontStyle">
+            <summary>
+            Gets or sets font style of the device context currently associated with the <c>Painter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.TextColor">
+            <summary>
+            Gets or sets text color of the device context currently associated with the <c>Painter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.ForeColor">
+            <summary>
+            Gets or sets foreground color of the device context currently associated with the <c>Painter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.BackColor">
+            <summary>
+            Gets or sets background color of the device context currently associated with the <c>Painter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.Opaque">
+            <summary>
+            Gets or sets a boolean value indicating that background is filled with the current background color before the text is drawn.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.StringFormat">
+            <summary>
+            Encapsulates text layout information and display manipulations for this <c>Painter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.IsMonoSpaced">
+            <summary>
+            Represents a value indicating whether font of the device context currently associated with this <c>Painter</c> is monospaced, meaning that all characters drawn with this font have the same width.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.FontWidth">
+            <summary>
+            Represents width of the font of the device context currently associated with the <c>Painter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.Painter.FontHeight">
+            <summary>
+            Represents height of the font of the device context currently associated with the <c>Painter</c>.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:QWhale.Common.Painter.LineHeight" -->
+        <member name="P:QWhale.Common.Painter.LineSpace">
+            <summary>
+            Represents additinal height added to the height of the font.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.TrialWarning">
+            <summary>
+            Represents a trial warning dialog used to report user about trial version. 
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.TrialWarning.#ctor">
+            <summary>
+            Initializes a new instance of the <c>TrialWarning</c> class with default settings.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.IPainter">
+            <summary>
+            Encapsulates a drawing surface, providing properties and methods used to draw text and graphic primitives.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IPainter.Clear">
+            <summary>
+            When implemented by a class, resets all <c>IPainter</c> properties to the initial state.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IPainter.StringWidth(System.String)">
+            <summary>
+            When implemented by a class, returns width of the given string.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <returns>Width of specified string.</returns>
+        </member>
+        <member name="M:QWhale.Common.IPainter.StringWidth(System.String,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, returns width of the specified part of the given string.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.IPainter.StringWidth(System.String,System.Int32,System.Int32@,System.Boolean)">
+            <summary>
+            When implemented by a class, returns width of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of character fitting into specified Width.</param>
+            <param name="exact">Specifies whether the calculating should be precise.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.IPainter.StringWidth(System.String,System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            When implemented by a class, returns width of the specified part of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of characters fitting into specified Width.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.IPainter.StringWidth(System.String,System.Int32,System.Int32,System.Int32,System.Int32@,System.Boolean)">
+            <summary>
+            When implemented by a class, returns width of the specified part of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of characters fitting into the into the specified Width.</param>
+            <param name="exact">Specifies whether the calculating should be precise.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.IPainter.CharWidth(System.Char,System.Int32)">
+            <summary>
+            When implemented by a class, returns width of the given number of specified character.
+            </summary>
+            <param name="ch">Character to calculate width.</param>
+            <param name="count">Number of characters.</param>
+            <returns>Width of specified characters.</returns>
+        </member>
+        <member name="M:QWhale.Common.IPainter.CharWidth(System.Char,System.Int32,System.Int32@)">
+            <summary>
+            When implemented by a class, returns width of the such number of the specified characters fitting into the given Width.
+            </summary>
+            <param name="ch">Character to calculate width.</param>
+            <param name="width">The width that should hold a number of the specified character.</param>
+            <param name="count">Receive number of character that can fit into specified width.</param>
+            <returns>Width of specified characters.</returns>
+        </member>
+        <member name="M:QWhale.Common.IPainter.BeginPaint(System.Drawing.Graphics)">
+            <summary>
+            When implemented by a class, prepares the <c>IPainter</c> to paint. Associates new device context from given Graphics object to <c>IPainter</c> and preserves <c>IPainter</c> properties.
+            <seealso cref="M:QWhale.Common.IPainter.EndPaint"/>
+            </summary>
+            <param name="graphics">The Graphics object to draw on.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.EndPaint">
+            <summary>
+            When implemented by a class, marks the end of painting. Releases device context associated with this <c>IPainter</c> and restores saved <c>IPainter</c> properties.
+            <seealso cref="M:QWhale.Common.IPainter.BeginPaint(System.Drawing.Graphics)"/>
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IPainter.FillRectangle(System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, fills the given rectangle by using the current brush.
+            </summary>
+            <param name="rect">The rectangle object to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.FillRectangle(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, fills the given rectangular area by using the current brush.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.FillRectangle(System.Drawing.Color,System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, fills the given rectangle by using specified color.
+            </summary>
+            <param name="color">Specified color to fill rectangle.</param>
+            <param name="rect">The rectangle object to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.FillRectangle(System.Drawing.Color,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, fills the given rectangle by using specified color.
+            </summary>
+            <param name="color">Specified color to fill rectangle.</param>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.FillPolygon(System.Drawing.Color,System.Drawing.Point[])">
+            <summary>
+            When implemented by a class, fills the interior of a polygon defined by an array of points specified by Point structures.
+            </summary>
+            <param name="color">Specifies color to fill polygon.</param>
+            <param name="points">Array of Point structures that represent the vertices of the polygon to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.FillGradient(System.Drawing.Rectangle,System.Drawing.Color,System.Drawing.Color,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            When implemented by a class, fills the given rectangle with color that smoothly fades from one side to the other.
+            </summary>
+            <param name="rect">The rectangle object to fill.</param>
+            <param name="beginColor">A Color structure that represents the starting color of the linear gradient.</param>
+            <param name="endColor">A Color structure that represents the ending color of the linear gradient.</param>
+            <param name="point1">A Point structure that represents the start point of the linear gradient.</param>
+            <param name="point2">A Point structure that represents the end point of the linear gradient.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.FillGradient(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Drawing.Color,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            When implemented by a class, fills the given rectangle with color that smoothly fades from one side to the other.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+            <param name="beginColor">A Color structure that represents the starting color of the linear gradient.</param>
+            <param name="endColor">A Color structure that represents the ending color of the linear gradient.</param>
+            <param name="point1">A Point structure that represents the start point of the linear gradient.</param>
+            <param name="point2">A Point structure that represents the end point of the linear gradient.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawThemeBackground(System.IntPtr,System.Int32,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, draws the background image defined by the visual style for the specified control part.
+            </summary>
+            <param name="handle">Handle to a window's specified theme data.</param>
+            <param name="partID">Specifies the part to draw.</param>
+            <param name="stateID">Specifies the state of the part to draw.</param>
+            <param name="rect">Specifies the rectangle, in logical coordinates, in which the background image is drawn.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawRectangle(System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, draws a border around the specified rectangle using current <c>BackColor</c>.
+            </summary>
+            <param name="rect">The rectangle object to draw border.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawFocusRect(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color)">
+            <summary>
+            When implemented by a class, draws a border around the specified rectangle using using dot pattern.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+            <param name="color">Color of the frame.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawFocusRect(System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            When implemented by a class, draws a border around the specified rectangle using current <c>BackColor</c>.
+            </summary>
+            <param name="rect">The rectangle object to draw border.</param>
+            <param name="color">Color of the frame.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, draws a border around the specified rectangle using dot pattern.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawRoundRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, draws a rectangle with rounded corners. The rectangle is outlined by using the current pen.
+            </summary>
+            <param name="left">Specifies the x-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="top">Specifies the y-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="right">Specifies the x-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="bottom">Specifies the y-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="width">Specifies the width, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+            <param name="height">Specifies the height, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.FillRoundRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, fills a rectangle with rounded corners. The rectangle is outlined by using the current pen and filled by using the current brush.
+            </summary>
+            <param name="left">Specifies the x-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="top">Specifies the y-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="right">Specifies the x-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="bottom">Specifies the y-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="width">Specifies the width, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+            <param name="height">Specifies the height, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawLine(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, draws a line from the given start position up to, but not including, the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawLine(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Int32,System.Drawing.Drawing2D.DashStyle)">
+            <summary>
+            When implemented by a class, draws a line from the given start position up to, but not including, the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+            <param name="color">Specifies color of the Pen object to draw line.</param>
+            <param name="width">Specifies width of the Pen object to draw line.</param>
+            <param name="penStyle">Specifies style of the Pen object to draw line.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawDotLine(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            When implemented by a class, draws a dotted line from the given start position up to the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+            <param name="color1">Specifies line color.</param>
+            <param name="color2">Specifies background color.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawWave(System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            When implemented by a class, draws waved line in the specified rectangular area.
+            </summary>
+            <param name="rect">Rectangle that bounds the drawing area for the wave.</param>
+            <param name="color">Color used to draw wave.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawImage(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, draws specified image in the specified rectangular area.
+            </summary>
+            <param name="images">Image list that contains image to draw.</param>
+            <param name="index">Index of image to draw within image list.</param>
+            <param name="rect">Rectangle that bounds the drawing area for the image.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawImage(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.GraphicsUnit,System.Drawing.Imaging.ImageAttributes)">
+            <summary>
+            When implemented by a class, draws specified image in the specified rectangular area.
+            </summary>
+            <param name="images">Image list that contains image to draw.</param>
+            <param name="index">Index of image to draw within image list.</param>
+            <param name="rect">Rectangle that bounds the drawing area for the image.</param>
+            <param name="srcX">X-coordinate of the upper-left corner of the portion of the source image to be drawn.</param>
+            <param name="srcY">Y-coordinate of the upper-left corner of the portion of the source image to be drawn.</param>
+            <param name="srcWidth">Width of the portion of the source image to be drawn.</param>
+            <param name="srcHeight">Width of the portion of the source image to be drawn.</param>
+            <param name="srcUnit">Specifies the unit of measure for the image.</param>
+            <param name="imageAttr">Specifies the color and size attributes of the image to be drawn.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.StretchDrawImage(System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Bitmap)">
+            <summary>
+            When implemented by a class, draws stretched image in the specified rectangular area.
+            </summary>
+            <param name="image">Specifies image to draw.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawEdge(System.Drawing.Rectangle@,System.Windows.Forms.Border3DStyle,System.Windows.Forms.Border3DSide)">
+            <summary>
+            When implemented by a class, draws one or more edges of rectangle.
+            </summary>
+            <param name="rect">Specifies rectangle which edges should be drawn.</param>
+            <param name="border">Specifies the style of a three-dimensional border.</param>
+            <param name="sides">Specifies the sides of a rectangle to draw.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawEdge(System.Drawing.Rectangle@,System.Windows.Forms.Border3DStyle,System.Windows.Forms.Border3DSide,System.Int32)">
+            <summary>
+            When implemented by a class, draws one or more edges of rectangle.
+            </summary>
+            <param name="rect">Specifies rectangle which edges should be drawn.</param>
+            <param name="border">Specifies the style of a three-dimensional border.</param>
+            <param name="sides">Specifies the sides of a rectangle to draw.</param>
+            <param name="flags">additional flags (used for internal purposes).</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawPolygon(System.Drawing.Point[],System.Drawing.Color)">
+            <summary>
+            When implemented by a class, draws a ploygon defined by an array of Point structures.
+            </summary>
+            <param name="points">Array of Point structures that represent the vertices of the polygon.</param>
+            <param name="color">Specifies color of the polygon.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.TextOut(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, draws text in the specified location.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.TextOut(System.String,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            When implemented by a class, draws text in the specified location.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Boolean,System.Boolean)">
+            <summary>
+            When implemented by a class, draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            When implemented by a class, draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            When implemented by a class, draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+            <param name="space">Specifies distance between origins of adjacent character cells.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.DrawText(System.String,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, draws text in the specified rectangle using current values of <c>TextColor</c> and <c>BackColor</c>.
+            </summary>
+            <param name="text">The text to be draw.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">The layout area for drawing text.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.Transform(System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            When implemented by a class, sets a two-dimensional linear transformation for the specified device context.
+            </summary>
+            <param name="x">Horizontal offset of the transformation.</param>
+            <param name="y">Vertical offset of the transformation.</param>
+            <param name="scaleX">Horizontal scale of the transformation.</param>
+            <param name="scaleY">Vertical scale of the transformation.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.EndTransform">
+            <summary>
+            When implemented by a class, sets default two-dimensional linear transformation for the specified device context.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IPainter.IntersectClipRect(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, creates a new clipping region from the intersection of the current clipping region and the specified rectangle.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.ExcludeClipRect(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            When implemented by a class, creates a new clipping region that consists of the existing clipping region minus the specified rectangle.
+            </summary>
+            <param name="x">X-coordinate, of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate, of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.IntersectClipRect(System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, creates a new clipping region from the intersection of the current clipping region and the specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to intersect.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.ExcludeClipRect(System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, creates a new clipping region that consists of the existing clipping region minus the specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to exclude.</param>
+        </member>
+        <member name="M:QWhale.Common.IPainter.SaveClip(System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, retrieves handle to clipping region saved from specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to process.</param>
+            <returns>Handle to clipping region.</returns>
+        </member>
+        <member name="M:QWhale.Common.IPainter.RestoreClip(System.IntPtr)">
+            <summary>
+            When implemented by a class, restores current clipping region from previously saved region.
+            </summary>
+            <param name="rgn">Specifies handle to the previously saved clipping region.</param>
+        </member>
+        <member name="P:QWhale.Common.IPainter.Transformation">
+            <summary>
+            When implemented by a class gets the world transformation for <c>Graphics</c> property.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.Graphics">
+            <summary>
+            When implemented by a class, represents Graphics object used to paint.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.Font">
+            <summary>
+            When implemented by a class, gets or sets font of the device context currently associated with the <c>IPainter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.FontStyle">
+            <summary>
+            When implemented by a class, gets or sets font style of the device context currently associated with the <c>IPainter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.BackColor">
+            <summary>
+            When implemented by a class, gets or sets background color of the device context currently associated with the <c>IPainter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.ForeColor">
+            <summary>
+            When implemented by a class, gets or sets foreground color of the device context currently associated with the <c>IPainter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.TextColor">
+            <summary>
+            When implemented by a class, gets or sets text color of the device context currently associated with the <c>IPainter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.StringFormat">
+            <summary>
+            When implemented by a class, encapsulates text layout information and display manipulations for this <c>IPainter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.Opaque">
+            <summary>
+            When implemented by a class, gets or sets a boolean value indicating that background is filled with the current background color before the text is drawn.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.IsMonoSpaced">
+            <summary>
+            When implemented by a class, represents a value indicating whether font of the device context currently associated with this <c>IPainter</c> is monospaced, meaning that all characters drawn with this font have the same width.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.FontWidth">
+            <summary>
+            When implemented by a class, represents width of the font of the device context currently associated with the <c>IPainter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.FontHeight">
+            <summary>
+            When implemented by a class, represents height of the font of the device context currently associated with the <c>IPainter</c>.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:QWhale.Common.IPainter.LineHeight" -->
+        <member name="P:QWhale.Common.IPainter.LineSpace">
+            <summary>
+            When implemented by a class, Represents additinal height added to the height of the font.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IPainter.UseDrawText">
+            <summary>
+            When implemented by a class, indicates whether painter shoud use DrawText method rather then ExtTextOut to paint text.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.GdiPainter">
+            <summary>
+            Encapsulates a Gdi drawing surface, providing properties and methods used to draw text and graphic primitives.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.Clear">
+            <summary>
+            Resets all <c>GdiPainter</c> properties to the initial state.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.Transform(System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            Sets a two-dimensional linear transformation for the specified device context.
+            </summary>
+            <param name="x">Horizontal offset of the transformation.</param>
+            <param name="y">Vertical offset of the transformation.</param>
+            <param name="scaleX">Horizontal scale of the transformation.</param>
+            <param name="scaleY">Vertical scale of the transformation.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.EndTransform">
+            <summary>
+            Sets default two-dimensional linear transformation for the specified device context.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.BeginPaint(System.Drawing.Graphics)">
+            <summary>
+            Prepares the <c>GdiPainter</c> to paint. Associates new device context from given Graphics object to <c>GdiPainter</c> and preserves <c>GdiPainter</c> properties.
+            <seealso cref="M:QWhale.Common.GdiPainter.EndPaint"/>
+            </summary>
+            <param name="graphics">The Graphics object to draw on.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.EndPaint">
+            <summary>
+            Marks the end of painting. Releases device context associated with this <c>GdiPainter</c> and restores saved <c>GdiPainter</c> properties.
+            <seealso cref="M:QWhale.Common.GdiPainter.BeginPaint(System.Drawing.Graphics)"/>
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.StringWidth(System.String)">
+            <summary>
+            Returns width of the given string.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <returns>Width of specified string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.StringWidth(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns width of the specified part of the given string.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.StringWidth(System.String,System.Int32,System.Int32@,System.Boolean)">
+            <summary>
+            Returns width of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of character fitting into specified Width.</param>
+            <param name="exact">Specifies whether the calculating should be precise.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.StringWidth(System.String,System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns width of the specified part of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of characters fitting into specified Width.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.StringWidth(System.String,System.Int32,System.Int32,System.Int32,System.Int32@,System.Boolean)">
+            <summary>
+            Returns width of the specified part of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of characters fitting into the into the specified Width.</param>
+            <param name="exact">Specifies whether the calculating should be precise.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.CharWidth(System.Char,System.Int32)">
+            <summary>
+            Returns width of the given number of specified character.
+            </summary>
+            <param name="ch">Character to calculate width.</param>
+            <param name="count">Number of characters.</param>
+            <returns>Width of specified characters.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.CharWidth(System.Char,System.Int32,System.Int32@)">
+            <summary>
+            Returns width of the such number of the specified characters fitting into the given Width.
+            </summary>
+            <param name="ch">Character to calculate width.</param>
+            <param name="width">The width that should hold a number of the specified character.</param>
+            <param name="count">Receive number of character that can fit into specified width.</param>
+            <returns>Width of specified characters.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.FillRectangle(System.Drawing.Rectangle)">
+            <summary>
+            Fills the given rectangle by using the current brush.
+            </summary>
+            <param name="rect">The rectangle object to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.FillRectangle(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Fills the given rectangular area by using the current brush.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.FillRectangle(System.Drawing.Color,System.Drawing.Rectangle)">
+            <summary>
+            Fills the given rectangle by using specified color.
+            </summary>
+            <param name="color">Specified color to fill rectangle.</param>
+            <param name="rect">The rectangle object to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.FillRectangle(System.Drawing.Color,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Fills the given rectangle by using specified color.
+            </summary>
+            <param name="color">Specified color to fill rectangle.</param>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.FillPolygon(System.Drawing.Color,System.Drawing.Point[])">
+            <summary>
+            Fills the interior of a polygon defined by an array of points specified by Point structures.
+            </summary>
+            <param name="color">Specifies color to fill polygon.</param>
+            <param name="points">Array of Point structures that represent the vertices of the polygon to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.FillGradient(System.Drawing.Rectangle,System.Drawing.Color,System.Drawing.Color,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Fills the given rectangle with color that smoothly fades from one side to the other.
+            </summary>
+            <param name="rect">The rectangle object to fill.</param>
+            <param name="beginColor">A Color structure that represents the starting color of the linear gradient.</param>
+            <param name="endColor">A Color structure that represents the ending color of the linear gradient.</param>
+            <param name="point1">A Point structure that represents the start point of the linear gradient.</param>
+            <param name="point2">A Point structure that represents the end point of the linear gradient.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.FillGradient(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Drawing.Color,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Fills the given rectangle with color that smoothly fades from one side to the other.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+            <param name="beginColor">A Color structure that represents the starting color of the linear gradient.</param>
+            <param name="endColor">A Color structure that represents the ending color of the linear gradient.</param>
+            <param name="point1">A Point structure that represents the start point of the linear gradient.</param>
+            <param name="point2">A Point structure that represents the end point of the linear gradient.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawThemeBackground(System.IntPtr,System.Int32,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background image defined by the visual style for the specified control part.
+            </summary>
+            <param name="handle">Handle to a window's specified theme data.</param>
+            <param name="partID">Specifies the part to draw.</param>
+            <param name="stateID">Specifies the state of the part to draw.</param>
+            <param name="rect">Specifies the rectangle, in logical coordinates, in which the background image is drawn.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawRectangle(System.Drawing.Rectangle)">
+            <summary>
+            Draws a border around the specified rectangle using current <c>BackColor</c>.
+            </summary>
+            <param name="rect">The rectangle object to draw border.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a border around the specified rectangle using current <c>BackColor</c>.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawRoundRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a rectangle with rounded corners. The rectangle is outlined by using the current pen.
+            </summary>
+            <param name="left">Specifies the x-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="top">Specifies the y-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="right">Specifies the x-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="bottom">Specifies the y-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="width">Specifies the width, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+            <param name="height">Specifies the height, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.FillRoundRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Fills a rectangle with rounded corners. The rectangle is outlined by using the current pen and filled by using the current brush.
+            </summary>
+            <param name="left">Specifies the x-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="top">Specifies the y-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="right">Specifies the x-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="bottom">Specifies the y-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="width">Specifies the width, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+            <param name="height">Specifies the height, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawFocusRect(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color)">
+            <summary>
+            Draws a border around the specified rectangle using using dot pattern.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+            <param name="color">Color of the frame.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawFocusRect(System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Draws a border around the specified rectangle using current <c>BackColor</c>.
+            </summary>
+            <param name="rect">The rectangle object to draw border.</param>
+            <param name="color">Color of the frame.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.StretchDrawImage(System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Bitmap)">
+            <summary>
+            Draws stretched image in the specified rectangular area.
+            </summary>
+            <param name="image">Specifies image to draw.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawImage(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Draws specified image in the specified rectangular area.
+            </summary>
+            <param name="images">Image list that contains image to draw.</param>
+            <param name="index">Index of image to draw within image list.</param>
+            <param name="rect">Rectangle that bounds the drawing area for the image.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawImage(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.GraphicsUnit,System.Drawing.Imaging.ImageAttributes)">
+            <summary>
+            Draws specified image in the specified rectangular area.
+            </summary>
+            <param name="images">Image list that contains image to draw.</param>
+            <param name="index">Index of image to draw within image list.</param>
+            <param name="rect">Rectangle that bounds the drawing area for the image.</param>
+            <param name="srcX">X-coordinate of the upper-left corner of the portion of the source image to be drawn.</param>
+            <param name="srcY">Y-coordinate of the upper-left corner of the portion of the source image to be drawn.</param>
+            <param name="srcWidth">Width of the portion of the source image to be drawn.</param>
+            <param name="srcHeight">Width of the portion of the source image to be drawn.</param>
+            <param name="srcUnit">Specifies the unit of measure for the image.</param>
+            <param name="imageAttr">Specifies the color and size attributes of the image to be drawn.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawLine(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a line from the given start position up to, but not including, the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawLine(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Int32,System.Drawing.Drawing2D.DashStyle)">
+            <summary>
+            Draws a line from the given start position up to, but not including, the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+            <param name="color">Specifies color of the Pen object to draw line.</param>
+            <param name="width">Specifies width of the Pen object to draw line.</param>
+            <param name="penStyle">Specifies style of the Pen object to draw line.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawDotLine(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Draws a dotted line from the given start position up to the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+            <param name="color1">Specifies line color.</param>
+            <param name="color2">Specifies background color.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawEdge(System.Drawing.Rectangle@,System.Windows.Forms.Border3DStyle,System.Windows.Forms.Border3DSide,System.Int32)">
+            <summary>
+            Draws one or more edges of rectangle.
+            </summary>
+            <param name="rect">Specifies rectangle which edges should be drawn.</param>
+            <param name="border">Specifies the style of a three-dimensional border.</param>
+            <param name="sides">Specifies the sides of a rectangle to draw.</param>
+            <param name="flags">additional flags (used for internal purposes).</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawEdge(System.Drawing.Rectangle@,System.Windows.Forms.Border3DStyle,System.Windows.Forms.Border3DSide)">
+            <summary>
+            Draws one or more edges of rectangle.
+            </summary>
+            <param name="rect">Specifies rectangle which edges should be drawn.</param>
+            <param name="border">Specifies the style of a three-dimensional border.</param>
+            <param name="sides">Specifies the sides of a rectangle to draw.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawWave(System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Draws waved line in the specified rectangular area.
+            </summary>
+            <param name="rect">Rectangle that bounds the drawing area for the wave.</param>
+            <param name="color">Color used to draw wave.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawPolygon(System.Drawing.Point[],System.Drawing.Color)">
+            <summary>
+            Draws a ploygon defined by an array of Point structures.
+            </summary>
+            <param name="points">Array of Point structures that represent the vertices of the polygon.</param>
+            <param name="color">Specifies color of the polygon.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.TextOut(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws text in the specified location.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.TextOut(System.String,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Draws text in the specified location.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Boolean,System.Boolean)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+            <param name="space">Specifies distance between origins of adjacent character cells.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+            <param name="space">Specifies distance between origins of adjacent character cells.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.DrawText(System.String,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Draws text in the specified rectangle using current values of <c>TextColor</c> and <c>BackColor</c>.
+            </summary>
+            <param name="text">The text to be draw.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">The layout area for drawing text.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.IntersectClipRect(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new clipping region from the intersection of the current clipping region and the specified rectangle.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.ExcludeClipRect(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new clipping region that consists of the existing clipping region minus the specified rectangle.
+            </summary>
+            <param name="x">X-coordinate, of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate, of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.IntersectClipRect(System.Drawing.Rectangle)">
+            <summary>
+            Creates a new clipping region from the intersection of the current clipping region and the specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to intersect.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.ExcludeClipRect(System.Drawing.Rectangle)">
+            <summary>
+            Creates a new clipping region that consists of the existing clipping region minus the specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to exclude.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.SaveClip(System.Drawing.Rectangle)">
+            <summary>
+            Retrieves handle to clipping region saved from specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to process.</param>
+            <returns>Handle to clipping region.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPainter.RestoreClip(System.IntPtr)">
+            <summary>
+            Restores current clipping region from previously saved region.
+            </summary>
+            <param name="rgn">Specifies handle to the previously saved clipping region.</param>
+        </member>
+        <member name="P:QWhale.Common.GdiPainter.Transformation">
+            <summary>
+            Gets the world transformation for <c>Graphics</c> property.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.GdiPainter.Graphics">
+            <summary>
+            Represents Graphics object used to paint text and graphic primitives.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.GdiPainter.Handle">
+            <summary>
+            Gets handle to device context currently associated with the <c>IPainter</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.GdiPainter.UseDrawText">
+            <summary>
+            Indicates whether painter shoud use DrawText method rather then ExtTextOut to paint text.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.StringConsts">
+            <summary>
+            Contains default string constants for common requirements.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.SortList`1">
+            <summary>
+            Represents sorted list of objects.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.FindExact(`0,System.Int32@,System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Finds the given object in the sorted list with assumption that sorted list do not have any duplicates.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.FindFirst(`0,System.Int32@,System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Finds the first occurence of the given object that satisfies searching criteria.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.FindLast(`0,System.Int32@,System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Finds the last occurence of the given object that satisfies searching criteria.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.FindExact(System.Object,System.Int32@,System.Collections.IComparer)">
+            <summary>
+            Finds the given object in the sorted list with assumption that sorted list do not have any duplicates.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.FindFirst(System.Object,System.Int32@,System.Collections.IComparer)">
+            <summary>
+            Finds the first occurence of the given object that satisfies searching criteria.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.FindLast(System.Object,System.Int32@,System.Collections.IComparer)">
+            <summary>
+            Finds the last occurence of the given object that satisfies searching criteria.
+            </summary>
+            <param name="obj">Object to find.</param>
+            <param name="index">Receive index of the found object in the sorted list.</param>
+            <param name="comparer">Object that exposes a method to compare two objects.</param>
+            <returns>True if the find succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.InsideRange(System.Drawing.Point,System.Drawing.Rectangle)">
+            <summary>
+            Indicates whether specified rectangle contains given position.
+            </summary>
+            <param name="pt">Position to check-up.</param>
+            <param name="rect">Rectangular area to check-up.</param>
+            <returns>True if specified rect contains given Point; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.InsideRange(System.Drawing.Point,System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Indicates whether specified rectangle contains given position.
+            </summary>
+            <param name="pt">Position to check-up.</param>
+            <param name="rect">Rectangular area to check-up.</param>
+            <param name="checkMaxInt">Indicates that rectangle may contain Max Integer coordinates</param> 
+            <returns>True if specified rect contains given Point; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.UpdatePos(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Point@,System.Boolean)">
+            <summary>
+            Updates specified position by DeltaX and DeltaY values.
+            </summary>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <param name="pt">Position to update.</param>
+            <param name="endPos">Specifies whether position represents end of range</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.UpdatePos(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@,System.Int32@,System.Boolean)">
+            <summary>
+            Updates specified position by DeltaX and DeltaY values.
+            </summary>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <param name="ch">Horizontal constituent of the position to update.</param>
+            <param name="ln">Vertical constituent of the position to update.</param>
+            <param name="endPos">Specifies whether position represents end of range</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.SortList`1.QWhale#Common#ISortList{T}#Sort(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Represents sorted list of objects.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SortList`1.CompareIndex">
+            <summary>
+            Represents index of element that currenlty comparing.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SortList`1.Count">
+            <summary>
+            Gets the number of elements actually contained in the SortList.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.ErrorBehavior">
+            <summary>
+            Defines types of reaction on error.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.ErrorBehavior.Message">
+            <summary>
+            Message dialog displayed when error occurs.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.ErrorBehavior.Exception">
+            <summary>
+            Exception is thrown when error occurs.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.ErrorBehavior.None">
+            <summary>
+            No reaction.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.ErrorHandler">
+            <summary>
+            Represents class that can react various ways for erroneous situations.
+            This class is used internally for exceptions handling.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.ErrorHandler.Error(System.Exception)">
+            <summary>
+            Processes given exception with defined way.
+            </summary>
+            <param name="exception">The Exception to process.</param>
+        </member>
+        <member name="P:QWhale.Common.ErrorHandler.ErrorBehavior">
+            <summary>
+            Gets or sets a value indicating reaction on any error.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.RangeList">
+            <summary>
+            Represents sorted list of ranges.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.RangeList.#ctor">
+            <summary>
+            Initializes a new instance of the <c>RangeList</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.RangeList.UpdatePosition(QWhale.Common.IRange,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Updates specified position by DeltaX and DeltaY values for specific <c>IRange</c>.
+            </summary>
+            <param name="range"><c>IRange</c> to update.</param>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.BlockDeleting(System.Drawing.Rectangle)">
+            <summary>
+            Removes all ranges from specified region.
+            </summary>
+            <param name="rect">Specifies rectangle to remove ranges from.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.PositionChanged(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Updates specified position by DeltaX and DeltaY values for any ranges in the collection.
+            </summary>
+            <param name="x">Index of current character in the text.</param>
+            <param name="y">index of current line in the text.</param>
+            <param name="deltaX">Horizontal displacement.</param>
+            <param name="deltaY">Vertical displacement.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.Clear">
+            <summary>
+            Removes all ranges from <c>RangeList</c>.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.RangeList.CopyFrom(System.Collections.Generic.IList{QWhale.Common.IRange})">
+            <summary>
+            Copies specified ranges to this <c>RangeList</c>.
+            </summary>
+            <param name="ranges">Source collection of ranges to copy from.</param>
+        </member>
+        <member name="M:QWhale.Common.RangeList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the range at the specified index of the <c>RangeList</c>.
+            </summary>
+            <param name="index">The zero-based index of the range to remove.</param>
+        </member>
+        <member name="M:QWhale.Common.RangeList.Add(QWhale.Common.IRange)">
+            <summary>
+            Adds an object to the end of the range list.
+            </summary>
+            <param name="item">The range to be added to the end of range list.</param>
+            <returns>Index of object that is added.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.FindRange(System.Drawing.Point)">
+            <summary>
+            Locates range at specified position.
+            </summary>
+            <param name="point">Position to locate range.</param>
+            <returns><c>IRange</c> at the specified position.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.FindInclusiveRange(System.Int32)">
+            <summary>
+            Locates range containing specific line
+            </summary>
+            <param name="index">Position to locate range.</param>
+            <returns><c>IRange</c> containing given line</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.FindRange(System.Int32)">
+            <summary>
+            Locates range at specified line.
+            </summary>
+            <param name="index">Index of line to locate range.</param>
+            <returns><c>IRange</c> at specified line.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.FindExactRange(System.Drawing.Point)">
+            <summary>
+            Locates range at specified position and verifies whether it starts at the given position.
+            </summary>
+            <param name="point">Position to locate range.</param>
+            <returns><c>IRange</c> if it starts at specified position; otherwise null.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.FindExactRange(System.Int32)">
+            <summary>
+            Locates range at specified line and verifies whether it starts at the given line.
+            </summary>
+            <param name="index">Index of line to locate range.</param>
+            <returns><c>IRange</c> if it starts at specified line; otherwise null.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.RemoveRange(System.Drawing.Point)">
+            <summary>
+            Removes all ranges containing specified position.
+            </summary>
+            <param name="point">Position to remove ranges.</param>
+        </member>
+        <member name="M:QWhale.Common.RangeList.RemoveRange(System.Int32)">
+            <summary>
+            Removes all containing specified line.
+            </summary>
+            <param name="index">Index of line to remove ranges.</param>
+        </member>
+        <member name="M:QWhale.Common.RangeList.GetRanges(System.Collections.Generic.IList{QWhale.Common.IRange})">
+            <summary>
+            Fills list specified by Ranges parameter with all existing ranges.
+            </summary>
+            <param name="ranges">Specifies list to fill.</param>
+            <returns>Number of elements in the ranges collection.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.GetRanges">
+            <summary>
+            Returns ranges collection in the from of IList.
+            </summary>
+            <returns>IList representation of ranges collection.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.GetRanges(System.Collections.Generic.IList{QWhale.Common.IRange},System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Fills list specified by Ranges parameter with all ranges within specified range.
+            </summary>
+            <param name="ranges">Specifies list to fill.</param>
+            <param name="startpoint">Specifies start position in text coordinates.</param>
+            <param name="endpoint">Specifies end position in text coordinates.</param>
+            <returns>Number of elements in the ranges collection.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.GetRanges(System.Collections.Generic.IList{QWhale.Common.IRange},System.Drawing.Point)">
+            <summary>
+            Fills list specified by Ranges parameter with all ranges containing specific position.
+            </summary>
+            <param name="ranges">Specifies list to fill.</param>
+            <param name="point">Specifies position in text coordinates.</param>
+            <returns>Number of elements in the ranges collection.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.GetExactRanges(System.Collections.Generic.IList{QWhale.Common.IRange},System.Int32)">
+            <summary>
+            Fills list specified by Ranges parameter with all ranges that starts at the specified line.
+            </summary>
+            <param name="ranges">Specifies list to fill.</param>
+            <param name="index">Specifies index of line.</param>
+            <returns>Number of elements in the ranges collection.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.GetRanges(System.Collections.Generic.IList{QWhale.Common.IRange},System.Int32)">
+            <summary>
+             Fills list specified by Ranges parameter with all ranges in specified line.
+            </summary>
+            <param name="ranges">Specifies list to fill.</param>
+            <param name="index">Specifies index of line.</param>
+            <returns>Number of elements in the ranges collection.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.Insert(System.Int32,QWhale.Common.IRange)">
+            <summary>
+            Inserts a range into the range list at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which range should be inserted.</param>
+            <param name="item">Specifies range to insert.</param>
+        </member>
+        <member name="M:QWhale.Common.RangeList.BeginUpdate">
+            <summary>
+            Prevents range list updating until calling <c>EndUpdate</c> method.
+            </summary>
+            <returns>Number of range list updating locks.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.EndUpdate(System.Boolean)">
+            <summary>
+            Re-enables range list updating, that was turn of by calling <c>BeginUpdate</c> method.
+            </summary>
+            <param name="update">If true, forces list updating</param>
+            <returns>Number of range list updating locks.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.EndUpdate">
+            <summary>
+            Re-enables range list updating, that was turn of by calling <c>BeginUpdate</c> method.
+            </summary>
+            <returns>Number of range list updating locks.</returns>
+        </member>
+        <member name="M:QWhale.Common.RangeList.Update">
+            <summary>
+            Updates <c>RangeList</c> content.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.RangeList.Sort">
+            <summary>
+            Sorts <c>RangeList</c> content.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.RangeList.TopRange">
+            <summary>
+            Represents top level range for this list.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.RangeList.UpdateCount">
+            <summary>
+            Keeps track of calls to <c>BeginUpdate</c> and <c>EndUpdate</c> so that they can be nested.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.Consts">
+            <summary>
+            Contains default constants for common requirements.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.GdiPlusPainter">
+            <summary>
+            Encapsulates a Gdi+ drawing surface, providing properties and methods used to draw text and graphic primitives.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.#ctor">
+            <summary>
+            Initializes a new instance of the <c>GdiPlusPainter</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.StringWidth(System.String)">
+            <summary>
+            Returns width of the given string.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <returns>Width of specified string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.StringWidth(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns width of the specified part of the given string.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.StringWidth(System.String,System.Int32,System.Int32@,System.Boolean)">
+            <summary>
+            Returns width of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of character fitting into specified Width.</param>
+            <param name="exact">Specifies whether the calculating should be precise.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.StringWidth(System.String,System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns width of the specified part of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of characters fitting into specified Width.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.StringWidth(System.String,System.Int32,System.Int32,System.Int32,System.Int32@,System.Boolean)">
+            <summary>
+            Returns width of the specified part of the given string fitting into the given Width.
+            </summary>
+            <param name="text">The text to calculate width.</param>
+            <param name="pos">Position of the first character to start calculating.</param>
+            <param name="len">Length of the part of string to calculate width.</param>
+            <param name="width">Maximum layout area for the string.</param>
+            <param name="count">Receives number of characters fitting into the into the specified Width.</param>
+            <param name="exact">Specifies whether the calculating should be precise.</param>
+            <returns>Width of the part of string.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.CharWidth(System.Char,System.Int32)">
+            <summary>
+            Returns width of the given number of specified character.
+            </summary>
+            <param name="ch">Character to calculate width.</param>
+            <param name="count">Number of characters.</param>
+            <returns>Width of specified characters.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.CharWidth(System.Char,System.Int32,System.Int32@)">
+            <summary>
+            Returns width of the such number of the specified characters fitting into the given Width.
+            </summary>
+            <param name="ch">Character to calculate width.</param>
+            <param name="width">The width that should hold a number of the specified character.</param>
+            <param name="count">Receive number of character that can fit into specified width.</param>
+            <returns>Width of specified characters.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.BeginPaint(System.Drawing.Graphics)">
+            <summary>
+            Prepares the <c>GdiPlusPainter</c> to paint. Associates new device context from given Graphics object to <c>GdiPlusPainter</c> and preserves <c>GdiPlusPainter</c> properties.
+            <seealso cref="M:QWhale.Common.GdiPlusPainter.EndPaint"/>
+            </summary>
+            <param name="graphics">The Graphics object to draw on.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.EndPaint">
+            <summary>
+            Marks the end of painting. Releases device context associated with this <c>GdiPlusPainter</c> and restores saved <c>GdiPlusPainter</c> properties.
+            <seealso cref="M:QWhale.Common.GdiPlusPainter.BeginPaint(System.Drawing.Graphics)"/>
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.FillRectangle(System.Drawing.Rectangle)">
+            <summary>
+            Fills the given rectangle by using the current brush.
+            </summary>
+            <param name="rect">The rectangle object to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.FillRectangle(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Fills the given rectangular area by using the current brush.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.FillRectangle(System.Drawing.Color,System.Drawing.Rectangle)">
+            <summary>
+            Fills the given rectangle by using specified color.
+            </summary>
+            <param name="color">Specified color to fill rectangle.</param>
+            <param name="rect">The rectangle object to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.FillRectangle(System.Drawing.Color,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Fills the given rectangle by using specified color.
+            </summary>
+            <param name="color">Specified color to fill rectangle.</param>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.FillPolygon(System.Drawing.Color,System.Drawing.Point[])">
+            <summary>
+            Fills the interior of a polygon defined by an array of points specified by Point structures.
+            </summary>
+            <param name="color">Specifies color to fill polygon.</param>
+            <param name="points">Array of Point structures that represent the vertices of the polygon to fill.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.FillGradient(System.Drawing.Rectangle,System.Drawing.Color,System.Drawing.Color,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Fills the given rectangle with color that smoothly fades from one side to the other.
+            </summary>
+            <param name="rect">The rectangle object to fill.</param>
+            <param name="beginColor">A Color structure that represents the starting color of the linear gradient.</param>
+            <param name="endColor">A Color structure that represents the ending color of the linear gradient.</param>
+            <param name="point1">A Point structure that represents the start point of the linear gradient.</param>
+            <param name="point2">A Point structure that represents the end point of the linear gradient.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.FillGradient(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Drawing.Color,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Fills the given rectangle with color that smoothly fades from one side to the other.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+            <param name="beginColor">A Color structure that represents the starting color of the linear gradient.</param>
+            <param name="endColor">A Color structure that represents the ending color of the linear gradient.</param>
+            <param name="point1">A Point structure that represents the start point of the linear gradient.</param>
+            <param name="point2">A Point structure that represents the end point of the linear gradient.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawThemeBackground(System.IntPtr,System.Int32,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Draws the background image defined by the visual style for the specified control part.
+            </summary>
+            <param name="handle">Handle to a window's specified theme data.</param>
+            <param name="partID">Specifies the part to draw.</param>
+            <param name="stateID">Specifies the state of the part to draw.</param>
+            <param name="rect">Specifies the rectangle, in logical coordinates, in which the background image is drawn.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawRectangle(System.Drawing.Rectangle)">
+            <summary>
+            Draws a border around the specified rectangle using current <c>BackColor</c>.
+            </summary>
+            <param name="rect">The rectangle object to draw border.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a border around the specified rectangle using current <c>BackColor</c>.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawFocusRect(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color)">
+            <summary>
+            Draws a border around the specified rectangle using using dot pattern.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+            <param name="color">Color of the frame.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawFocusRect(System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Draws a border around the specified rectangle using current <c>BackColor</c>.
+            </summary>
+            <param name="rect">The rectangle object to draw border.</param>
+            <param name="color">Color of the frame.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawRoundRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a rectangle with rounded corners. The rectangle is outlined by using the current pen and filled by using the current brush.
+            </summary>
+            <param name="left">Specifies the x-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="top">Specifies the y-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="right">Specifies the x-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="bottom">Specifies the y-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="width">Specifies the width, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+            <param name="height">Specifies the height, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.FillRoundRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Fills a rectangle with rounded corners. The rectangle is outlined by using the current pen and filled by using the current brush.
+            </summary>
+            <param name="left">Specifies the x-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="top">Specifies the y-coordinate, in logical coordinates, of the upper-left corner of the rectangle.</param>
+            <param name="right">Specifies the x-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="bottom">Specifies the y-coordinate, in logical coordinates, of the lower-right corner of the rectangle.</param>
+            <param name="width">Specifies the width, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+            <param name="height">Specifies the height, in logical coordinates, of the ellipse used to draw the rounded corners.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawLine(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a line from the given start position up to, but not including, the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawLine(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Int32,System.Drawing.Drawing2D.DashStyle)">
+            <summary>
+            Draws a line from the given start position up to, but not including, the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+            <param name="color">Specifies color of the Pen object to draw line.</param>
+            <param name="width">Specifies width of the Pen object to draw line.</param>
+            <param name="penStyle">Specifies style of the Pen object to draw line.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawDotLine(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Draws a dotted line from the given start position up to the specified end point.
+            </summary>
+            <param name="x1">X-coordinate of the line's start point.</param>
+            <param name="y1">Y-coordinate of the line's start point.</param>
+            <param name="x2">X-coordinate of the line's ending point.</param>
+            <param name="y2">Y-coordinate of the line's ending point.</param>
+            <param name="color1">Specifies line color.</param>
+            <param name="color2">Specifies background color.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawWave(System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Draws waved line in the specified rectangular area.
+            </summary>
+            <param name="rect">Rectangle that bounds the drawing area for the wave.</param>
+            <param name="color">Color used to draw wave.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawImage(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Draws specified image in the specified rectangular area.
+            </summary>
+            <param name="images">Image list that contains image to draw.</param>
+            <param name="index">Index of image to draw within image list.</param>
+            <param name="rect">Rectangle that bounds the drawing area for the image.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawImage(System.Windows.Forms.ImageList,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.GraphicsUnit,System.Drawing.Imaging.ImageAttributes)">
+            <summary>
+            Draws specified image in the specified rectangular area.
+            </summary>
+            <param name="images">Image list that contains image to draw.</param>
+            <param name="index">Index of image to draw within image list.</param>
+            <param name="rect">Rectangle that bounds the drawing area for the image.</param>
+            <param name="srcX">X-coordinate of the upper-left corner of the portion of the source image to be drawn.</param>
+            <param name="srcY">Y-coordinate of the upper-left corner of the portion of the source image to be drawn.</param>
+            <param name="srcWidth">Width of the portion of the source image to be drawn.</param>
+            <param name="srcHeight">Width of the portion of the source image to be drawn.</param>
+            <param name="srcUnit">Specifies the unit of measure for the image.</param>
+            <param name="imageAttr">Specifies the color and size attributes of the image to be drawn.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.StretchDrawImage(System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Bitmap)">
+            <summary>
+            Draws stretched image in the specified rectangular area.
+            </summary>
+            <param name="image">Specifies image to draw.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawEdge(System.Drawing.Rectangle@,System.Windows.Forms.Border3DStyle,System.Windows.Forms.Border3DSide)">
+            <summary>
+            Draws one or more edges of rectangle.
+            </summary>
+            <param name="rect">Specifies rectangle which edges should be drawn.</param>
+            <param name="border">Specifies the style of a three-dimensional border.</param>
+            <param name="sides">Specifies the sides of a rectangle to draw.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawEdge(System.Drawing.Rectangle@,System.Windows.Forms.Border3DStyle,System.Windows.Forms.Border3DSide,System.Int32)">
+            <summary>
+            Draws one or more edges of rectangle.
+            </summary>
+            <param name="rect">Specifies rectangle which edges should be drawn.</param>
+            <param name="border">Specifies the style of a three-dimensional border.</param>
+            <param name="sides">Specifies the sides of a rectangle to draw.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawPolygon(System.Drawing.Point[],System.Drawing.Color)">
+            <summary>
+            Draws a ploygon defined by an array of Point structures.
+            </summary>
+            <param name="points">Array of Point structures that represent the vertices of the polygon.</param>
+            <param name="color">Specifies color of the polygon.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.TextOut(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws text in the specified location.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.TextOut(System.String,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Draws text in the specified location.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Boolean,System.Boolean)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+            <param name="space">Specifies distance between origins of adjacent character cells.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.TextOut(System.String,System.Int32,System.Drawing.Rectangle,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Draws text within the specified rectangle.
+            </summary>
+            <param name="text">The text to be drawn.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">Specifies the dimensions, in logical coordinates, of a rectangle that is used for clipping, opaquing, or both.</param>
+            <param name="x">X-coordinate of the start text point.</param>
+            <param name="y">Y-coordinate of the start text point.</param>
+            <param name="clipped">Specifies that text will be clipped to the rectangle.</param>
+            <param name="opaque">Specifies that current background color should be used to fill the rectangle.</param>
+            <param name="space">Specifies distance between origins of adjacent character cells.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.DrawText(System.String,System.Int32,System.Drawing.Rectangle)">
+            <summary>
+            Draws text in the specified rectangle using current values of <c>TextColor</c> and <c>BackColor</c>.
+            </summary>
+            <param name="text">The text to be draw.</param>
+            <param name="len">Specifies the length of the string.</param>
+            <param name="rect">The layout area for drawing text.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.Transform(System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            Sets a two-dimensional linear transformation for the specified device context.
+            </summary>
+            <param name="x">Horizontal offset of the transformation.</param>
+            <param name="y">Vertical offset of the transformation.</param>
+            <param name="scaleX">Horizontal scale of the transformation.</param>
+            <param name="scaleY">Vertical scale of the transformation.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.EndTransform">
+            <summary>
+            Sets default two-dimensional linear transformation for the specified device context.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.IntersectClipRect(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new clipping region from the intersection of the current clipping region and the specified rectangle.
+            </summary>
+            <param name="x">X-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.ExcludeClipRect(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new clipping region that consists of the existing clipping region minus the specified rectangle.
+            </summary>
+            <param name="x">X-coordinate, of the upper-left corner of the rectangle.</param>
+            <param name="y">Y-coordinate, of the upper-left corner of the rectangle.</param>
+            <param name="width">Width of the rectangle.</param>
+            <param name="height">Height of the rectangle.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.IntersectClipRect(System.Drawing.Rectangle)">
+            <summary>
+            Creates a new clipping region from the intersection of the current clipping region and the specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to intersect.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.ExcludeClipRect(System.Drawing.Rectangle)">
+            <summary>
+            Creates a new clipping region that consists of the existing clipping region minus the specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to exclude.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.SaveClip(System.Drawing.Rectangle)">
+            <summary>
+            Retrieves handle to clipping region saved from specified rectangle.
+            </summary>
+            <param name="rect">Rectangle to process.</param>
+            <returns>Handle to clipping region.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiPlusPainter.RestoreClip(System.IntPtr)">
+            <summary>
+            Restores current clipping region from previously saved region.
+            </summary>
+            <param name="rgn">Specifies handle to the previously saved clipping region.</param>
+        </member>
+        <member name="P:QWhale.Common.GdiPlusPainter.Transformation">
+            <summary>
+            Gets the world transformation for <c>Graphics</c> property.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.GdiPlusPainter.Graphics">
+            <summary>
+            Represents Graphics object used to paint.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.GdiPlusPainter.Pen">
+            <summary>
+            Gets or sets a reference to a Pen object used to draw lines and curves.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.GdiPlusPainter.Brush">
+            <summary>
+            Gets or sets a reference to a Brush object used to fill the interiors of graphical shapes such as rectangles, ellipses, pies, polygons, and paths.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.GdiPlusPainter.UseDrawText">
+            <summary>
+            Indicates whether painter shoud use DrawText method rather then ExtTextOut to paint text.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.GdiFontInfo">
+            <summary>
+            Represents information about a particular Gdi font.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.FontInfo">
+            <summary>
+            Represents information about a particular font.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.FontInfo.#ctor(System.Drawing.Font,System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <c>FontInfo</c> class with specified parameters.
+            </summary>
+            <param name="font">Specifies Font for this new instance.</param>
+            <param name="dc">Handle to the device context.</param>
+        </member>
+        <member name="P:QWhale.Common.FontInfo.Font">
+            <summary>
+            Gets or sets font of this <c>FontInfo</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.FontInfo.HFont">
+            <summary>
+            Represents handle to the <c>Font</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.FontInfo.FontWidth">
+            <summary>
+            Represents width of the font.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.FontInfo.FontHeight">
+            <summary>
+            Represents height of the font.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.FontInfo.IsMonoSpaced">
+            <summary>
+            Represents a value indicating whether font is monospaced, meaning that all characters drawn with this font have the same width.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.FontInfo.FontName">
+            <summary>
+            Represents name of the font.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.GdiFontInfo.#ctor(System.Drawing.Font,System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <c>GdiFontInfo</c> class with specified parameters.
+            </summary>
+            <param name="font">Specifies Font for this new instance.</param>
+            <param name="dc">Handle to the device context.</param>
+        </member>
+        <member name="M:QWhale.Common.GdiFontInfo.CharWidth(System.Char)">
+            <summary>
+            Calculates width of specified character using current <c>Font</c>.
+            </summary>
+            <param name="ch">Character to measure.</param>
+            <returns>Width of the character.</returns>
+        </member>
+        <member name="M:QWhale.Common.GdiFontInfo.StringWidth(System.String)">
+            <summary>
+            Calculates width of specified string using current <c>Font</c>.
+            </summary>
+            <param name="ch">string to measure.</param>
+            <returns>Width of the text.</returns>
+        </member>
+        <member name="T:QWhale.Common.EditBorderStyle">
+            <summary>
+            Specifies the border style for Edit control.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.EditBorderStyle.None">
+            <summary>
+            No border.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.EditBorderStyle.Fixed3D">
+            <summary>
+            A three-dimensional border.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.EditBorderStyle.FixedSingle">
+            <summary>
+            A single-line border.
+            </summary>
+        </member>
+        <member name="F:QWhale.Common.EditBorderStyle.System">
+            <summary>
+            A system border.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.SpeedButton">
+            <summary>
+            Represents a Windows button - like control.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.SpeedButton.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes a new instance of the <c>SpeedButton</c> class with specified container.
+            </summary>
+            <param name="container">Specifies IContainer that contains this new instance.</param>
+        </member>
+        <member name="M:QWhale.Common.SpeedButton.#ctor">
+            <summary>
+            Initializes a new instance of the <c>SpeedButton</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.SpeedButton.OnCheckedChanged(System.EventArgs)">
+            <summary>
+            Raises the <c>CheckedChaged</c> event.
+            </summary>
+            <param name="args">The EventArgs that contains data to this event.</param>
+        </member>
+        <member name="P:QWhale.Common.SpeedButton.ImageList">
+            <summary>
+            Gets or sets the ImageList that contains the images to display in this <c>SpeedButton</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SpeedButton.ImageIndex">
+            <summary>
+            Gets or sets the index value of the image displayed on this <c>SpeedButton</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SpeedButton.BorderStyle">
+            <summary>
+            Gets or sets border style of this <c>SpeedButton</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SpeedButton.Checked">
+            <summary>
+            Gets or sets a boolean value indicating whether button appears pressed.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.SpeedButton.AllowCheck">
+            <summary>
+            Gets or sets a value indicating whehter button should automatically appear pressed in and not pressed in when clicked.
+            </summary>
+        </member>
+        <member name="E:QWhale.Common.SpeedButton.CheckedChanged">
+            <summary>
+            Occurs when the value of the <c>Checked</c> property changes.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.ColorBox">
+            <summary>
+            Represents a combo-box like control used to select color from drop-down list of colors.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.ColorBox.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes a new instance of the <c>ColorBox</c> class with specified container.
+            </summary>
+            <param name="container">Specifies IContainer that contains this new instance.</param>
+        </member>
+        <member name="M:QWhale.Common.ColorBox.#ctor">
+            <summary>
+            Initializes a new instance of the <c>ColorBox</c> class with default settings.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.ColorBox.Items">
+            <summary>
+            Gets an object representing the collection of the colors contained in this <c>ColorBox</c>.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.ColorBox.Text">
+            <summary>
+            Represents text associated with this control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.ColorBox.SelectedColor">
+            <summary>
+            Gets or sets curently selected color in the <c>ColorBox</c>.
+            </summary>
+        </member>
+        <member name="T:QWhale.Common.ISerializationInfo">
+            <summary>
+            Represents methods to serialize objects.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.ISerializationInfo.Load">
+            <summary>
+            When implemented by a class, reads property values from external object. Reserwed for internal use.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.ISerializationInfo.FixupReferences(System.Object)">
+            <summary>
+            When implemented by a class, updates properties of external object with ones previosely stored.
+            </summary>
+            <param name="owner">Specifies external object</param>
+        </member>
+        <member name="T:QWhale.Common.IControl">
+            <summary>
+            Represents standart control properties and methods.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IControl.CreateGraphics">
+            <summary>
+            When implemented by a class, creates the Graphics for the control.
+            </summary>
+            <returns>The Graphics for the control.</returns>
+        </member>
+        <member name="M:QWhale.Common.IControl.Invalidate">
+            <summary>
+            When implemented by a class, invalidates the entire client area of the control.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IControl.Invalidate(System.Drawing.Rectangle)">
+            <summary>
+            When implemented by a class, invalidates a specific region of the control.
+            </summary>
+            <param name="rect">A Rectangle object that represents the region to invalidate.</param>
+        </member>
+        <member name="M:QWhale.Common.IControl.Invalidate(System.Drawing.Region)">
+            <summary>
+            When implemented by a class, invalidates a specific region of the control.
+            </summary>
+            <param name="region">The Region to invalidate.</param>
+        </member>
+        <member name="M:QWhale.Common.IControl.Invalidate(System.Drawing.Region,System.Boolean)">
+            <summary>
+            When implemented by a class, invalidates a specific region of the control.
+            </summary>
+            <param name="region">The Region to invalidate.</param>
+            <param name="invalidateChildren">True to invalidate the control's child controls; otherwise, false.</param>
+        </member>
+        <member name="M:QWhale.Common.IControl.Refresh">
+            <summary>
+            When implemented by a class, causes the control to redraw the invalidated regions within its client area.
+            </summary>
+        </member>
+        <member name="M:QWhale.Common.IControl.PointToClient(System.Drawing.Point)">
+            <summary>
+            When implemented by a class, computes the location of the specified screen point into client coordinates.
+            </summary>
+            <param name="p">The screen coordinate Point to convert.</param>
+            <returns>A Point that represents the converted Point, in client coordinates.</returns>
+        </member>
+        <member name="M:QWhale.Common.IControl.PointToScreen(System.Drawing.Point)">
+            <summary>
+            When implemented by a class, computes the location of the specified client point into screen coordinates.
+            </summary>
+            <param name="p">The client coordinate Point to convert.</param>
+            <returns>A Point that represents the converted Point, in screen coordinates.</returns>
+        </member>
+        <member name="M:QWhale.Common.IControl.Focus">
+            <summary>
+            When implemented by a class, sets input focus to the control.
+            </summary>
+            <returns>true if the input focus request was successful; otherwise, false.</returns>
+        </member>
+        <member name="M:QWhale.Common.IControl.FindForm">
+            <summary>
+            When implemented by a class, retrieves the form that the control is on.
+            </summary>
+            <returns>The Form that the control is on.</returns>
+        </member>
+        <member name="M:QWhale.Common.IControl.BringToFront">
+            <summary>
+            When implemented by a class, brings the control to the front of the z-order.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.CanFocus">
+            <summary>
+            When implemented by a class, returns boolean value indicating whether the control can receive input focus.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Dock">
+            <summary>
+            When implemented by a class, gets or sets which control borders are docked to its parent control and determines how a control is resized with its parent.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Visible">
+            <summary>
+            When implemented by a class, gets or sets a value indicating whether the control is displayed.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Location">
+            <summary>
+            When implemented by a class, gets or sets the coordinates of the upper-left corner of the control relative to the upper-left corner of its container.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Left">
+            <summary>
+            When implemented by a class, gets or sets the distance, in pixels, between the left edge of the control and the left edge of its container's client area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Top">
+            <summary>
+            When implemented by a class, gets or sets the distance, in pixels, between the bottom edge of the control and the top edge of its container's client area.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Width">
+            <summary>
+            When implemented by a class, gets or sets the width of the control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Height">
+            <summary>
+            When implemented by a class, gets or sets the height of the control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Bounds">
+            <summary>
+            When implemented by a class, gets or sets the size and location of the control including its nonclient elements.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.ClientRectangle">
+            <summary>
+            When implemented by a class, gets the rectangle that represents the client area of the control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.ForeColor">
+            <summary>
+            When implemented by a class, gets or sets the foreground color of the control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.BackColor">
+            <summary>
+            When implemented by a class, gets or sets the background color for the control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.BackgroundImage">
+            <summary>
+            When implemented by a class, gets or sets the background image displayed in the control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Font">
+            <summary>
+            When implemented by a class, gets or sets the font of the text displayed by the control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Parent">
+            <summary>
+            When implemented by a class, gets or sets a reference to the server control's parent control in the page control hierarchy.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Focused">
+            <summary>
+            When implemented by a class, gets a value indicating whether the control has input focus.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Enabled">
+            <summary>
+            When implemented by a class, gets or sets a value indicating whether the control can respond to user interaction.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Handle">
+            <summary>
+            When implemented by a class, gets the window handle that the control is bound to.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.IsHandleCreated">
+            <summary>
+            When implemented by a class, gets a value indicating whether the control has a handle associated with it.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.Created">
+            <summary>
+            When implemented by a class, gets a value indicating whether the control has been created.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.ContextMenu">
+            <summary>
+            When implemented by a class, gets or sets the shortcut menu associated with the control.
+            </summary>
+        </member>
+        <member name="P:QWhale.Common.IControl.ContextMenuStrip">
+            <summary>
+            When implemented by a class, gets or sets the ContextMenuStrip associated with this control.
+            </summary>
+        </member>
+        <member name="E:QWhale.Common.IControl.Click">
+            <summary>
+            When implemented by a class, occurs when the control is clicked.
+            </summary>
+        </member>
+    </members>
+</doc>

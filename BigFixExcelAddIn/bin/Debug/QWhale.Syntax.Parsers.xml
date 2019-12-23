@@ -1,0 +1,3516 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QWhale.Syntax.Parsers</name>
+    </assembly>
+    <members>
+        <member name="T:QWhale.Syntax.CodeCompletion.VbScriptRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality intended to use for Vb Script language. 
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.ReflectionRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality using reflection.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.NETRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality intended to use for .NET family of languages. 
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>NETRepository</c> class with specified parameters.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.Finalize">
+            <summary>
+            Destroys the instance of the <c>NETRepository</c> class.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.RegisterNamespace(System.String)">
+            <summary>
+            Adds specified namespace to the namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to add.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.RegisterNamespace(System.String,System.String)">
+            <summary>
+            Adds specified namespace to the namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to add.</param>
+            <param name="alias">Specifies alias of namespace</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.UnregisterNamespace(System.String)">
+            <summary>
+            Removes specified namespace from the namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to remove.</param>
+            <returns>True if succeed (namespace is present in the namespace list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.RegisterObject(System.String,System.Object)">
+            <summary>
+            Adds specified object for code completion to the object list.
+            </summary>
+            <param name="name">Specifies name of the object.</param>
+            <param name="obj">Specifies object to register.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.UnregisterObject(System.String)">
+            <summary>
+            Removes specified object from the object list.
+            </summary>
+            <param name="name">Specifies name of object to remove.</param>
+            <returns>True if succeed (object is present in the object list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.ClearNamespaces">
+            <summary>
+            Clears namespace list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.ClearObjects">
+            <summary>
+            Clears object list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetCommentTemplate(System.Drawing.Point,QWhale.Syntax.ISyntaxNode,System.String)">
+            <summary>
+            Returns xml comment template for given node in the text
+            </summary>
+            <param name="position">Specifies position within the text</param>
+            <param name="node">Specifies node at given position</param>
+            <param name="comment">Specifies xml comment starting string</param>
+            <returns>xml comment template</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsBlockNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a block node (contains block statement).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is block node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsMethodNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a method node (contains declaration of some method, constructon, destructor and so on).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is method node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsDeclarationNode(QWhale.Syntax.ISyntaxNode@,System.Boolean)">
+            <summary>
+            Indicates whether specified node is a declaration node (contains declaration of some syntax structure, such as class, namespace and so on).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <param name="checkRegions">Indicates that region nodes should be skipped.</param>
+            <returns>True if specified node is declaration node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsStatementNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a a statement node.
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is block node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsBinaryExpressionNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a binary expression node 
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is binary-expression node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsUnaryExpressionNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a binary expression node 
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is unary-expression node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsPrefixedUnaryExpressionNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a binary expression node 
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is prefixed-unary expression node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsVariableInitializer(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a binary expression node 
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is variable-initializer node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsDeclarationNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a declaration node (contains declaration of some syntax structure, such as class, namespace and so on).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is declaration node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsXmlCommentNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a xml comment node (contains xml comment).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is xml comment node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetXmlReferenceNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Returns declaration node corresponding to xml comment
+            </summary>
+            <param name="node">xml comment node</param>
+            <returns>declaration node if found; otherwise null</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.IsInvocationNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a invocation node (contains call of some method or function).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is invocation node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetInvocationNode(System.String,QWhale.Syntax.ISyntaxNode,System.Drawing.Point,System.Int32@,System.Int32@)">
+            <summary>
+            Retrieves invocation node at specified position.
+            </summary>
+            <param name="text">Text at specified position.</param>
+            <param name="node">Specifies node that contains invocation node.</param>
+            <param name="position">Specifies position to check-up.</param>
+            <param name="paramIndex">Retrieves index of current parameter in the parameter list of invocation node.</param>
+            <param name="paramCount">Retrieves number of the parameters of invocation node.</param>
+            <returns><c>ISyntaxNode</c> node representing method invocation.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetXmlCommentNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Retrieves xml comment node nearest to the specified node.
+            </summary>
+            <param name="node">Specifies node to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing xml comment.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetDeclarationNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Retrieves declaration node nearest to the specified node.
+            </summary>
+            <param name="node">Specifies node to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing some declaration.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetAutoFormatNode(QWhale.Syntax.ISyntaxNode,System.Boolean,System.Drawing.Point@)">
+            <summary>
+            Obtains block node at specified position.
+            </summary>
+            <param name="position">Position to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+            <param name="startPt">Retrieves position of block node.</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetMethodNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Retrieves method node nearest to the specified node.
+            </summary>
+            <param name="node">Specifies node to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing some method.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetBlockOrMethodNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Retrieves block or method node nearest to specified node.
+            </summary>
+            <param name="node">Specifies node to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing block or method.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetBlockNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Retrieves block node nearest to specified node.
+            </summary>
+            <param name="node">Specifies node to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetStatementNode(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Retrieves block node nearest to specified node.
+            </summary>
+            <param name="node">Specifies node to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing a statement.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.SmartFormatLine(System.Int32,System.String,System.Int16[],QWhale.Syntax.ISyntaxNodes,QWhale.Syntax.ITextUndoList)">
+            <summary>
+            Formats line according to the parser rules.
+            </summary>
+            <param name="index">Specifies index of line to format.</param>
+            <param name="text">specifies string representation of the line</param>
+            <param name="textData">specifies data containing color information for the given string</param>
+            <param name="nodes">Specifies nodes collection containg given line</param>
+            <param name="operations">List containing insertion or deletion of text fragments</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetTypeByName(System.String)">
+            <summary>
+            Retrieves type by its name.
+            </summary>
+            <param name="type">Specifies name of type.</param>
+            <returns>the found type.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetDescription(QWhale.Syntax.CodeCompletion.IListMembers,QWhale.Syntax.ISyntaxNode,System.Object,System.String,System.Boolean)">
+            <summary>
+            Obtains description of some language element.
+            </summary>
+            <param name="members">Specifies ListMembers interface used to get language-specific description.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> that representing language element to describe.</param>
+            <param name="member">Specifies language element to describe.</param>
+            <param name="name">Specifies name of described language element.</param>
+            <param name="fullDescription">Specifies whether description should include name and type of the found element.</param>
+            <returns>String that describes specified language element.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetNodeType(System.String,QWhale.Syntax.ISyntaxNode,System.Drawing.Point)">
+            <summary>
+            Obtains information type of the <c>SyntaxNode</c>
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing a current language element.</param>
+            <param name="text">Specifies source text.</param>
+            <param name="position">Specifies starting position to search</param>
+            <returns>Object represening type of found member.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetMemberType(System.String,QWhale.Syntax.ISyntaxNode,System.String@,System.Drawing.Point@,System.Drawing.Point@,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about some language element to perform code completion related operations.
+            </summary>
+            <param name="text">Specifies source text.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing current language element.</param>
+            <param name="name">Retrieves name of found language element.</param>
+            <param name="position">Specifies position of found language element in the code text and updates it if needed.</param>
+            <param name="endPos">Specifies end position of found language element in the code text and updates it if needed.</param>
+            <param name="scope">Retrieves information about search constraints for the language element.</param>
+            <returns>Object representing information about language element to complete.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetSpecialMemberType(System.String,QWhale.Syntax.ISyntaxNode,System.String@,System.Drawing.Point@,System.Drawing.Point@,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about a member of some language element in special cases.
+            </summary>
+            <param name="text">Text at specified position.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing a current language element.</param>
+            <param name="name">Specifies name of the member to locate.</param>
+            <param name="position">Specifies position of language element.</param>
+            <param name="endPos">Specifies end position of found language element in the code text and updates it if needed.</param>
+            <param name="scope">Retrieves information about search constraints for this language element.</param>
+            <returns>Object represening information about found member.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetMemberType(QWhale.Syntax.ISyntaxNode,System.Drawing.Point,System.Object,System.String,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about a member of some language element.
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing a current language element.</param>
+            <param name="position">Specifies position of language element.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies name of the member to locate.</param>
+            <param name="scope">Retrieves information about search constraints for this language element.</param>
+            <returns>Object represening information about found member.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetRegisteredObject(System.String)">
+            <summary>
+            Retrieves registered object by its name.
+            </summary>
+            <param name="name">Specifies name of the object.</param>
+            <returns>Registered object found by its name.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetMethodType(System.String,QWhale.Syntax.ISyntaxNode,System.String@,System.Drawing.Point@,System.Drawing.Point@,System.Int32@,System.Int32@,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about some method of specified language element.
+            </summary>
+            <param name="text">Specifies source text.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> represening current language element.</param>
+            <param name="name">Retrieves name of found method.</param>
+            <param name="position">Retrieves start positon of the method in the code text.</param>
+            <param name="endPos">Retrieves end position of the method in the code text.</param>
+            <param name="paramIndex">Retrieves index of current parameter in the code text.</param>
+            <param name="paramCount">Retrieves number of the parameters.</param>
+            <param name="scope">Retrieves information about search constraints for the language element.</param>
+            <returns>Object representing information about found method.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.FillMember(QWhale.Syntax.CodeCompletion.IListMembers,System.Object,System.String,QWhale.Syntax.CodeCompletionScope)">
+            <summary>
+            Obtains information about individual member of specified language element.
+            </summary>
+            <param name="members">Specifies provider to fill with available members.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies name of member to retrieve.</param>
+            <param name="scope">Specifies search constraints.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.FillMember(QWhale.Syntax.CodeCompletion.IListMembers,System.Object,System.String,System.Int32,QWhale.Syntax.CodeCompletionScope)">
+            <summary>
+            Obtains information about individual member of specified language element.
+            </summary>
+            <param name="members">Specifies provider to fill with available members.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies name of member to retrieve.</param>
+            <param name="paramIndex">Specifies index of current member parameter.</param>
+            <param name="scope">Specifies search constraints.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.FindReferences(QWhale.Syntax.ISyntaxNode,QWhale.Syntax.ISyntaxNodes)">
+            <summary>
+            Locates all references to the node in the text.
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to find references.</param>
+            <param name="references">Retrieves references to node.</param>
+            <returns>Number of found references.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NETRepository.GetCodeSnippets(System.String)">
+            <summary>
+            Returns code snippets for the given language.
+            </summary>
+            <param name="language">Represents a language</param>
+            <returns>ICodeCompletionProvider instance for a given language.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NETRepository.Namespaces">
+            <summary>
+            Represents namespace list.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NETRepository.Objects">
+            <summary>
+            Represents object list in a form of key-value pairs.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NETRepository.Images">
+            <summary>
+            Represents collection of images used for code completion.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NETRepository.AllowGlobalMembers">
+            <summary>
+            Gets or sets a boolean value indicating whether global members should be included into the code completion.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NETRepository.BaseClassType">
+            <summary>
+            Gets or sets name of the base type.
+            </summary>
+            <remarks>It is "object" by default.</remarks>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.IReflectionRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality using reflection.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterNamespace(System.String)">
+            <summary>
+            When implemented by a class, adds specified namespace to the namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to add.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterNamespace(System.String,System.String)">
+            <summary>
+            When implemented by a class, adds specified namespace to the namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to add.</param>
+            <param name="alias">Specifies alias of namespace</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.UnregisterNamespace(System.String)">
+            <summary>
+            When implemented by a class, removes specified namespace from the namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to remove.</param>
+            <returns>True if succeed (namespace is present in the namespace list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterObject(System.String,System.Object)">
+            <summary>
+            When implemented by a class, adds specified object for code completion to the object list.
+            </summary>
+            <param name="name">Specifies name of the object.</param>
+            <param name="obj">Specifies object to register.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.UnregisterObject(System.String)">
+            <summary>
+            When implemented by a class, removes specified object from the object list.
+            </summary>
+            <param name="name">Specifies name of object to remove.</param>
+            <returns>True if succeed (object is present in the object list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterType(System.String,System.Type)">
+            <summary>
+            When implemented by a class, adds specified type for code completion to the type list.
+            </summary>
+            <param name="name">Specifies name of the type.</param>
+            <param name="type">Specifies type to register.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterType(System.String,System.Type,System.Boolean)">
+            <summary>
+            When implemented by a class, adds specified type for code completion to the type list.
+            </summary>
+            <param name="name">Specifies name of the type.</param>
+            <param name="type">Specifies type to register.</param>
+            <param name="global">Specifies whether the type is global</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.UnregisterType(System.String)">
+            <summary>
+            When implemented by a class, removes specified type from the type list.
+            </summary>
+            <param name="name">Specifies name of type to remove.</param>
+            <returns>True if succeed (type is present in the type list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterAssembly(System.Reflection.Assembly)">
+            <summary>
+            When implemented by a class, adds specified assembly for code completion to the assembly list.
+            </summary>
+            <param name="assembly">Specifies registered assembly.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterAssembly(System.String)">
+            <summary>
+            When implemented by a class, adds specified assembly for code completion to the assembly list.
+            </summary>
+            <param name="name">Specifies name of the assembly.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.UnregisterAssembly(System.Reflection.Assembly,System.Boolean)">
+            <summary>
+            When implemented by a class, removes specified assembly from the assembly list.
+            </summary>
+            <param name="assembly">Specifies  assembly to remove.</param>
+            <param name="removeReferences">Indicates whether all types from the specified assembly should be unregistered.</param>
+            <returns>True if succeed (assembly is present in the assembly list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.UnregisterAssembly(System.String,System.Boolean)">
+            <summary>
+            When implemented by a class, removes specified assembly from the assembly list.
+            </summary>
+            <param name="name">Specifies name of assembly to remove.</param>
+            <param name="removeReferences">Indicates whether all types from the specified assembly should be unregistered.</param>
+            <returns>True if succeed (assembly is present in the assembly list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterAllAssemblies">
+            <summary>
+            When implemented by a class, registers all assemlies from the current application domain.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RegisterDefaultAssemblies">
+            <summary>
+            When implemented by a class, registers some most frequently used assemblies.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.RestrictTypeMembers(System.Type)">
+            <summary>
+            When implemented by a class, disables type members from being shown in code completion windows.
+            </summary>
+            <param name="type">Specifies type which members will be disabled</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.AllowTypeMembers(System.Type)">
+            <summary>
+            When implemented by a class, re-enables type members from being shown in code completion windows.
+            </summary>
+            <param name="type">Specifies type which members will be re-enabled</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.ClearNamespaces">
+            <summary>
+            When implemented by a class, clears namespace list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.ClearObjects">
+            <summary>
+            When implemented by a class, clears object list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.ClearAssemblies">
+            <summary>
+            When implemented by a class, clears assembly list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.IReflectionRepository.ClearTypes">
+            <summary>
+            When implemented by a class, clears type list.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.IReflectionRepository.Types">
+            <summary>
+            When implemented by a class, represents type list in a form of key-value pairs.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.IReflectionRepository.Objects">
+            <summary>
+            When implemented by a class, represents object list in a form of key-value pairs.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.IReflectionRepository.Assemblies">
+            <summary>
+            When implemented by a class, represents assembly list.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.IReflectionRepository.Namespaces">
+            <summary>
+            When implemented by a class, represents namespace list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>ReflectionRepository</c> class with specified parameters.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.GetMemberType(QWhale.Syntax.ISyntaxNode,System.Drawing.Point,System.Object,System.String,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about a member of some language element.
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing a current language element.</param>
+            <param name="position">Specifies position of language element.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies name of the member to locate.</param>
+            <param name="scope">Retrieves information about search constraints for this language element.</param>
+            <returns>Object represening information about found member.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.FillMember(QWhale.Syntax.CodeCompletion.IListMembers,System.Object,System.String,QWhale.Syntax.CodeCompletionScope)">
+            <summary>
+            Obtains information about individual member of specified language element.
+            </summary>
+            <param name="members">Specifies provider to fill with available members.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies name of member to retrieve.</param>
+            <param name="scope">Specifies search constraints.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.GetDescription(QWhale.Syntax.CodeCompletion.IListMembers,QWhale.Syntax.ISyntaxNode,System.Object,System.String,System.Boolean)">
+            <summary>
+            Obtains description of some language element.
+            </summary>
+            <param name="members">Specifies ListMembers interface used to get language-specific description.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> that representing language element to describe.</param>
+            <param name="member">Specifies language element to describe.</param>
+            <param name="name">Specifies name of described language element.</param>
+            <param name="fullDescription">Specifies whether description should include name and type of the found element.</param>
+            <returns>String that describes specified language element.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.GetPriority(System.Object)">
+            <summary>
+            Obtains priority of the given language element.
+            <param name="member">Specifies language element</param>
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.GetRegisteredType(System.String)">
+            <summary>
+            Retrieves registered type by its name.
+            </summary>
+            <param name="name">Specifies name of the type.</param>
+            <returns>Registered type found by its name.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.GetTypeByName(System.String)">
+            <summary>
+            Retrieves type by its name.
+            </summary>
+            <param name="type">Specifies name of type.</param>
+            <returns>the found type.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.RegisterType(System.String,System.Type)">
+            <summary>
+            Adds specified type for code completion to the type list.
+            </summary>
+            <param name="name">Specifies name of the type.</param>
+            <param name="type">Specifies type to register.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.RegisterType(System.String,System.Type,System.Boolean)">
+            <summary>
+            Adds specified type for code completion to the type list.
+            </summary>
+            <param name="name">Specifies name of the type.</param>
+            <param name="type">Specifies type to register.</param>
+            <param name="global">Specifies whether the type is global.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.UnregisterType(System.String)">
+            <summary>
+            Removes specified type from the type list.
+            </summary>
+            <param name="name">Specifies name of type to remove.</param>
+            <returns>True if succeed (type is present in the type list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.RegisterAssembly(System.Reflection.Assembly)">
+            <summary>
+            Adds specified assembly for code completion to the assembly list.
+            </summary>
+            <param name="assembly">Specifies registered assembly.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.UnregisterAssembly(System.Reflection.Assembly,System.Boolean)">
+            <summary>
+            Removes specified assembly from the assembly list.
+            </summary>
+            <param name="assembly">Specifies  assembly to remove.</param>
+            <param name="removeReferences">Indicates whether all types from the specified assembly should be unregistered.</param>
+            <returns>True if succeed (assembly is present in the assembly list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.RegisterAssembly(System.String)">
+            <summary>
+            Adds specified assembly for code completion to the assembly list.
+            </summary>
+            <param name="name">Specifies name of the assembly.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.UnregisterAssembly(System.String,System.Boolean)">
+            <summary>
+            Removes specified assembly from the assembly list.
+            </summary>
+            <param name="name">Specifies name of assembly to remove.</param>
+            <param name="removeReferences">Indicates whether all types from the specified assembly should be unregistered.</param>
+            <returns>True if succeed (assembly is present in the assembly list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.RegisterAllAssemblies">
+            <summary>
+            Registers all assemlies from the current application domain.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.RegisterDefaultAssemblies">
+            <summary>
+            Registers some most frequently used assemblies.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.ClearAssemblies">
+            <summary>
+            Clears assembly list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.ClearTypes">
+            <summary>
+            Clears type list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.RestrictTypeMembers(System.Type)">
+            <summary>
+            Disables type members from being shown in code completion windows.
+            </summary>
+            <param name="type">Specifies type which members will be disabled</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.ReflectionRepository.AllowTypeMembers(System.Type)">
+            <summary>
+            Re-enables type members from being shown in code completion windows.
+            </summary>
+            <param name="type">Specifies type which members will be re-enabled</param>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.ReflectionRepository.Types">
+            <summary>
+            Represents type list in a form of key-value pairs.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.ReflectionRepository.Assemblies">
+            <summary>
+            Represents assembly list.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbScriptRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>VbScriptRepository</c> class with specified settings.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbScriptRepository.GetMethodType(System.String,QWhale.Syntax.ISyntaxNode,System.String@,System.Drawing.Point@,System.Drawing.Point@,System.Int32@,System.Int32@,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about some method of specified language element.
+            </summary>
+            <param name="text">Specifies source text.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> represening current language element.</param>
+            <param name="name">Retrieves name of found method.</param>
+            <param name="position">Retrieves start positon of the method in the code text.</param>
+            <param name="endPos">Retrieves end position of the method in the code text.</param>
+            <param name="paramIndex">Retrieves index of current parameter in the code text.</param>
+            <param name="paramCount">Retrieves number of the parameters.</param>
+            <param name="scope">Retrieves information about search constraints for the language element.</param>
+            <returns>Object representing information about found method.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.NetTypes">
+            <summary>
+            Contains collection of build-in types. Reserwed for internal use.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.GetTypeByName(System.String,System.Collections.Generic.IList{System.Reflection.Assembly},System.Boolean)">
+            <summary>
+            Retrieves type by its name.
+            </summary>
+            <param name="name">Specifies name of type.</param>
+            <param name="assemblies">Collection of assemblies where type should be located.</param>
+            <param name="caseSensitive">True to perform a case-sensitive search for type declaration, false to perform a case-insensitive search for type declaration.</param>
+            <returns>the found type.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.GetNamespaces(System.Collections.Generic.IList{System.Reflection.Assembly})">
+            <summary>
+            Retrieves collection of namespaces located in specified assemblies.
+            </summary>
+            <param name="assemblies">Collection of assemblies where namespaces should be find.</param>
+            <returns>List of namespaces.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.GetGlobalTypes(System.Collections.Generic.IList{System.Type},System.String,System.Boolean)">
+            <summary>
+            Finds global types from specified namespace.
+            </summary>
+            <param name="types">Retrieves list of global types.</param>
+            <param name="nspace">String representation of namespace to evaluate.</param>
+            <param name="caseSensitive">Specifies whether location should be case-sensitive.</param>
+            <returns>Number of found global types.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.AddType(System.Type,System.Boolean)">
+            <summary>
+            Adds specified type to the collection of types.
+            </summary>
+            <param name="type">Type to add.</param>
+            <param name="global">True if type should be added to the collection of global type; otherwise false.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.RemoveType(System.Type)">
+            <summary>
+            Removes specified type from the list of types.
+            </summary>
+            <param name="type">Type to remove.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.AddNamespace(System.String,System.Reflection.Assembly)">
+            <summary>
+            Adds specified namespace to the collection of namespaces.
+            </summary>
+            <param name="nspace">Namespace to add.</param>
+            <param name="assembly">Assembly contains specified namespace.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.RemoveNamespace(System.String,System.Reflection.Assembly)">
+            <summary>
+            Removes namespace from the list of namespaces.
+            </summary>
+            <param name="nspace">Namespace to remove.</param>
+            <param name="assembly">Assembly contains specified namespace.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.IsSpecialType(System.Type)">
+            <summary>
+            Gets a value indicating whether the Type has a name that requires special handling.
+            </summary>
+            <param name="type">Type to evaluate.</param>
+            <returns>True if the Type has a name that requires special handling; otherwise, false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.AddAssembly(System.Reflection.Assembly)">
+            <summary>
+            Adds specified assembly to the collection fo assemblies.
+            </summary>
+            <param name="assembly">Assembly to add.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetTypes.RemoveAssembly(System.Reflection.Assembly)">
+            <summary>
+            Removes specified assembly form the list of assemblies.
+            </summary>
+            <param name="assembly">Assembly to remove.</param>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NetTypes.Assemblies">
+            <summary>
+            Represents the list of loaded assemblies.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NetTypes.Types">
+            <summary>
+            Represents the list of loaded types.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NetTypes.GlobalTypes">
+            <summary>
+            Represents the list of global types.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NetTypes.Namespaces">
+            <summary>
+            Represents the list of namespaces.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.JsRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality intended to use for Vb Script language. 
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.CsRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality intended to use for Vb Script language. 
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>CsRepository</c> class with specified settings.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsRepository.GetSpecialMemberType(System.String,QWhale.Syntax.ISyntaxNode,System.String@,System.Drawing.Point@,System.Drawing.Point@,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about a member of some language element in special cases.
+            </summary>
+            <param name="text">Text at specified position.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing a current language element.</param>
+            <param name="name">Specifies name of the member to locate.</param>
+            <param name="position">Specifies position of language element.</param>
+            <param name="endPos">Specifies end position of found language element in the code text and updates it if needed.</param>
+            <param name="scope">Retrieves information about search constraints for this language element.</param>
+            <returns>Object represening information about found member.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsRepository.FillMembers(QWhale.Syntax.ISyntaxNode,System.Drawing.Point,QWhale.Syntax.CodeCompletion.IListMembers,System.Object,System.String,QWhale.Syntax.CodeCompletionScope,System.Int32@)">
+            <summary>
+            Fills list members provider with list of its member, providing available choices for the specified language element.
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing current language element.</param>
+            <param name="position">Specifies position of language element in the text.</param>
+            <param name="members">Specifies provider to fill with available members.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies filter used to fill members.</param>
+            <param name="scope">Specifies search constraints.</param>
+            <param name="selIndex">Specifies index of default list member</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.JsRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>CsRepository</c> class with specified settings.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.JsRepository.FillMembers(QWhale.Syntax.ISyntaxNode,System.Drawing.Point,QWhale.Syntax.CodeCompletion.IListMembers,System.Object,System.String,QWhale.Syntax.CodeCompletionScope,System.Int32@)">
+            <summary>
+            Fills list members provider with list of its member, providing available choices for the specified language element.
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing current language element.</param>
+            <param name="position">Specifies position of language element in the text.</param>
+            <param name="members">Specifies provider to fill with available members.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies filter used to fill members.</param>
+            <param name="scope">Specifies search constraints.</param>
+            <param name="selIndex">Specifies index of default list member</param>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.CRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality intended to use for Vb Script language. 
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>CRepository</c> class with specified settings.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.VbParameterInfo">
+            <summary>
+            Represents Parameter Info data related to popup window and popup hint controls used to describe Visual Basic language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbParameterInfo.CreateListMember">
+            <summary>
+            Initializes a new instance of the <c>VbListMember</c> class with default settings.
+            </summary>
+            <returns><c>IListMember</c> that represents this new instance.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.JsParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified J# code text.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.CsParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified C# code text.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.NetSyntaxParser">
+            <summary>
+            Represents properties and methods to perform syntax analysis of the text intended to use for NET. family of languages.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>NetSyntaxParser</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.SmartFormatLine(System.Int32,System.String,System.Int16[],QWhale.Syntax.ITextUndoList)">
+            <summary>
+            Formats line according to the parser rules.
+            </summary>
+            <param name="index">Specifies index of line to format.</param>
+            <param name="text">specifies string representation of the line</param>
+            <param name="textData">specifies data containing color information for the given string</param>
+            <param name="operations">List containing insertion or deletion of text fragments</param>
+            <returns>Indentation level at given line.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.CreateRepository">
+            <summary>
+            Initializes a new instance of the <c>ReflectionRepository</c> class with default settings.
+            </summary>
+            <returns><c>ICodeCompletionRepository</c> that represents this new instance.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.GetCompletionType(System.Char)">
+            <summary>
+            Obtains type of code completion window from specifies <c>char</c> parameter.
+            </summary>
+            <param name="ch">Contains char beging typed.</param>
+            <returns><c>CodeCompletionType</c> data of window to popup.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ProcessAutoComplete(System.String,System.Drawing.Point,System.String@)">
+            <summary>
+            Checks whether end-of-block code needs inserting.
+            </summary>
+            <param name="text">Specifies source text.</param>
+            <param name="position">Specifies current position in text.</param>
+            <param name="code">output prameter to return code fragment to be insered</param>
+            <returns>true if autocompletion of end-of-block needed; otherwise false</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.GetXmlComment">
+            <summary>
+            Gets the string that represents start symbols of xml comment.
+            </summary>
+            <returns>Xml comment string.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.CodeCompletion(System.String,System.Int16[],System.Drawing.Point,QWhale.Syntax.CodeCompletionArgs)">
+            <summary>
+            Performs code completion for the specified text representing language element.
+            </summary>
+            <param name="text">Specifies source text.</param>
+            <param name="textData">specifies data containing color information for the given string</param>
+            <param name="position">Specifies current position in text.</param>
+            <param name="e">Contains data for the code completion.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterNamespace(System.String)">
+            <summary>
+            Adds specified namespace to the repository's namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to add.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterNamespace(System.String,System.String)">
+            <summary>
+            Adds specified namespace to the repository's namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to add.</param>
+            <param name="alias">Specifies alias of namespace.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.UnregisterNamespace(System.String)">
+            <summary>
+            Removes specified namespace from the repository's namespace list.
+            </summary>
+            <param name="nspace">Specifies name of namespace to remove.</param>
+            <returns>True if succeed (namespace is present in the namespace list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterObject(System.String,System.Object)">
+            <summary>
+            Adds specified object for code completion to the repository's object list.
+            </summary>
+            <param name="name">Specifies name of the object.</param>
+            <param name="obj">Specifies object to register.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.UnregisterObject(System.String)">
+            <summary>
+            Removes specified object from the repository's object list.
+            </summary>
+            <param name="name">Specifies name of object to remove.</param>
+            <returns>True if succeed (object is present in the object list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterType(System.String,System.Type)">
+            <summary>
+            Adds specified type for code completion to the repository's type list.
+            </summary>
+            <param name="name">Specifies name of the type.</param>
+            <param name="type">Specifies type to register.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterType(System.String,System.Type,System.Boolean)">
+            <summary>
+            Adds specified type for code completion to the repository's type list.
+            </summary>
+            <param name="name">Specifies name of the type.</param>
+            <param name="type">Specifies type to register.</param>
+            <param name="global">Specifies whether the type is global</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.UnregisterType(System.String)">
+            <summary>
+            Removes specified type from the repository's type list.
+            </summary>
+            <param name="name">Specifies name of type to remove.</param>
+            <returns>True if succeed (type is present in the type list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterAssembly(System.Reflection.Assembly)">
+            <summary>
+            Adds specified assembly for code completion to the repository's assembly list.
+            </summary>
+            <param name="assembly">Specifies registered assembly.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterAssembly(System.String)">
+            <summary>
+            Adds specified assembly for code completion to the repository's assembly list.
+            </summary>
+            <param name="name">Specifies name of the assembly.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.UnregisterAssembly(System.Reflection.Assembly,System.Boolean)">
+            <summary>
+            Removes specified assembly from the repository's assembly list.
+            </summary>
+            <param name="assembly">Specifies  assembly to remove.</param>
+            <param name="removeReferences">Indicates whether all types from the specified assembly should be unregistered.</param>
+            <returns>True if succeed (assembly is present in the assembly list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.UnregisterAssembly(System.String,System.Boolean)">
+            <summary>
+            Removes specified assembly from the repository's assembly list.
+            </summary>
+            <param name="name">Specifies name of assembly to remove.</param>
+            <param name="removeReferences">Indicates whether all types from the specified assembly should be unregistered.</param>
+            <returns>True if succeed (assembly is present in the assembly list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterAllAssemblies">
+            <summary>
+            Registers all assemlies from the current application domain.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RegisterDefaultAssemblies">
+            <summary>
+            Registers some most frequently used assemblies.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.GetAutoFormatNode(System.Drawing.Point,System.Boolean,System.Drawing.Point@)">
+            <summary>
+            Obtains block node at specified position.
+            </summary>
+            <param name="position">Position to check-up.</param>
+            <param name="startPt">Retrieves position of block node.</param>
+            <param name="extended">Specifies that search should be extended outside current scope</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.IsDeclaration(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a declaration node (contains declaration of some syntax structure, such as class, namespace and so on).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is declaration node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.IsContentDivider(System.Int32)">
+            <summary>
+            Gets boolean value indicating whether text content is divided at given line.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.SaveState">
+            <summary>
+            Saves current <c>Parser</c> state and position.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.RestoreState(System.Boolean)">
+            <summary>
+            Restores <c>Parser</c> state and position stored by <c>SaveState</c> method.
+            </summary>
+            <param name="restore">Indicates whether <c>Parser</c> should restore it's state to previous position or simply delete information about previously stored state.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.Reset">
+            <summary>
+            Resets <c>NetSyntaxParser</c> to the start position.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ReparseText">
+            <summary>
+            Reparses entire text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ReparseBlock(System.Drawing.Point)">
+            <summary>
+            Reparsers syntax block at specified position.
+            </summary>
+            <param name="position">Specifies position to find syntax block.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ResetOptions">
+            <summary>
+            Resets <c>Options</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ResetCodeCompletionChars">
+            <summary>
+            Resets <c>CodeCompletionChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ResetCodeCompletionStopChars">
+            <summary>
+            Resets <c>CodeCompletionStopChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ResetAutoIndentChars">
+            <summary>
+            Resets <c>AutoIndentChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ShouldSerializeCodeCompletionChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ShouldSerializeCodeCompletionStopChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionStopChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionStopChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.NetSyntaxParser.ShouldSerializeAutoIndentChars">
+            <summary>
+            Indicates whether the <c>AutoIndentChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>AutoIndentChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.Parsers.NetSyntaxParser.CaseSensitive">
+            <summary>
+            Gets or sets a boolean value that indicates whether <c>NetSyntaxParser</c> should perform case-sensitive analysis of its content.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.CreateRepository">
+            <summary>
+            Creates <c>ICodeCompletionRepository</c> to perform code completion functionality for this parser.
+            </summary>
+            <returns><c>ICodeCompletionRepository</c> that is created.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.GetCompletionType(System.Char)">
+            <summary>
+            Obtains type of code completion window from specifies <c>char</c> parameter.
+            </summary>
+            <param name="ch">Contains char beging typed.</param>
+            <returns><c>CodeCompletionType</c> data of window to popup.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.IsCodeCompletionChar(System.Char,System.Byte,System.Int32@)">
+            <summary>
+            Returns boolean value indicating that given character initializes a code completion procedure when typing.
+            </summary>
+            <param name="ch">given character</param>
+            <param name="style">Specifies text style at cursor</param>
+            <param name="interval">Represents the delay, in miliiseconds before displaying code completion window.</param>
+            <returns>true if given character is code completion character; otherwise false</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.GetSingleLineComment">
+            <summary>
+            Gets the string that represents start symbol of single line comment.
+            </summary>
+            <returns>Single line comment string.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.GetXmlComment">
+            <summary>
+            Gets the string that represents start symbols of xml comment.
+            </summary>
+            <returns>Xml comment string.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.ResetCodeCompletionChars">
+            <summary>
+            Resets the <c>CodeCompletionChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.ResetCodeCompletionStopChars">
+            <summary>
+            Resets the <c>CodeCompletionStopChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.ResetAutoIndentChars">
+            <summary>
+            Resets the <c>AutoIndentChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.ResetSmartFormatChars">
+            <summary>
+            Resets the <c>SmartFormatChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.ShouldSerializeCodeCompletionChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.ShouldSerializeCodeCompletionStopChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionStopChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionStopChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.ShouldSerializeSmartFormatChars">
+            <summary>
+            Indicates whether the <c>SmartFormatChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>SmartFormatChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CsParser.ShouldSerializeAutoIndentChars">
+            <summary>
+            Indicates whether the <c>AutoIndentChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>AutoIndentChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JsParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>JsParser</c> with default settings.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.JsLexerToken">
+            <summary>
+            Represents lexical tokens for J# parser.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.DescriptionHelper">
+            <summary>
+            Provides methods to get member's description.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.DescriptionHelper.LoadAssembly(System.Reflection.Assembly)">
+            <summary>
+            Loads content of the specified assembly.
+            </summary>
+            <param name="assembly">Assembly to load.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.DescriptionHelper.UnloadAssembly(System.Reflection.Assembly)">
+            <summary>
+            Removes the specified assembly from the assembly collection.
+            </summary>
+            <param name="assembly">Assembly to unload.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.DescriptionHelper.GetDescription(System.Reflection.ParameterInfo)">
+            <summary>
+            Obtains description of the specified ParameterInfo.
+            </summary>
+            <param name="pinfo">ParameterInfo to evaluate.</param>
+            <returns>String that describes specified ParameterInfo.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.DescriptionHelper.GetDescription(System.Reflection.MemberInfo)">
+            <summary>
+            Obtains description of the specified MemberInfo.
+            </summary>
+            <param name="info">MemberInfo to evaluate.</param>
+            <returns>String that describes specified MemberInfo.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.DescriptionHelper.GetPriority(System.Reflection.MemberInfo)">
+            <summary>
+            Obtains priority of the specified MemberInfo.
+            </summary>
+            <param name="info">MemberInfo to evaluate.</param>
+            <returns>integer value that specifies priority of given MemberInfo.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.DescriptionHelper.SystemAssemblyFolder">
+            <summary>
+            Represents directory information where system assembly stored.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.DescriptionHelper.Enabled">
+            <summary>
+            Gets or sets a boolean value indicating whether <c>DescriptionHelper</c> should obtain descriptions from assemblies.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.CsParameterInfo">
+            <summary>
+            Represents Parameter Info data related to popup window and popup hint controls used to describe C# language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsParameterInfo.CreateListMember">
+            <summary>
+            Initializes a new instance of the <c>CsListMember</c> class with default settings.
+            </summary>
+            <returns><c>IListMember</c> that represents this new instance.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.VbRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality intended to use for Vb Script language. 
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>VbRepository</c> class with specified settings.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbRepository.GetSpecialMemberType(System.String,QWhale.Syntax.ISyntaxNode,System.String@,System.Drawing.Point@,System.Drawing.Point@,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about a member of some language element in special cases.
+            </summary>
+            <param name="text">Text at specified position.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing a current language element.</param>
+            <param name="name">Specifies name of the member to locate.</param>
+            <param name="position">Specifies position of language element.</param>
+            <param name="endPos">Specifies end position of found language element in the code text and updates it if needed.</param>
+            <param name="scope">Retrieves information about search constraints for this language element.</param>
+            <returns>Object represening information about found member.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbRepository.FillMembers(QWhale.Syntax.ISyntaxNode,System.Drawing.Point,QWhale.Syntax.CodeCompletion.IListMembers,System.Object,System.String,QWhale.Syntax.CodeCompletionScope,System.Int32@)">
+            <summary>
+            Fills list members provider with list of its member, providing available choices for the specified language element.
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing current language element.</param>
+            <param name="position">Specifies position of language element in the text.</param>
+            <param name="members">Specifies provider to fill with available members.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies filter used to fill members.</param>
+            <param name="scope">Specifies search constraints.</param>
+            <param name="selIndex">Specifies index of default list member</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbRepository.IsDeclarationNode(QWhale.Syntax.ISyntaxNode@,System.Boolean)">
+            <summary>
+            Indicates whether specified node is a declaration node (contains declaration of some syntax structure, such as class, namespace and so on).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <param name="checkRegions">Indicates that region nodes should be skipped.</param>
+            <returns>True if specified node is declaration node; otherwise false.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.CsListMember">
+            <summary>
+            Implements properties and methods for a particular list member in the data collection of the code completion popups used to describe C# language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsListMember.#ctor">
+            <summary>
+            Initializes a new instance of the <c>CsListMember</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsListMember.#ctor(QWhale.Syntax.CodeCompletion.IListMembers,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <c>CsListMember</c> class with specified owner.
+            <param name="owner"><c>IListMembers</c> owning this instance</param>
+            <param name="useDescription">Boolean value indicating that member should provide detailed description.</param>
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsListMember.GetTemplate(System.Boolean)">
+            <summary>
+            Return member's template.
+            </summary>
+            <param name="compact">Indicates if template is in a compact form.</param>
+            <returns>String value that represents member template.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsListMember.GetParamText(System.Boolean)">
+            <summary>
+            Converts <c>Parameters</c> property to a single string.
+            </summary>
+            <param name="useFormatting">Specifies whether to use html formatting tags</param>
+            <returns>Returns <c>Parameters</c> in the form of comma separated text, framed by parens.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.CsListMember.Description">
+            <summary>
+            Return member's description.
+            </summary>
+            <returns>String value that describes the member.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.VbScriptParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified Visual Basic Script code text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>VbParser</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.RegisterAssembly(System.Reflection.Assembly)">
+            <summary>
+            Adds specified assembly for code completion to the repository's assembly list.
+            </summary>
+            <param name="assembly">Specifies registered assembly.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.RegisterAssembly(System.String)">
+            <summary>
+            Adds specified assembly for code completion to the repository's assembly list.
+            </summary>
+            <param name="name">Specifies name of the assembly.</param>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.UnregisterAssembly(System.Reflection.Assembly,System.Boolean)">
+            <summary>
+            Removes specified assembly from the repository's assembly list.
+            </summary>
+            <param name="assembly">Specifies  assembly to remove.</param>
+            <param name="removeReferences">Indicates whether all types from the specified assembly should be unregistered.</param>
+            <returns>True if succeed (assembly is present in the assembly list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.UnregisterAssembly(System.String,System.Boolean)">
+            <summary>
+            Removes specified assembly from the repository's assembly list.
+            </summary>
+            <param name="name">Specifies name of assembly to remove.</param>
+            <param name="removeReferences">Indicates whether all types from the specified assembly should be unregistered.</param>
+            <returns>True if succeed (assembly is present in the assembly list); otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.NextToken">
+            <summary>
+            Parses text from current position to the next token and updates <c>TokenPos</c>, <c>CurrentPos</c> and <c>TokenString</c> properties.
+            </summary>
+            <returns>Token that corresponds to the next position.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ResetOptions">
+            <summary>
+            Resets <c>Options</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.GetSingleLineComment">
+            <summary>
+            Gets the string that represents start symbol of single line comment.
+            </summary>
+            <returns>Single line comment string.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ReparseText">
+            <summary>
+            Reparses entire text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ProcessAutoComplete(System.String,System.Drawing.Point,System.String@)">
+            <summary>
+            Checks whether end-of-block code needs inserting.
+            </summary>
+            <param name="text">Specifies source text.</param>
+            <param name="position">Specifies current position in text.</param>
+            <param name="code">output prameter to return code fragment to be insered</param>
+            <returns>true if autocompletion of end-of-block needed; otherwise false</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ReparseBlock(System.Drawing.Point)">
+            <summary>
+            Reparsers syntax block at specified position.
+            </summary>
+            <param name="position">Specifies position to find syntax block.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.SmartFormatLine(System.Int32,System.String,System.Int16[],QWhale.Syntax.ITextUndoList)">
+            <summary>
+            Formats line according to the parser rules.
+            </summary>
+            <param name="index">Specifies index of line to format.</param>
+            <param name="text">specifies string representation of the line</param>
+            <param name="textData">specifies data containing color information for the given string</param>
+            <param name="operations">List containing insertion or deletion of text fragments</param>
+            <returns>Indentation level at given line.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.GetCompletionType(System.Char)">
+            <summary>
+            Obtains type of code completion window from specifies <c>char</c> parameter.
+            </summary>
+            <param name="ch">Contains char beging typed.</param>
+            <returns><c>CodeCompletionType</c> data of window to popup.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ReparseBlock(System.Drawing.Point,System.String,QWhale.Syntax.ISyntaxNode@,QWhale.Syntax.CodeCompletionType)">
+            <summary>
+            Reparses syntax block at specified position.
+            </summary>
+            <param name="position">Specifies position to find syntax block.</param>
+            <param name="node">Returns node corresponding to the block being reparsed</param>
+            <param name="completionType">Specifies code completion reason.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.GetAutoFormatNode(System.Drawing.Point,System.Boolean,System.Drawing.Point@)">
+            <summary>
+            Obtains block node at specified position.
+            </summary>
+            <param name="position">Position to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+            <param name="startPt">Retrieves position of block node.</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.IsDeclaration(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a declaration node (contains declaration of some syntax structure, such as class, namespace and so on).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is declaration node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.CreateRepository">
+            <summary>
+            Creates <c>ICodeCompletionRepository</c> to perform code completion functionality for this parser.
+            </summary>
+            <returns><c>ICodeCompletionRepository</c> that is created.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ResetCodeCompletionChars">
+            <summary>
+            Resets <c>CodeCompletionChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ResetCodeCompletionStopChars">
+            <summary>
+            Resets <c>CodeCompletionStopChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ResetAutoIndentChars">
+            <summary>
+            Resets <c>AutoIndentChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ResetSmartFormatChars">
+            <summary>
+            Resets <c>SmartFormatChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ShouldSerializeCodeCompletionChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ShouldSerializeCodeCompletionStopChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionStopChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionStopChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ShouldSerializeSmartFormatChars">
+            <summary>
+            Indicates whether the <c>SmartFormatChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>SmartFormatChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.ShouldSerializeAutoIndentChars">
+            <summary>
+            Indicates whether the <c>AutoIndentChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>AutoIndentChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.SaveState">
+            <summary>
+            Saves current <c>Parser</c> state and position.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbScriptParser.RestoreState(System.Boolean)">
+            <summary>
+            Restores <c>Parser</c> state and position stored by <c>SaveState</c> method.
+            </summary>
+            <param name="restore">Indicates whether <c>Parser</c> should restore it's state to previous position or simply delete information about previously stored state.</param>
+        </member>
+        <member name="P:QWhale.Syntax.Parsers.VbScriptParser.CaseSensitive">
+            <summary>
+            Gets or sets a boolean value that indicates whether <c>VbScriptParser</c> should perform case-sensitive analysis of its content.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.VbScriptLexerToken">
+            <summary>
+            Represents lexical tokens for VB Script parser.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.VbParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified Visual Basic.NET code text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>VbParser</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.NextToken">
+            <summary>
+            Parses text from current position to the next token and updates <c>TokenPos</c>, <c>CurrentPos</c> and <c>TokenString</c> properties.
+            </summary>
+            <returns>Token that corresponds to the next position.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.ResetOptions">
+            <summary>
+            Resets <c>Options</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.GetSingleLineComment">
+            <summary>
+            Gets the string that represents start symbol of single line comment.
+            </summary>
+            <returns>Single line comment string.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.GetXmlComment">
+            <summary>
+            Gets the string that represents start symbols of xml comment.
+            </summary>
+            <returns>Xml comment string.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.GetCompletionType(System.Char)">
+            <summary>
+            Obtains type of code completion window from specifies <c>char</c> parameter.
+            </summary>
+            <param name="ch">Contains char beging typed.</param>
+            <returns><c>CodeCompletionType</c> data of window to popup.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.ReparseBlock(System.Drawing.Point,System.String,QWhale.Syntax.ISyntaxNode@,QWhale.Syntax.CodeCompletionType)">
+            <summary>
+            Reparses syntax block at specified position.
+            </summary>
+            <param name="position">Specifies position to find syntax block.</param>
+            <param name="node">Returns node corresponding to the block being reparsed</param>
+            <param name="completionType">Specifies code completion reason.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.ReparseBlock(System.Drawing.Point)">
+            <summary>
+            Reparsers syntax block at specified position.
+            </summary>
+            <param name="position">Specifies position to find syntax block.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.IsCodeCompletionChar(System.Char,System.Byte,System.Int32@)">
+            <summary>
+            Returns boolean value indicating that given character initializes a code completion procedure when typing.
+            </summary>
+            <param name="ch">given character</param>
+            <param name="style">Specifies text style at cursor</param>
+            <param name="interval">Represents the delay, in miliiseconds before displaying code completion window.</param>
+            <returns>true if given character is code completion character; otherwise false</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.ProcessAutoComplete(System.String,System.Drawing.Point,System.String@)">
+            <summary>
+            Checks whether end-of-block code needs inserting.
+            </summary>
+            <param name="text">Specifies source text.</param>
+            <param name="position">Specifies current position in text.</param>
+            <param name="code">output prameter to return code fragment to be insered</param>
+            <returns>true if autocompletion of end-of-block needed; otherwise false</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.SmartFormatLine(System.Int32,System.String,System.Int16[],QWhale.Syntax.ITextUndoList)">
+            <summary>
+            Formats line according to the parser rules.
+            </summary>
+            <param name="index">Specifies index of line to format.</param>
+            <param name="text">specifies string representation of the line</param>
+            <param name="textData">specifies data containing color information for the given string</param>
+            <param name="operations">List containing insertion or deletion of text fragments</param>
+            <returns>Indentation level at given line.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.ResetSmartFormatChars">
+            <summary>
+            Resets <c>SmartFormatChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.ResetCodeCompletionChars">
+            <summary>
+            Resets the <c>CodeCompletionChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.ShouldSerializeCodeCompletionChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.ShouldSerializeSmartFormatChars">
+            <summary>
+            Indicates whether the <c>SmartFormatChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>SmartFormatChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.VbParser.CreateRepository">
+            <summary>
+            Creates <c>ICodeCompletionRepository</c> to perform code completion functionality for this parser.
+            </summary>
+            <returns><c>ICodeCompletionRepository</c> that is created.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.Parsers.VbParser.CaseSensitive">
+            <summary>
+            Gets or sets a boolean value that indicates whether <c>VbParser</c> should perform case-sensitive analysis of its content.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.VbLexerToken">
+            <summary>
+            Represents lexical tokens for Vb parser.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.NetNodeType">
+            <summary>
+            Defines types of syntax nodes used to create a hierarchical tree view that examines code text as a collection of syntax members.
+            Intendent to use with collection of .NET languages, like C#, J#, and VB.NET
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.None">
+            <summary>
+            Specifies that no flags are in effect.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Unit">
+            <summary>
+            Specifies that syntax node corresponds to entire unit.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.UsingList">
+            <summary>
+            Specifies that syntax node corresponds to the list of external namespaces.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Using">
+            <summary>
+            Specifies that syntax node corresponds to external namespace.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.UsingAlias">
+            <summary>
+            Specifies that syntax node corresponds to user-defined symbol representing a namespace.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Alias">
+            <summary>
+            Specifies that syntax node corresponds to external alias directive.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AliasList">
+            <summary>
+            Specifies that syntax node corresponds to the list of external alias directives.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Namespace">
+            <summary>
+            Specifies that syntax node corresponds to namespace.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Class">
+            <summary>
+            Specifies that syntax node corresponds to class.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Struct">
+            <summary>
+            Specifies that syntax node corresponds to structure.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Interface">
+            <summary>
+            Specifies that syntax node corresponds to interface.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Enum">
+            <summary>
+            Specifies that syntax node corresponds to enumeration.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Module">
+            <summary>
+            Specifies that syntax node corresponds to module.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Field">
+            <summary>
+            Specifies that syntax node corresponds to field.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Constant">
+            <summary>
+            Specifies that syntax node corresponds to constant.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LocalVariable">
+            <summary>
+            Specifies that syntax node corresponds to local variable.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.FixedVariable">
+            <summary>
+            Specifies that syntax node corresponds to fixed variable.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Method">
+            <summary>
+            Specifies that syntax node corresponds to method.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Constructor">
+            <summary>
+            Specifies that syntax node corresponds to constructor.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Destructor">
+            <summary>
+            Specifies that syntax node corresponds to destructor.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Delegate">
+            <summary>
+            Specifies that syntax node corresponds to delegate.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Property">
+            <summary>
+            Specifies that syntax node corresponds to property.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Event">
+            <summary>
+            Specifies that syntax node corresponds to event.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Operator">
+            <summary>
+            Specifies that syntax node corresponds to operator.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.OperatorType">
+            <summary>
+            Specifies that syntax node corresponds to operator type.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Indexer">
+            <summary>
+            Specifies that syntax node corresponds to indexer.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Parameter">
+            <summary>
+            Specifies that syntax node corresponds to parameter.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ParameterList">
+            <summary>
+            Specifies that syntax node corresponds to list of parameters.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Argument">
+            <summary>
+            Specifies that syntax node corresponds to method argument.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ArgumentList">
+            <summary>
+            Specifies that syntax node corresponds to list of arguments.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Attribute">
+            <summary>
+            Specifies that syntax node corresponds to attribute.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AttributeList">
+            <summary>
+            Specifies that syntax node corresponds to list of attributes.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AttributeTarget">
+            <summary>
+            Specifies that syntax node corresponds to target of attribute.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.VariableInitializer">
+            <summary>
+            Specifies that syntax node corresponds to variable initializer.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Name">
+            <summary>
+            Specifies that syntax node corresponds to name (identifier).
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Type">
+            <summary>
+            Specifies that syntax node corresponds to type.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.PropertyAccessor">
+            <summary>
+            Specifies that syntax node corresponds to accessor of property.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.EventAccessor">
+            <summary>
+            Specifies that syntax node corresponds to accessor of event.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Modifier">
+            <summary>
+            Specifies that syntax node corresponds to access modifier.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ArrayModifier">
+            <summary>
+            Specifies that syntax node corresponds to array modifier.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Region">
+            <summary>
+            Specifies that syntax node corresponds to region.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Define">
+            <summary>
+            Specifies that syntax node corresponds to conditional define
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ParameterModifier">
+            <summary>
+            Specifies that syntax node corresponds to parameter modifier.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.OptionalParameter">
+            <summary>
+            Specifies that syntax node corresponds to default parameter.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ArraySpecifier">
+            <summary>
+            Specifies that syntax attribute corresponds to array specifier.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LocalConst">
+            <summary>
+            Specifies that syntax node corresponds to local constant.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Statement">
+            <summary>
+            Specifies that syntax node corresponds to language statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeList">
+            <summary>
+            Specifies that syntax node corresponds to list of types.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.HandlesList">
+            <summary>
+            Specifies that syntax node corresponds to list of handles (procedure that handles some event).
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ImplementsList">
+            <summary>
+            Specifies that syntax node corresponds to list of implements (interface implemented in the class).
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ThrowsList">
+            <summary>
+            Specifies that syntax node corresponds to list of exception that can be handled by a method.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Comment">
+            <summary>
+            Specifies that syntax node corresponds to comment.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeParameter">
+            <summary>
+            Specifies that syntax node corresponds to generic type.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeParameterList">
+            <summary>
+            Specifies that syntax node corresponds to list of generic type.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeParameterConstraint">
+            <summary>
+            Specifies that syntax node corresponds to parameter constraint.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeParameterConstraintsClauseList">
+            <summary>
+            Specifies that syntax node corresponds to list of parameter constraints.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeParameterConstraintsClause">
+            <summary>
+            Specifies that syntax node corresponds to parameter constraint clause.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.XmlComment">
+            <summary>
+            Specifies that syntax node corresponds to xml comment.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.XmlUnit">
+            <summary>
+            Specifies that syntax node corresponds to xml unit.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.XmlTag">
+            <summary>
+            Specifies that syntax node corresponds to xml open tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.XmlCloseTag">
+            <summary>
+            Specifies that syntax node corresponds to xml close tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.XmlParameter">
+            <summary>
+            Specifies that syntax node corresponds to xml parameter.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.XmlParameterList">
+            <summary>
+            Specifies that syntax node corresponds to list of xml parameters.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.XmlBody">
+            <summary>
+            Specifies that syntax node corresponds to xml body.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LocalConstantDeclarationStatement">
+            <summary>
+            Specifies that syntax node corresponds to declaration of local constant.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.FixedDeclarationStatement">
+            <summary>
+            Specifies that syntax node corresponds to declaration of fixed variable.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.IfStatement">
+            <summary>
+            Specifies that syntax node corresponds to "if" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ElseStatement">
+            <summary>
+            Specifies that syntax node corresponds to "else" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SwitchStatement">
+            <summary>
+            Specifies that syntax node corresponds to "switch" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SwitchSectionStatement">
+            <summary>
+            Specifies that syntax node corresponds to "switch" section statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SwitchLabelStatement">
+            <summary>
+            Specifies that syntax node corresponds to "switch" label statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.WhileStatement">
+            <summary>
+            Specifies that syntax node corresponds to "while" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.DoStatement">
+            <summary>
+            Specifies that syntax node corresponds to "do" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.DoWhileStatement">
+            <summary>
+            Specifies that syntax node corresponds to "do while" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ForStatement">
+            <summary>
+            Specifies that syntax node corresponds to "for" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ForConditionStatement">
+            <summary>
+            Specifies that syntax node corresponds to "for" condition statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ForInitializerStatement">
+            <summary>
+            Specifies that syntax node corresponds to "for" initializer statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ForIteratorStatement">
+            <summary>
+            Specifies that syntax node corresponds to "for" iterator statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ForEachStatement">
+            <summary>
+            Specifies that syntax node corresponds to "for each" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ForEachInitializerStatement">
+            <summary>
+            Specifies that syntax node corresponds to "for each" initializer statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ForVarControlStatement">
+            <summary>
+            Specifies that syntax node corresponds to "for" var control statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ForVarControlRestStatement">
+            <summary>
+            Specifies that syntax node corresponds to "for" var control rest statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.VariableDeclaratorsRestStatement">
+            <summary>
+            Specifies that syntax node corresponds to variable declarators rest statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Annotation">
+            <summary>
+            Specifies that syntax node corresponds to "Annotation".
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ElementValuePair">
+            <summary>
+            Specifies that syntax node corresponds to "Element Value Pair".
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AssertStatement">
+            <summary>
+            Specifies that syntax node corresponds to "assert" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SynchronizedStatement">
+            <summary>
+            Specifies that syntax node corresponds to "synchronized" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AsmStatement">
+            <summary>
+            Specifies that syntax node corresponds to "asm" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.VariableModifier">
+            <summary>
+            Specifies that syntax node corresponds to variable modifier.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.VariableModifierList">
+            <summary>
+            Specifies that syntax node corresponds to list of variable modifiers.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.VariableDeclaratorsRest">
+            <summary>
+            Specifies that syntax node corresponds to list of variable declarator rest.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.BreakStatement">
+            <summary>
+            Specifies that syntax node corresponds to "break" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ContinueStatement">
+            <summary>
+            Specifies that syntax node corresponds to "continue" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.GotoStatement">
+            <summary>
+            Specifies that syntax node corresponds to "goto" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ReturnStatement">
+            <summary>
+            Specifies that syntax node corresponds to "return" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ThrowStatement">
+            <summary>
+            Specifies that syntax node corresponds to "throw" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TryStatement">
+            <summary>
+            Specifies that syntax node corresponds to "try" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CatchStatement">
+            <summary>
+            Specifies that syntax node corresponds to "catch" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.FinallyStatement">
+            <summary>
+            Specifies that syntax node corresponds to "finally" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CheckedStatement">
+            <summary>
+            Specifies that syntax node corresponds to "checked" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.UncheckedStatement">
+            <summary>
+            Specifies that syntax node corresponds to "unchecked" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.UnsafeStatement">
+            <summary>
+            Specifies that syntax node corresponds to "unsafe" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LockStatement">
+            <summary>
+            Specifies that syntax node corresponds to "lock" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.UsingStatement">
+            <summary>
+            Specifies that syntax node corresponds to "using" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.FixedStatement">
+            <summary>
+            Specifies that syntax node corresponds to "fixed" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LabeledStatement">
+            <summary>
+            Specifies that syntax node corresponds to "labeled" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.BlockStatement">
+            <summary>
+            Specifies that syntax node corresponds to "block" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ExpressionStatement">
+            <summary>
+            Specifies that syntax node corresponds to expression statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.YieldStatement">
+            <summary>
+            Specifies that syntax node corresponds to "yield" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Assignment">
+            <summary>
+            Specifies attribute for assignment expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AddHandlerStatement">
+            <summary>
+            Specifies that syntax node corresponds to "add handler" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CallStatement">
+            <summary>
+            Specifies that syntax node corresponds to "call" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CaseStatement">
+            <summary>
+            Specifies that syntax node corresponds to "case" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CaseElseStatement">
+            <summary>
+            Specifies that syntax node corresponds to "case else" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ElseIfStatement">
+            <summary>
+            Specifies that syntax node corresponds to "else if" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.EndStatement">
+            <summary>
+            Specifies that syntax node corresponds to "end" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.EraseStatement">
+            <summary>
+            Specifies that syntax node corresponds to "erase" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ErrorStatement">
+            <summary>
+            Specifies that syntax node corresponds to "error" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ExitStatement">
+            <summary>
+            Specifies that syntax node corresponds to "exit" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.MidAssignmentStatement">
+            <summary>
+            Specifies that syntax node corresponds to "mid assignment" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.OnErrorStatement">
+            <summary>
+            Specifies that syntax node corresponds to "on error" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.RaiseEventStatement">
+            <summary>
+            Specifies that syntax node corresponds to "raise event" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.RedimStatement">
+            <summary>
+            Specifies that syntax node corresponds to "redim" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.RemoveHandlerStatement">
+            <summary>
+            Specifies that syntax node corresponds to "remove handler" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ResumeStatement">
+            <summary>
+            Specifies that syntax node corresponds to "resume" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SelectStatement">
+            <summary>
+            Specifies that syntax node corresponds to "select" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.StopStatement">
+            <summary>
+            Specifies that syntax node corresponds to "stop" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SyncLockStatement">
+            <summary>
+            Specifies that syntax node corresponds to "synclock" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.WithStatement">
+            <summary>
+            Specifies that syntax node corresponds to "with" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.WithStatementMember">
+            <summary>
+            Specifies that syntax node corresponds to with member.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.EmptyStatement">
+            <summary>
+            Specifies that syntax node corresponds to "empty" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ExpressionList">
+            <summary>
+            Specifies that syntax node corresponds to expression list.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Expression">
+            <summary>
+            Specifies that syntax node corresponds to expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ConditionalExpression">
+            <summary>
+            Specifies that syntax node corresponds to "conditional" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AssignmentExpression">
+            <summary>
+            Specifies that syntax node corresponds to "assignment" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ConditionalOrExpression">
+            <summary>
+            Specifies that syntax node corresponds to "conditional or" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ConditionalAndExpression">
+            <summary>
+            Specifies that syntax node corresponds to "conditional and" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.InclusiveOrExpression">
+            <summary>
+            Specifies that syntax node corresponds to "inclusive or" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ExclusiveOrExpression">
+            <summary>
+            Specifies that syntax node corresponds to "exclusive or" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AndExpression">
+            <summary>
+            Specifies that syntax node corresponds to "and" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.NotExpression">
+            <summary>
+            Specifies that syntax node corresponds to "not" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.EqualityExpression">
+            <summary>
+            Specifies that syntax node corresponds to "equality" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.RelationalExpression">
+            <summary>
+            Specifies that syntax node corresponds to "relation" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AsIsExpression">
+            <summary>
+            Specifies that syntax node corresponds to "as is" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ShiftExpression">
+            <summary>
+            Specifies that syntax node corresponds to "shift" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AdditiveExpression">
+            <summary>
+            Specifies that syntax node corresponds to "additive" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.MultiplicativeExpression">
+            <summary>
+            Specifies that syntax node corresponds to "multiplicative" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.PrefixedUnaryExpression">
+            <summary>
+            Specifies that syntax node corresponds to "prefixed unary" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.UnaryExpression">
+            <summary>
+            Specifies that syntax node corresponds to "unary" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CastExpression">
+            <summary>
+            Specifies that syntax node corresponds to "cast" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CastInvocationExpression">
+            <summary>
+            Specifies that syntax node corresponds to "cast invocation" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CastInvocationTargetExpression">
+            <summary>
+            Specifies that syntax node corresponds to "cast invocation target" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CastTargetExpression">
+            <summary>
+            Specifies that syntax node corresponds to "cast target" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.PrimaryExpression">
+            <summary>
+            Specifies that syntax node corresponds to "primary" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ArrayCreationExpression">
+            <summary>
+            Specifies that syntax node corresponds to "array creation" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ObjectCreationExpression">
+            <summary>
+            Specifies that syntax node corresponds to "object creation" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ArrayInitializerExpression">
+            <summary>
+            Specifies that syntax node corresponds to "array initializer" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.BaseAccessExpression">
+            <summary>
+            Specifies that syntax node corresponds to "base access" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ThisAccessExpression">
+            <summary>
+            Specifies that syntax node corresponds to "this access" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.MemberAccessExpression">
+            <summary>
+            Specifies that syntax node corresponds to "member access" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.NamespaceAliasExpression">
+            <summary>
+            Specifies that syntax node corresponds to "namespace alias" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.PointerMemberAccessExpression">
+            <summary>
+            Specifies that syntax node corresponds to "pointer member access" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ElementAccessExpression">
+            <summary>
+            Specifies that syntax node corresponds to "element access" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.InvocationExpression">
+            <summary>
+            Specifies that syntax node corresponds to "invocation" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.CheckedExpression">
+            <summary>
+            Specifies that syntax node corresponds to "checked" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.UncheckedExpression">
+            <summary>
+            Specifies that syntax node corresponds to "unchecked" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeofExpression">
+            <summary>
+            Specifies that syntax node corresponds to "typeof" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SizeofExpression">
+            <summary>
+            Specifies that syntax node corresponds to "sizeof" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ParenthesizedExpression">
+            <summary>
+            Specifies that syntax node corresponds to "parenthesized" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.PostIncrementExpression">
+            <summary>
+            Specifies that syntax node corresponds to "post increment" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.PostDecrementExpression">
+            <summary>
+            Specifies that syntax node corresponds to "post decrement" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.DefaultExpression">
+            <summary>
+            Specifies that syntax node corresponds to "default" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.GenericExpression">
+            <summary>
+            Specifies that syntax node corresponds to "generic" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AnonymousMethodExpression">
+            <summary>
+            Specifies that syntax node corresponds to "anonymous method" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.NullCoalescingExpression">
+            <summary>
+            Specifies that syntax node corresponds to "null coalescing" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ImplicitVariable">
+            <summary>
+            Specifies that syntax node corresponds to implicit variable declaration.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.VariableReference">
+            <summary>
+            Specifies that syntax attribute corresponds to implicit variable type reference.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LambdaExpression">
+            <summary>
+            Specifies that syntax node corresponds to "lambda" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LambdaParameter">
+            <summary>
+            Specifies that syntax node corresponds to "lambda" parameter.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LambdaParameterList">
+            <summary>
+            Specifies that syntax node corresponds to "lambda" parameter list.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ObjectInitializer">
+            <summary>
+            Specifies that syntax node corresponds to object or collection initalizer expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AnonymousTypeInitializer">
+            <summary>
+            Specifies that syntax node corresponds to anonymus type initalizer expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.QueryExpression">
+            <summary>
+            Specifies that syntax node corresponds to "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.FromClause">
+            <summary>
+            Specifies that syntax node corresponds to from clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.JoinClauseList">
+            <summary>
+            Specifies that syntax node corresponds to join clause list of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.JoinClause">
+            <summary>
+            Specifies that syntax node corresponds to join clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.LetClause">
+            <summary>
+            Specifies that syntax node corresponds to let clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.WhereClause">
+            <summary>
+            Specifies that syntax node corresponds to where clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.GroupClause">
+            <summary>
+            Specifies that syntax node corresponds to group by clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.OrderByClause">
+            <summary>
+            Specifies that syntax node corresponds to order by clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SelectClause">
+            <summary>
+            Specifies that syntax node corresponds to select clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.QueryContinuation">
+            <summary>
+            Specifies that syntax node corresponds to query continuation clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.OrderingDirection">
+            <summary>
+            Specifies that syntax node corresponds to ascending or descending attribute of order clause of "query" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.AddressofExpression">
+            <summary>
+            Specifies that syntax node corresponds to "addressof" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.GetTypeExpression">
+            <summary>
+            Specifies that syntax node corresponds to "gettype" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.OptionStatement">
+            <summary>
+            Specifies that syntax node corresponds to Option statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.EqualityOrAssignmentExpression">
+            <summary>
+            Specifies that syntax node corresponds to equality or assignment expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Extern">
+            <summary>
+            Specifies that syntax node corresponds extern
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.EnumBody">
+            <summary>
+            Specifies that syntax node corresponds to enum body.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeDeclaration">
+            <summary>
+            Specifies that syntax node corresponds to type declaration
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.DeleteExpression">
+            <summary>
+            Specifies that syntax node corresponds to "delete" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.InstanceOfExpression">
+            <summary>
+            Specifies that syntax node corresponds to "instanceof" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.PrototypeExpression">
+            <summary>
+            Specifies that syntax node corresponds to "function prototype" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeExpression">
+            <summary>
+            Specifies that syntax node corresponds to "type definition" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.RegularExpression">
+            <summary>
+            Specifies that syntax node corresponds to "regular" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.TypeModifier">
+            <summary>
+            Specifies that syntax attribute corresponds to type reference.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Execute">
+            <summary>
+            Specifies that syntax node corresponds to "Execute" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ExecuteGlobal">
+            <summary>
+            Specifies that syntax node corresponds to "ExecuteGlobal" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.Randomize">
+            <summary>
+            Specifies that syntax node corresponds to "Randomize" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.SetStatement">
+            <summary>
+            Specifies that syntax node corresponds to "Set" statement.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.ImpExpression">
+            <summary>
+            Specifies that syntax node corresponds to "Imp" expression.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.NetNodeType.FunctionPointer">
+            <summary>
+            Specifies that syntax node corresponds to Function Pointer.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.XmlCommentType">
+            <summary>
+            Definex types of xml comment elements.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.C">
+            <summary>
+            Specifies "code" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Para">
+            <summary>
+            Specifies "paragraf" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.See">
+            <summary>
+            Specifies "see" (link to another code element in the text) tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Code">
+            <summary>
+            Specifies "code" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Param">
+            <summary>
+            Specifies "parameter" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Seealso">
+            <summary>
+            Specifies "see also" (link to another element in the See Also section) tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Example">
+            <summary>
+            Specifies example tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Paramref">
+            <summary>
+            Specifies "parameter reference" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Summary">
+            <summary>
+            Specifies "summary" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Exception">
+            <summary>
+            Specifies "exception" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Permission">
+            <summary>
+            Specifies "permission" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Name">
+            <summary>
+            Specifies "name" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Value">
+            <summary>
+            Specifies "value" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Include">
+            <summary>
+            Specifies "include" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Remarks">
+            <summary>
+            Specifies "remarks" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.List">
+            <summary>
+            Specifies "list" tag.
+            </summary>
+        </member>
+        <member name="F:QWhale.Syntax.CodeCompletion.XmlCommentType.Returns">
+            <summary>
+            Specifies "returns" tag.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.NetNamespace">
+            <summary>
+            Represents a .NET namespace.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.INetNamespace">
+            <summary>
+            Represents a .NET namespace.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.INetNamespace.GetName">
+            <summary>
+            When implemented by a class, gets name or alias of the namespace.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.INetNamespace.Namespace">
+            <summary>
+            When implemented by a class, gets or sets name of the namespace.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.INetNamespace.Alias">
+            <summary>
+            When implemented by a class, gets or sets alias of the namespace.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.INetNamespace.System">
+            <summary>
+            Reserwed for internal use.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.INetNamespace.UserData">
+            <summary>
+            Reserwed for internal use.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetNamespace.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <c>NetNamespace</c> with specified parameters.
+            </summary>
+            <param name="nspace">Specifies namespace name.</param>
+            <param name="system">Specifies namespace System property.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetNamespace.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <c>NetNamespace</c> with specified parameters.
+            </summary>
+            <param name="nspace">Specifies namespace name.</param>
+            <param name="system">Specifies namespace System property.</param>
+            /// <param name="alias">Specifies namespace Alias property.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.NetNamespace.GetName">
+            <summary>
+            Gets name or alias of the namespace.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NetNamespace.Namespace">
+            <summary>
+            Gets or sets name of the namespace.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NetNamespace.Alias">
+            <summary>
+            Gets or sets alias of the namespace.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NetNamespace.System">
+            <summary>
+            Reserwed for internal use.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.NetNamespace.UserData">
+            <summary>
+            Reserwed for internal use.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.JavaScriptRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality intended to use for Java Script language.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.JavaScriptRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>JavaScriptRepository</c> class with specified settings.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.SyntaxParserConsts">
+            <summary>
+            Contains default constants related to lexical and syntax analyzers.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.JsParameterInfo">
+            <summary>
+            Represents Parameter Info data related to popup window and popup hint controls used to describe JScript language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.JsParameterInfo.CreateListMember">
+            <summary>
+            Initializes a new instance of the <c>CsListMember</c> class with default settings.
+            </summary>
+            <returns><c>IListMember</c> that represents this new instance.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.CsLexerToken">
+            <summary>
+            Represents lexical tokens for C# parser.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.XmlCommentParser">
+            <summary>
+            Represents properties and methods to perform syntax analysis of specified xml code text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.XmlCommentParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>XmlCommentParser</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.XmlCommentParser.Reset">
+            <summary>
+            Resets <c>XmlCommentParser</c> to the start position.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.JsListMembers">
+            <summary>
+            Represents data collection related to popup list box controls used to describe JScript language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.JsListMembers.CreateListMember">
+            <summary>
+            Initializes a new instance of the <c>CsListMember</c> class with default settings.
+            </summary>
+            <returns><c>IListMember</c> that represents this new instance.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.JScriptNETParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified Java Script.NET code text.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.JavaScriptParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified Java Script code text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>JavaScriptParser</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ReparseBlock(System.Drawing.Point)">
+            <summary>
+            Reparsers syntax block at specified position.
+            </summary>
+            <param name="position">Specifies position to find syntax block.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ResetOptions">
+            <summary>
+            Resets <c>Options</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ReparseText">
+            <summary>
+            Reparses entire text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.SmartFormatLine(System.Int32,System.String,System.Int16[],QWhale.Syntax.ITextUndoList)">
+            <summary>
+            Formats line according to the parser rules.
+            </summary>
+            <param name="index">Specifies index of line to format.</param>
+            <param name="text">specifies string representation of the line</param>
+            <param name="textData">specifies data containing color information for the given string</param>
+            <param name="operations">List containing insertion or deletion of text fragments</param>
+            <returns>Indentation level at given line.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.GetCompletionType(System.Char)">
+            <summary>
+            Obtains type of code completion window from specifies <c>char</c> parameter.
+            </summary>
+            <param name="ch">Contains char beging typed.</param>
+            <returns><c>CodeCompletionType</c> data of window to popup.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.GetAutoFormatNode(System.Drawing.Point,System.Boolean,System.Drawing.Point@)">
+            <summary>
+            Obtains block node at specified position.
+            </summary>
+            <param name="position">Position to check-up.</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+            <param name="startPt">Retrieves position of block node.</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.IsDeclaration(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node represents declaration elements.
+            </summary>
+            <param name="node">Specifies node to check-up.</param>
+            <returns>True if specified node represents declaration element; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.CreateRepository">
+            <summary>
+            Creates <c>ICodeCompletionRepository</c> to perform code completion functionality for this parser.
+            </summary>
+            <returns><c>ICodeCompletionRepository</c> that is created.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ResetCodeCompletionChars">
+            <summary>
+            Resets the <c>CodeCompletionChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ResetCodeCompletionStopChars">
+            <summary>
+            Resets the <c>CodeCompletionStopChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ResetAutoIndentChars">
+            <summary>
+            Resets the <c>AutoIndentChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ResetSmartFormatChars">
+            <summary>
+            Resets the <c>SmartFormatChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ShouldSerializeCodeCompletionChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ShouldSerializeCodeCompletionStopChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionStopChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionStopChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ShouldSerializeSmartFormatChars">
+            <summary>
+            Indicates whether the <c>SmartFormatChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>SmartFormatChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JavaScriptParser.ShouldSerializeAutoIndentChars">
+            <summary>
+            Indicates whether the <c>AutoIndentChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>AutoIndentChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.Parsers.JavaScriptParser.CaseSensitive">
+            <summary>
+            Gets or sets a boolean value that indicates whether <c>JavaScriptParser</c> should perform case-sensitive analysis of its content.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JScriptNETParser.CreateRepository">
+            <summary>
+            Creates <c>ICodeCompletionRepository</c> to perform code completion functionality for this parser.
+            </summary>
+            <returns><c>ICodeCompletionRepository</c> that is created.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JScriptNETParser.ReparseBlock(System.Drawing.Point)">
+            <summary>
+            Reparses syntax block at specified position.
+            </summary>
+            <param name="position">Specifies position to find syntax block.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.JScriptNETParser.GetCompletionType(System.Char)">
+            <summary>
+            Obtains type of code completion window from specifies <c>char</c> parameter.
+            </summary>
+            <param name="ch">Contains char beging typed.</param>
+            <returns><c>CodeCompletionType</c> data of window to popup.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.JsListMember">
+            <summary>
+            Implements properties and methods for a particular list member in the data collection of the code completion popups used to describe C# language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.JsListMember.#ctor">
+            <summary>
+            Initializes a new instance of the <c>JsListMember</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.JsListMember.#ctor(QWhale.Syntax.CodeCompletion.IListMembers,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <c>JsListMember</c> class with specified owner.
+            </summary>
+            <param name="owner"><c>IListMembers</c> owning this instance</param>
+            <param name="useDescription">Boolean value indicating that member should provide detailed description.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.JsListMember.GetParamText(System.Boolean)">
+            <summary>
+            Converts <c>Parameters</c> property to a single string.
+            </summary>
+            <param name="useFormatting">Specifies whether to use html formatting tags</param>
+            <returns>Returns <c>Parameters</c> in the form of comma separated text, framed by parens.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.JsListMember.Description">
+            <summary>
+            Return member's description.
+            </summary>
+            <returns>String value that describes the member.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.VbListMember">
+            <summary>
+            Implements properties and methods for a particular list member in the data collection of the code completion popups used to describe Visual Basic language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbListMember.#ctor">
+            <summary>
+            Initializes a new instance of the <c>VbListMember</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbListMember.#ctor(QWhale.Syntax.CodeCompletion.IListMembers,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <c>VbListMember</c> class with specified owner.
+            </summary>
+            <param name="owner"><c>IListMembers</c> owning this instance</param>
+            <param name="useDescription">Boolean value indicating that member should provide detailed description.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbListMember.GetTemplate(System.Boolean)">
+            <summary>
+            Return member's template.
+            </summary>
+            <param name="compact">Indicates if template is in a compact form.</param>
+            <returns>String value that represents member template.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbListMember.GetParamText(System.Boolean)">
+            <summary>
+            Converts <c>Parameters</c> property to a single string.
+            </summary>
+            <param name="useFormatting">Specifies whether to use html formatting tags</param>
+            <returns>Returns <c>Parameters</c> in the form of comma separated text, framed by parens.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.VbListMember.Description">
+            <summary>
+            Return member's description.
+            </summary>
+            <returns>String value that describes the member.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.JavaScriptLexerToken">
+            <summary>
+            Represents lexical tokens for Java Script parser.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.CsListMembers">
+            <summary>
+            Represents data collection related to popup list box controls used to describe C# language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.CsListMembers.CreateListMember">
+            <summary>
+            Initializes a new instance of the <c>CsListMember</c> class with default settings.
+            </summary>
+            <returns><c>IListMember</c> that represents this new instance.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.VbListMembers">
+            <summary>
+            Represents data collection related to popup list box controls used to describe Visual Basic language code.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.VbListMembers.CreateListMember">
+            <summary>
+            Initializes a new instance of the <c>VbListMember</c> class with default settings.
+            </summary>
+            <returns><c>IListMember</c> that represents this new instance.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.CParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified Ansi-C code text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ParseText(System.Int32,System.Int32,System.String,System.Int16[]@)">
+            <summary>
+            Performs lexical analysis of given text.
+            </summary>
+            <param name="state">Specifies start lexical state.</param>
+            <param name="line">Specifies current line within the text.</param>
+            <param name="str">Text to analyse.</param>
+            <param name="colorData">Receives color data representing lexical information of the given text.</param>
+            <returns>Final lexical state.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ParseText(System.Int32,System.Int32,System.String,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Performs lexical analysis of given text.
+            </summary>
+            <param name="state">Specifies start lexical state.</param>
+            <param name="line">Specifies current line within the text.</param>
+            <param name="str">Text to analyse.</param>
+            <param name="pos">Starting position.</param>
+            <param name="len">Integer value to receive length of parsed element.</param>
+            <param name="style">Retrieves style of text being parsed.</param>
+            <returns>Final lexical state.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.SaveState">
+            <summary>
+            Saves current <c>Parser</c> state and position.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.RestoreState(System.Boolean)">
+            <summary>
+            Restores <c>Parser</c> state and position stored by <c>SaveState</c> method.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ReparseText">
+            <summary>
+            Resets <c>Parser</c> to the start position.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ReparseBlock(System.Drawing.Point)">
+            <summary>
+            Reparses syntax block at specified position.
+            </summary>
+            <param name="position">Specifies position to find syntax block.</param>
+            <returns>True if succeed; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.CreateRepository">
+            <summary>
+            Creates <c>ICodeCompletionRepository</c> to perform code completion functionality for this parser.
+            </summary>
+            <returns><c>ICodeCompletionRepository</c> that is created.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.GetAutoFormatNode(System.Drawing.Point,System.Boolean,System.Drawing.Point@)">
+            <summary>
+            Obtains block node at specified position.
+            </summary>
+            <param name="position">Position to check-up.</param>
+            <param name="startPt">Retrieves position of block node.</param>
+            <param name="extended">Specifies that search should be extended outside current scope</param>
+            <returns><c>ISyntaxNode</c> node representing block statement.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.IsDeclaration(QWhale.Syntax.ISyntaxNode)">
+            <summary>
+            Indicates whether specified node is a declaration node (contains declaration of some syntax structure, such as class, namespace and so on).
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> to check-up.</param>
+            <returns>True if specified node is declaration node; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.GetCompletionType(System.Char)">
+            <summary>
+            Obtains type of code completion window from specifies <c>char</c> parameter.
+            </summary>
+            <param name="ch">Contains char beging typed.</param>
+            <returns><c>CodeCompletionType</c> data of window to popup.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ResetOptions">
+            <summary>
+            Resets <c>Options</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ResetCodeCompletionChars">
+            <summary>
+            Resets the <c>CodeCompletionChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ResetCodeCompletionStopChars">
+            <summary>
+            Resets the <c>CodeCompletionStopChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ResetAutoIndentChars">
+            <summary>
+            Resets the <c>AutoIndentChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ResetSmartFormatChars">
+            <summary>
+            Resets the <c>SmartFormatChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ShouldSerializeCodeCompletionChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ShouldSerializeCodeCompletionStopChars">
+            <summary>
+            Indicates whether the <c>CodeCompletionStopChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>CodeCompletionStopChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ShouldSerializeSmartFormatChars">
+            <summary>
+            Indicates whether the <c>SmartFormatChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>SmartFormatChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.ShouldSerializeAutoIndentChars">
+            <summary>
+            Indicates whether the <c>AutoIndentChars</c> property should be persisted.
+            </summary>
+            <returns>True if <c>AutoIndentChars</c> differs from its default value; otherwise false.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.CParser.SmartFormatLine(System.Int32,System.String,System.Int16[],QWhale.Syntax.ITextUndoList)">
+            <summary>
+            Formats line according to the parser rules.
+            </summary>
+            <param name="index">Specifies index of line to format.</param>
+            <param name="text">specifies string representation of the line</param>
+            <param name="textData">specifies data containing color information for the given string</param>
+            <param name="operations">List containing insertion or deletion of text fragments</param>
+            <returns>Indentation level at given line.</returns>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.CLexerToken">
+            <summary>
+            Represents lexical tokens for C parser.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.SqlRepository">
+            <summary>
+            Represents properties and methods to perform code completion functionality intended to use for SQL language. 
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.SqlRepository.#ctor(System.Boolean,QWhale.Syntax.ISyntaxTree)">
+            <summary>
+            Initializes a new instance of the <c>SqlRepository</c> class with specified settings.
+            </summary>
+            <param name="caseSensitive">Specifies CaseSensitive property of this new instance.</param>
+            <param name="syntaxTree">Specifies SyntaxTree property of this new instance.</param>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.SqlRepository.Finalize">
+            <summary>
+            Destroys the instance of the <c>SqlRepository</c> class.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.SqlRepository.GetMemberType(System.String,QWhale.Syntax.ISyntaxNode,System.String@,System.Drawing.Point@,System.Drawing.Point@,QWhale.Syntax.CodeCompletionScope@)">
+            <summary>
+            Obtains information about some language element to perform code completion related operations.
+            </summary>
+            <param name="text">Specifies source text.</param>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing current language element.</param>
+            <param name="name">Retrieves name of found language element.</param>
+            <param name="position">Specifies position of found language element in the code text and updates it if needed.</param>
+            <param name="endPos">Specifies end position of found language element in the code text and updates it if needed.</param>
+            <param name="scope">Retrieves information about search constraints for the language element.</param>
+            <returns>Object representing information about language element to complete.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.SqlRepository.FillMembers(QWhale.Syntax.ISyntaxNode,System.Drawing.Point,QWhale.Syntax.CodeCompletion.IListMembers,System.Object,System.String,QWhale.Syntax.CodeCompletionScope,System.Int32@)">
+            <summary>
+            When implemented by a class, fills list members provider with list of its member, providing available choices for the specified language element.
+            </summary>
+            <param name="node">Specifies <c>ISyntaxNode</c> representing current language element.</param>
+            <param name="position">Specifies position of language element in the text.</param>
+            <param name="members">Specifies provider to fill with available members.</param>
+            <param name="member">Specifies language element.</param>
+            <param name="name">Specifies filter used to fill members.</param>
+            <param name="scope">Specifies search constraints.</param>
+            <param name="selIndex">Specifies index of default list member</param>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.SqlRepository.Tables">
+            <summary>
+            Represents list of tables
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.CodeCompletion.SqlRepository.TableItem">
+            <summary>
+            Represents a particular table.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.SqlRepository.TableItem.#ctor">
+            <summary>
+            Initializes a new instance of the <c>TableItem</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.CodeCompletion.SqlRepository.TableItem.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <c>TableItem</c> class with specified table name.
+            </summary>
+            <param name="tableName">Table's name.</param>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.SqlRepository.TableItem.TableName">
+            <summary>
+            Gets or sets table's name.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.CodeCompletion.SqlRepository.TableItem.Fields">
+            <summary>
+            Represents a collection of table's fields.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.SqlParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified Sql code text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.SqlParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>SqlParser</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.SqlParser.ResetOptions">
+            <summary>
+            Resets <c>Options</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.SqlParser.ReparseText">
+            <summary>
+            Reparses entire text.
+            </summary>
+        </member>
+        <member name="P:QWhale.Syntax.Parsers.SqlParser.CaseSensitive">
+            <summary>
+            Gets or sets a boolean value that indicates whether <c>SqlParser</c> should perform case-sensitive analysis of its content.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.SqlLexerToken">
+            <summary>
+            Represents lexical tokens for Sql parser.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.SqlNodeType">
+            <summary>
+            Defines types of syntax nodes used to create a hierarchical tree view that examines code text as a collection of syntax members.
+            Intendent to use with Sql language.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.MSSQLParser">
+            <summary>
+            Represents class that and perform syntax and lexical analysis of specified Microsoft Sql code text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.MSSQLParser.#ctor">
+            <summary>
+            Initializes a new instance of the <c>MSSQLParser</c> class with default settings.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.MSSQLParser.CreateRepository">
+            <summary>
+            Creates <c>ICodeCompletionRepository</c> to perform code completion functionality for this parser.
+            </summary>
+            <returns><c>ICodeCompletionRepository</c> that is created.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.MSSQLParser.ReparseText">
+            <summary>
+            Reparses entire text.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.MSSQLParser.ResetOptions">
+            <summary>
+            Resets <c>Options</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.MSSQLParser.ResetCodeCompletionChars">
+            <summary>
+            Resets the <c>CodeCompletionChars</c> to the default value.
+            </summary>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.MSSQLParser.GetCompletionType(System.Char)">
+            <summary>
+            Obtains type of code completion window from specifies <c>char</c> parameter.
+            </summary>
+            <param name="ch">Contains char beging typed.</param>
+            <returns><c>CodeCompletionType</c> data of window to popup.</returns>
+        </member>
+        <member name="M:QWhale.Syntax.Parsers.MSSQLParser.GetSingleLineComment">
+            <summary>
+            Gets the string that represents start symbol of single line comment.
+            </summary>
+            <returns>Single line comment string.</returns>
+        </member>
+        <member name="P:QWhale.Syntax.Parsers.MSSQLParser.CaseSensitive">
+            <summary>
+            Gets or sets a boolean value that indicates whether <c>SqlParser</c> should perform case-sensitive analysis of its content.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.MsSqlLexerToken">
+            <summary>
+            Represents lexical tokens for MsSql parser.
+            </summary>
+        </member>
+        <member name="T:QWhale.Syntax.Parsers.MsSqlNodeType">
+            <summary>
+            Defines types of syntax nodes used to create a hierarchical tree view that examines code text as a collection of syntax members.
+            Intendent to use with Sql language.
+            </summary>
+        </member>
+    </members>
+</doc>
