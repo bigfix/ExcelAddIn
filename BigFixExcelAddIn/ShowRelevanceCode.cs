@@ -20,12 +20,10 @@ namespace BigFixExcelConnector
             InitializeComponent();
 
             // Lee Wei 2013-03-25 commented out for testing
-            /*
             Excel.Worksheet hiddenWorksheet = (Excel.Worksheet)(AddinExpress.MSO.ADXAddinModule.CurrentInstance as AddinModule).ExcelApp.Worksheets.get_Item("BigFixExcelConnector");
             Excel.Range relevanceCell = hiddenWorksheet.get_Range("A1", "A1");
             RelevanceWithLWIndent = relevanceCell.Value.ToString().Replace("\\n", "\n");
             syntaxEditBES.Text = RelevanceWithLWIndent;
-            */
 
             syntaxEditBES.Braces.BracesOptions = BracesOptions.Highlight;
             syntaxEditBES.Braces.BackColor = Color.Orange;

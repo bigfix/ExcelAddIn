@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 //
 [assembly: AssemblyTitle("IBM Endpoint Manager Excel Connector")]
-[assembly: AssemblyDescription("Lee Wei (leewei@us.ibm.com)")]
+[assembly: AssemblyDescription("Lee Wei (leewei@leewei.com)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Lee Wei")]
 [assembly: AssemblyProduct("IBM Endpoint Manager Excel Connector")]

@@ -38,6 +38,7 @@
             this.buttonFlatten = new System.Windows.Forms.Button();
             this.buttonIndent = new System.Windows.Forms.Button();
             this.buttonIndentLW = new System.Windows.Forms.Button();
+            this.adxWordControlAdapter1 = new AddinExpress.ToolbarControls.ADXWordControlAdapter(this.components);
             this.SuspendLayout();
             // 
             // syntaxEditBES
@@ -55,6 +56,7 @@
             this.syntaxEditBES.Lexer = this.parserBES;
             this.syntaxEditBES.Location = new System.Drawing.Point(0, 0);
             this.syntaxEditBES.Name = "syntaxEditBES";
+            this.syntaxEditBES.ReadOnly = true;
             this.syntaxEditBES.Selection.Options = ((QWhale.Editor.SelectionOptions)(((((QWhale.Editor.SelectionOptions.OverwriteBlocks | QWhale.Editor.SelectionOptions.SmartFormat) 
             | QWhale.Editor.SelectionOptions.RtfClipboard) 
             | QWhale.Editor.SelectionOptions.ClearOnDrag) 
@@ -183,6 +185,7 @@
         private System.Windows.Forms.ImageList imageListShowCodeWindow;
         private QWhale.Syntax.Parser parserBES;
         private System.Windows.Forms.Button buttonIndentLW;
+        private AddinExpress.ToolbarControls.ADXWordControlAdapter adxWordControlAdapter1;
 
     }
 }

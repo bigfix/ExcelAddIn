@@ -524,7 +524,7 @@ namespace BigFixExcelConnector
             // 
             // AddinModule
             // 
-            this.AddinName = "BigFixExcelConnector";
+            this.AddinName = "IBM Endpoint Manager Excel Connector";
             this.SupportedApps = AddinExpress.MSO.ADXOfficeHostApp.ohaExcel;
             this.AddinInitialize += new AddinExpress.MSO.ADXEvents_EventHandler(this.AddinModule_AddinInitialize);
 
@@ -803,16 +803,15 @@ namespace BigFixExcelConnector
         {
             try
             {
-                // Lee Wei 2013-03-25 commented out the following 2 lines to test Addin Express bug
-                // Excel.Worksheet hiddenWorksheet = (Excel.Worksheet)(AddinExpress.MSO.ADXAddinModule.CurrentInstance as AddinModule).ExcelApp.Worksheets.get_Item("BigFixExcelConnector");
-                // Excel.Range relevanceCell = hiddenWorksheet.get_Range("A1", "A1");
+                Excel.Worksheet hiddenWorksheet = (Excel.Worksheet)(AddinExpress.MSO.ADXAddinModule.CurrentInstance as AddinModule).ExcelApp.Worksheets.get_Item("BigFixExcelConnector");
+                Excel.Range relevanceCell = hiddenWorksheet.get_Range("A1", "A1");
                 ShowRelevanceCode showCodeWin = new ShowRelevanceCode();
                 showCodeWin.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                // MessageBox.Show("There is currently no Relevance statement in the worksheet. Use the Relevance Query Wizard to generate one first.", "No Relevance Statement", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show(ex.Message);
+                MessageBox.Show("There is currently no Relevance statement in the worksheet. Use the Relevance Query Wizard to generate one first.", "No Relevance Statement", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }
@@ -1296,7 +1295,7 @@ namespace BigFixExcelConnector
         {
             // http://www.add-in-express.com/forum/read.php?FID=5&TID=10278
             // The following is set to avoid the Excel: Old format or invalid type library error
-            // System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(ExcelApp.LanguageSettings.get_LanguageID(Office.MsoAppLanguageID.msoLanguageIDUI)); 
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(ExcelApp.LanguageSettings.get_LanguageID(Office.MsoAppLanguageID.msoLanguageIDUI)); 
 
             formWizard = new FormWizard();
             Thread firstThread = new Thread(new ThreadStart(formWizard.cacheSites));

@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:Tivoli_Endpoint_Manager_Excel_Connector_Setup"
+"ProjectName" = "8:IBM_Endpoint_Manager_Excel_Connector_Setup"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -33,14 +33,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_33D7240234D6FF57B8865D3168BFA16D"
-        "OwnerKey" = "8:_E27B35AACF2747DF9747512F3ED74B9D"
+        "MsmKey" = "8:_2D82F6286E3158158F039E3D74460A82"
+        "OwnerKey" = "8:_33D7240234D6FF57B8865D3168BFA16D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_35D901323C6D5CCE07ED91CFD163881F"
-        "OwnerKey" = "8:_33D7240234D6FF57B8865D3168BFA16D"
+        "MsmKey" = "8:_33D7240234D6FF57B8865D3168BFA16D"
+        "OwnerKey" = "8:_E27B35AACF2747DF9747512F3ED74B9D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,6 +94,12 @@
         "Entry"
         {
         "MsmKey" = "8:_72B38664B84A07727FB33948B4C0E7EE"
+        "OwnerKey" = "8:_BB7F9621887D9C756D1D5EE7C22273A9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_72B38664B84A07727FB33948B4C0E7EE"
         "OwnerKey" = "8:_84757302186E324E54714BDA6AD28626"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -130,6 +136,12 @@
         "Entry"
         {
         "MsmKey" = "8:_84757302186E324E54714BDA6AD28626"
+        "OwnerKey" = "8:_BB7F9621887D9C756D1D5EE7C22273A9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_84757302186E324E54714BDA6AD28626"
         "OwnerKey" = "8:_E27B35AACF2747DF9747512F3ED74B9D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -149,6 +161,12 @@
         {
         "MsmKey" = "8:_B997077FE3154468ACF422674BD6E7D3"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BB7F9621887D9C756D1D5EE7C22273A9"
+        "OwnerKey" = "8:_E27B35AACF2747DF9747512F3ED74B9D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -179,12 +197,6 @@
         {
         "MsmKey" = "8:_F06E26C11C20FFF28B1BF498ECDC68CA"
         "OwnerKey" = "8:_E27B35AACF2747DF9747512F3ED74B9D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F1DF51A325ADAD983EC0095B26B77A94"
-        "OwnerKey" = "8:_33D7240234D6FF57B8865D3168BFA16D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -238,6 +250,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BB7F9621887D9C756D1D5EE7C22273A9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C69CFF6D52274F624CB9725367D05370"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -256,6 +274,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F1DF51A325ADAD983EC0095B26B77A94"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_BEE8E1CB916D5F128A83CC7967E6BFF1"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -269,12 +293,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_33D7240234D6FF57B8865D3168BFA16D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F1DF51A325ADAD983EC0095B26B77A94"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -374,7 +392,7 @@
             "Object" = "8:_833CBAC5447042AE997DD6F3E93630EB"
             "FileType" = "3:2"
             "InstallAction" = "3:1"
-            "Arguments" = "8:/Install=BigFixExcelConnector.dll /privileges=admin"
+            "Arguments" = "8:/install=\"BigFixExcelConnector.dll\"  /privileges=user"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
             "Identifier" = "8:_4563B647_A69C_407A_B894_9C8A19D2C15A"
@@ -388,7 +406,7 @@
             "Object" = "8:_833CBAC5447042AE997DD6F3E93630EB"
             "FileType" = "3:2"
             "InstallAction" = "3:4"
-            "Arguments" = "8:/uninstall=BigFixExcelConnector.dll /privileges=admin"
+            "Arguments" = "8:/uninstall=\"BigFixExcelConnector\"  /privileges=user"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
             "Identifier" = "8:_49EA5437_0D07_420A_8629_F7F44CBB7B6A"
@@ -402,7 +420,7 @@
             "Object" = "8:_833CBAC5447042AE997DD6F3E93630EB"
             "FileType" = "3:2"
             "InstallAction" = "3:3"
-            "Arguments" = "8:/uninstall=BigFixExcelConnector.dll /privileges=admin"
+            "Arguments" = "8:/uninstall=\"BigFixExcelConnector.dll\"  /privileges=user"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
             "Identifier" = "8:_F5D5F1D8_29FD_487A_8563_94C96863BC6D"
@@ -476,7 +494,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AddinExpress.ToolbarControls.2005, Version=7.1.4050.2005, Culture=neutral, PublicKeyToken=16211aef6795d6cc, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:AddinExpress.ToolbarControls.2005, Version=7.2.4055.2005, Culture=neutral, PublicKeyToken=16211aef6795d6cc, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_283C401BBAD544C0CD21D23A2383293E"
@@ -503,21 +521,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_33D7240234D6FF57B8865D3168BFA16D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2D82F6286E3158158F039E3D74460A82"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AddinExpress.MSO.2005, Version=7.1.4050.2005, Culture=neutral, PublicKeyToken=4416dd98f0861965, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_33D7240234D6FF57B8865D3168BFA16D"
-                    {
-                    "Name" = "8:AddinExpress.MSO.2005.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:AddinExpress.MSO.2005.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:AddinExpress.MSO.2005.tlb"
+            "TargetName" = "8:AddinExpress.MSO.2005.tlb"
             "Tag" = "8:"
             "Folder" = "8:_D45260DA1FEF42F181C46CEE9AF10CA0"
             "Condition" = "8:"
@@ -534,10 +541,21 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_35D901323C6D5CCE07ED91CFD163881F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_33D7240234D6FF57B8865D3168BFA16D"
             {
-            "SourcePath" = "8:AddinExpress.MSO.2005.tlb"
-            "TargetName" = "8:AddinExpress.MSO.2005.tlb"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:AddinExpress.MSO.2005, Version=7.2.4055.2005, Culture=neutral, PublicKeyToken=4416dd98f0861965, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_33D7240234D6FF57B8865D3168BFA16D"
+                    {
+                    "Name" = "8:AddinExpress.MSO.2005.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:AddinExpress.MSO.2005.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D45260DA1FEF42F181C46CEE9AF10CA0"
             "Condition" = "8:"
@@ -589,7 +607,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Owf.Controls.A1Panel, Version=1.0.4822.37990, Culture=neutral, PublicKeyToken=bef2983f1300af93, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Owf.Controls.A1Panel, Version=1.0.4853.29995, Culture=neutral, PublicKeyToken=bef2983f1300af93, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_5A8E4A598B107B5CCA9EE89B3F35BE50"
@@ -620,7 +638,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:QWhale.Syntax.Schemes, Version=1.54.3460.33691, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:QWhale.Syntax.Schemes, Version=1.56.3880.22522, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_6100D052E1D3D2DC5D28E8E0FDDA5EEE"
@@ -651,7 +669,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:QWhale.Common, Version=1.54.3460.33684, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:QWhale.Common, Version=1.56.3880.22519, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_72B38664B84A07727FB33948B4C0E7EE"
@@ -722,7 +740,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:QWhale.Syntax, Version=1.54.3460.33688, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:QWhale.Syntax, Version=1.56.3880.22520, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_84757302186E324E54714BDA6AD28626"
@@ -800,11 +818,42 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BB7F9621887D9C756D1D5EE7C22273A9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:QWhale.Syntax.Parsers, Version=1.56.3880.22520, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_BB7F9621887D9C756D1D5EE7C22273A9"
+                    {
+                    "Name" = "8:QWhale.Syntax.Parsers.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:QWhale.Syntax.Parsers.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D45260DA1FEF42F181C46CEE9AF10CA0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BEE8E1CB916D5F128A83CC7967E6BFF1"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AddinExpress.XL.2005, Version=7.1.4050.2005, Culture=neutral, PublicKeyToken=e69a7e0f3592d2b8, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:AddinExpress.XL.2005, Version=7.2.4055.2005, Culture=neutral, PublicKeyToken=e69a7e0f3592d2b8, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_BEE8E1CB916D5F128A83CC7967E6BFF1"
@@ -835,7 +884,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:QWhale.Editor, Version=1.54.3460.33694, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:QWhale.Editor, Version=1.56.3880.22521, Culture=neutral, PublicKeyToken=da632fd1713dff10, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C69CFF6D52274F624CB9725367D05370"
@@ -1005,7 +1054,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_D45260DA1FEF42F181C46CEE9AF10CA0"
             {
-            "DefaultLocation" = "8:[AppDataFolder]\\BigFix Enterprise\\[ProductName]"
+            "DefaultLocation" = "8:[AppDataFolder]\\IBM\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -1032,13 +1081,13 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:IBM Endpoint Manager Excel Connector 3.3.3"
         "ProductCode" = "8:{1310D623-2878-47B3-837D-F275D46A6F4C}"
-        "PackageCode" = "8:{1CD8D24C-4790-4940-A9E0-F81F81D2D772}"
+        "PackageCode" = "8:{72036222-C1CA-4D68-9671-18BBA791FD5D}"
         "UpgradeCode" = "8:{BABA5209-A817-4B4A-8225-385E8722F59B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:TRUE"
+        "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:3.3.3"
         "Manufacturer" = "8:Lee Wei"
         "ARPHELPTELEPHONE" = "8:"
@@ -1047,7 +1096,7 @@
         "Subject" = "8:"
         "ARPCONTACT" = "8:Lee Wei"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:IBM Endpoint Manager Connector for Excel using SOAP API"
+        "ARPCOMMENTS" = "8:IBM Endpoint Manager Excel Connector"
         "ARPURLINFOABOUT" = "8:http://www.leewei.com"
         "ARPPRODUCTICON" = "8:_B997077FE3154468ACF422674BD6E7D3"
         "ARPIconIndex" = "3:0"
@@ -1055,7 +1104,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:\"C:\\Program Files (x86)\\Add-in Express\\Add-in Express for .NET\\Bin\\adxpatch.exe\" \"$(BuiltOuputPath)\" /UAC=Off"
+        "PostBuildEvent" = "8:\"C:\\Program Files (x86)\\Add-in Express\\Add-in Express for .NET\\Bin\\adxpatch.exe\" \"$(BuiltOuputPath)\" /UAC=Off /RunActionsAsInvoker=true"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
@@ -1282,7 +1331,7 @@
                             "ContextData" = "8:1;True=1;False=0"
                             "Attributes" = "3:0"
                             "Setting" = "3:0"
-                            "Value" = "3:1"
+                            "Value" = "3:0"
                             "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -1563,7 +1612,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E27B35AACF2747DF9747512F3ED74B9D"
             {
-            "SourcePath" = "8:..\\obj\\Debug\\BigFixExcelConnector.dll"
+            "SourcePath" = "8:..\\BigFixExcelAddIn\\obj\\Debug\\BigFixExcelConnector.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D45260DA1FEF42F181C46CEE9AF10CA0"

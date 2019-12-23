@@ -2512,7 +2512,7 @@ namespace BigFixExcelConnector
                         }
                         else if (dataGridView1.Rows[i].Cells[3].Value.ToString() == "String")
                         {
-                            whoseStr = whoseStr + "(" + dataGridView1.Rows[i].Cells[0].Value.ToString() + " of it as lowercase " + dataGridView1.Rows[i].Cells[1].Value.ToString().ToLower() + " \"" + dataGridView1.Rows[i].Cells[2].Value.ToString().ToLower() + "\")";
+                            whoseStr = whoseStr + "(" + dataGridView1.Rows[i].Cells[0].Value.ToString() + " of it as string as lowercase " + dataGridView1.Rows[i].Cells[1].Value.ToString().ToLower() + " \"" + dataGridView1.Rows[i].Cells[2].Value.ToString().ToLower() + "\")";
                         }
                         else if (dataGridView1.Rows[i].Cells[3].Value.ToString() == "Boolean")
                         {

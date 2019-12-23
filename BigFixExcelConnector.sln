@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigFixExcelConnector", "BigFixExcelAddIn\BigFixExcelConnector.csproj", "{E784AB15-4702-4CF2-BB9D-24B520171BC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEM Excel Connector", "BigFixExcelAddIn\IEM Excel Connector.csproj", "{E784AB15-4702-4CF2-BB9D-24B520171BC4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{94955608-38E0-43BE-AE73-0C16012E7445} = {94955608-38E0-43BE-AE73-0C16012E7445}
+		{692E9844-1F3D-4303-887A-682373748E58} = {692E9844-1F3D-4303-887A-682373748E58}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owf.Controls.A1Panel", "..\Cool_Gradient_Panel\Owf.Controls.A1Panel\Owf.Controls.A1Panel.csproj", "{0CCB7147-6EEC-4CC6-923B-99632A556F17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProjectWizardDemo", "..\CodeProjectWizardDemo\CodeProjectWizardDemo.csproj", "{94955608-38E0-43BE-AE73-0C16012E7445}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeViewSerialization", "..\TreeViewDemoSrc\TreeViewSerialization.csproj", "{692E9844-1F3D-4303-887A-682373748E58}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BigFix_Excel_Connector_Setup", "BigFixExcelAddIn\BigFixExcelAddInSetup\BigFixExcelAddInSetup.vdproj", "{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}"
 EndProject
 Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "EXCEL", "..\..\..\..\..\..\Program Files (x86)\Microsoft Office\Office14\EXCEL.EXE", "{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}"
 	ProjectSection(DebuggerProjectSystem) = preProject
@@ -22,6 +24,8 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "EXCEL", "..\..\..\..\..\..\
 		LaunchSQLEngine = No
 		AttachLaunchAction = No
 	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IBM_Endpoint_Manager_Excel_Connector_Setup", "IEM_Excel_Connector_Setup\BigFixExcelAddInSetup.vdproj", "{58E7429E-1856-4101-95B3-EEF89C16CB3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,24 +77,24 @@ Global
 		{692E9844-1F3D-4303-887A-682373748E58}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{692E9844-1F3D-4303-887A-682373748E58}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{692E9844-1F3D-4303-887A-682373748E58}.Release|x86.ActiveCfg = Release|Any CPU
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Debug|Any CPU.ActiveCfg = Debug
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Debug|Any CPU.Build.0 = Debug
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Debug|Mixed Platforms.Build.0 = Debug
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Debug|x86.ActiveCfg = Debug
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Debug|x86.Build.0 = Debug
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Release|Any CPU.ActiveCfg = Release
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Release|Any CPU.Build.0 = Release
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Release|Mixed Platforms.ActiveCfg = Release
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Release|Mixed Platforms.Build.0 = Release
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Release|x86.ActiveCfg = Release
-		{0B1BDFD1-54E1-42BA-B2DE-36A0E77A9F6C}.Release|x86.Build.0 = Release
 		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Debug|x86.ActiveCfg = Debug|x86
 		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|Any CPU.ActiveCfg = Debug|x86
 		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|Mixed Platforms.ActiveCfg = Debug|x86
 		{4B1C3C8E-E526-4E3E-AE88-2176C3F0A027}.Release|x86.ActiveCfg = Debug|x86
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|Any CPU.ActiveCfg = Debug
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|Any CPU.Build.0 = Debug
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|Mixed Platforms.Build.0 = Debug
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|x86.ActiveCfg = Debug
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Debug|x86.Build.0 = Debug
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Release|Any CPU.ActiveCfg = Release
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Release|Any CPU.Build.0 = Release
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Release|Mixed Platforms.ActiveCfg = Release
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Release|Mixed Platforms.Build.0 = Release
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Release|x86.ActiveCfg = Release
+		{58E7429E-1856-4101-95B3-EEF89C16CB3B}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
