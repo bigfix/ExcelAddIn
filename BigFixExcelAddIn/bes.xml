@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<BES>
+
+  <FixletType>
+    <fixlets text="Common Properties" imageindex="5" tag="Object">
+      <fixlets text="Applicable Computer Count" imageindex="4" tag="Integer"></fixlets>
+      <fixlets text="Category" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Download Size" imageindex="4" tag="Integer"></fixlets>
+      <fixlets text="ID" imageindex="4" tag="Integer"></fixlets>
+      <fixlets text="Name" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Open Action Count" imageindex="4" tag="Integer"></fixlets>
+      <fixlets text="Remediated" imageindex="4" tag="Integer"></fixlets>
+      <fixlets text="Sites" imageindex="5" tag="Object">
+        <fixlets text="Names" imageindex="6" tag="String"></fixlets>
+      </fixlets>
+      <fixlets text="Source ID" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Source Release Date" imageindex="2" tag="Date"></fixlets>
+      <fixlets text="Source Severity" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Source" imageindex="6" tag="String"></fixlets>
+    </fixlets>
+
+    <fixlets text="Extended Properties" imageindex="5" tag="Object">
+      <fixlets text="Actions" imageindex="5" tag="Object">
+        <fixlets text="Content IDs" imageindex="6" tag="String"/>
+        <fixlets text="Script Types" imageindex="6" tag="String"/>
+      </fixlets>
+      <fixlets text="Analysis Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Applicable Computers" imageindex="5" tag="Object">
+        <fixlets text="Names" imageindex="6" tag="String"/>
+      </fixlets>
+      <fixlets text="Baseline Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Best Activations" imageindex="5" tag="Object">
+        <fixlets text="Active Flags" imageindex="0" tag="Boolean"/>
+        <fixlets text="Creation Times" imageindex="7" tag="Time"/>
+        <fixlets text="Database IDs" imageindex="4" tag="Integer"/>
+        <fixlets text="IDs" imageindex="4" tag="Integer"/>
+        <fixlets text="Names of Issuers" imageindex="6" tag="String"/>
+        <fixlets text="Modification Times" imageindex="7" tag="Time"/>
+      </fixlets>
+      <fixlets text="Charset" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Creation Time" imageindex="7" tag="Time"></fixlets>
+      <fixlets text="Custom Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Custom Site Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="CVE ID List" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Digest File Name" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Fixlet Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Globally Visible Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Group Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Link Href" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Locally Visible Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Master Site Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Operator Site Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="SANS ID List" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Task Flag" imageindex="0" tag="Boolean"></fixlets>
+      <fixlets text="Type" imageindex="6" tag="String"></fixlets>
+      <fixlets text="Unlocked Computer Count" imageindex="4" tag="Integer"></fixlets>
+      <fixlets text="Wizard Link" imageindex="6" tag="String"></fixlets>
+    </fixlets>
+  </FixletType>
+
+  <ActionType>
+    <actions text="Common Properties" imageindex="5" tag="Object">
+      <actions text="ID" imageindex="4" tag="Integer"></actions>
+      <actions text="Issuer" imageindex="5" tag="Object">
+        <actions text="Name" imageindex="6" tag="String"/>
+      </actions>
+      <actions text="Multiple Flag" imageindex="0" tag="Boolean"></actions>
+      <actions text="Name" imageindex="6" tag="String"></actions>
+      <actions text="State" imageindex="6" tag="String"></actions>
+      <actions text="Time Issued" imageindex="7" tag="Time"></actions>
+    </actions>
+    <actions text="Extended Properties" imageindex="5" tag="Object">
+        <actions text="Action Script Type" imageindex="6" tag="String"></actions>
+        <actions text="Comments" imageindex="5" tag="Object">
+          <actions text="Text" imageindex="6" tag="String"></actions>
+        </actions>
+        <actions text="Computer Group Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Constrain By Property Name" imageindex="6" tag="String"></actions>
+        <actions text="Constrain By Property Relation" imageindex="6" tag="String"></actions>
+        <actions text="Constrain By Property Value" imageindex="6" tag="String"></actions>
+        <actions text="Custom Success Relevance" imageindex="6" tag="String"></actions>
+        <actions text="Database Id" imageindex="4" tag="Integer"></actions>
+        <actions text="Database Name" imageindex="6" tag="String"></actions>
+        <actions text="Date Range End" imageindex="2" tag="Date"></actions>
+        <actions text="Date Range Start" imageindex="2" tag="Date"></actions>
+        <actions text="End Date" imageindex="2" tag="Date"></actions>
+        <actions text="End Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="End Time_Of_Day" imageindex="7" tag="Time Of Day"></actions>
+        <actions text="Expiration Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Expiration Time" imageindex="7" tag="Time"></actions>
+        <actions text="Group Member Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Hidden Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Link Href" imageindex="6" tag="String"></actions>
+        <actions text="Management Rights Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Member Actions" imageindex="5" tag="Object">
+          <actions text="IDs" imageindex="4" tag="Integer"/>
+          <actions text="Names" imageindex="6" tag="String"/>
+        </actions>
+        <actions text="Message Action Button Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Message Allow Cancel Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Message Postpone Delay" imageindex="7" tag="Time Interval"></actions>
+        <actions text="Message Text" imageindex="6" tag="String"></actions>
+        <actions text="Message Timeout Delay" imageindex="7" tag="Time Interval"></actions>
+        <actions text="Message Title" imageindex="6" tag="String"></actions>
+        <actions text="Offer Category" imageindex="6" tag="String"></actions>
+        <actions text="Offer Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Operator Site Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Postaction Allow Cancel Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Postaction Force Delay" imageindex="7" tag="Time Interval"></actions>
+        <actions text="Postaction Message Text" imageindex="6" tag="String"></actions>
+        <actions text="Postaction Message Title" imageindex="6" tag="String"></actions>
+        <actions text="Postaction Postpone Delay" imageindex="7" tag="Time Interval"></actions>
+        <actions text="Reapplication Interval" imageindex="7" tag="Time Interval"></actions>
+        <actions text="Reapplication Limit" imageindex="4" tag="Integer"></actions>
+        <actions text="Reapply Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Require User Absence" imageindex="0" tag="Boolean"></actions>
+        <actions text="Require User Presence" imageindex="0" tag="Boolean"></actions>
+        <actions text="Restart Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Retry Delay" imageindex="7" tag="Time Interval"></actions>
+        <actions text="Retry Limit" imageindex="4" tag="Integer"></actions>
+        <actions text="Retry Wait For Reboot Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Running Message Text" imageindex="6" tag="String"></actions>
+        <actions text="Running Message Title" imageindex="6" tag="String"></actions>
+        <actions text="Selected Groups String" imageindex="6" tag="String"></actions>
+        <actions text="Settings Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Show Message Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Show Running Message Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Shutdown Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Single Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Source Fixlet" imageindex="5" tag="Object">
+          <actions text="Name" imageindex="6" tag="String"></actions>
+        </actions>
+        <actions text="Start Date" imageindex="2" tag="Date"></actions>
+        <actions text="Start Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Start Time_Of_Day" imageindex="7" tag="Time Of Day"></actions>
+        <actions text="Subscription Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Success On Custom Relevance" imageindex="0" tag="Boolean"></actions>
+        <actions text="Success On Original Relevance" imageindex="0" tag="Boolean"></actions>
+        <actions text="Success On Run To Completion" imageindex="0" tag="Boolean"></actions>
+        <actions text="Targeted By Id Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Targeted By List Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Targeted By Property Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Targeted Computers" imageindex="5" tag="Object">
+          <actions text="Names" imageindex="6" tag="String"></actions>
+        </actions>
+        <actions text="Targeted List" imageindex="6" tag="String"></actions>
+        <actions text="Targeted Names" imageindex="6" tag="String"></actions>
+        <actions text="Targeting Method" imageindex="6" tag="String"></actions>
+        <actions text="Targeting Relevance" imageindex="6" tag="String"></actions>
+        <actions text="Temporal Distribution" imageindex="7" tag="Time Interval"></actions>
+        <actions text="Time Range End" imageindex="7" tag="Time Of Day"></actions>
+        <actions text="Time Range Start" imageindex="7" tag="Time Of Day"></actions>
+        <actions text="Time Stopped" imageindex="7" tag="Time"></actions>
+        <actions text="Untargeted Flag" imageindex="0" tag="Boolean"></actions>
+        <actions text="Urgent Flag" imageindex="0" tag="Boolean"></actions>
+      </actions>
+  </ActionType>
+
+  <SiteType>
+    <sites text="Creation Date" imageindex="7" tag="Time"></sites>
+    <sites text="Creators" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+    <sites text="Custom Site Flag" imageindex="0" tag="Boolean"></sites>
+    <sites text="Description" imageindex="6" tag="String"></sites>
+    <sites text="Display name" imageindex="6" tag="String"></sites>
+    <sites text="Explicit Owners" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+    <sites text="Explicit Readers" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+    <sites text="Explicit Writers" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+    <sites text="External Site Flag" imageindex="0" tag="Boolean"></sites>
+    <sites text="Fixlets" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+    <sites text="Globally Readable Flag" imageindex="0" tag="Boolean"></sites>
+    <sites text="ID" imageindex="4" tag="Integer"></sites>
+    <sites text="Master Site Flag" imageindex="0" tag="Boolean"></sites>
+    <sites text="Name" imageindex="6" tag="String"></sites>
+    <sites text="Operator Site Flag" imageindex="0" tag="Boolean"></sites>
+    <sites text="Owners" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+    <sites text="Readers" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+    <sites text="Subscribed Computers" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+    <sites text="Writers" imageindex="5" tag="Object">
+      <sites text="Names" imageindex="6" tag="String"/>
+    </sites>
+  </SiteType>
+
+  <CustomSiteType>
+    <custom_sites text="Creation Date" imageindex="7" tag="Time"></custom_sites>
+    <custom_sites text="Creators" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+    <custom_sites text="Custom Site Flag" imageindex="0" tag="Boolean"></custom_sites>
+    <custom_sites text="Description" imageindex="6" tag="String"></custom_sites>
+    <custom_sites text="Display name" imageindex="6" tag="String"></custom_sites>
+    <custom_sites text="Explicit Owners" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+    <custom_sites text="Explicit Readers" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+    <custom_sites text="Explicit Writers" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+    <custom_sites text="External Site Flag" imageindex="0" tag="Boolean"></custom_sites>
+    <custom_sites text="Fixlets" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+    <custom_sites text="Globally Readable Flag" imageindex="0" tag="Boolean"></custom_sites>
+    <custom_sites text="ID" imageindex="4" tag="Integer"></custom_sites>
+    <custom_sites text="Master Site Flag" imageindex="0" tag="Boolean"></custom_sites>
+    <custom_sites text="Name" imageindex="6" tag="String"></custom_sites>
+    <custom_sites text="Operator Site Flag" imageindex="0" tag="Boolean"></custom_sites>
+    <custom_sites text="Owners" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+    <custom_sites text="Readers" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+    <custom_sites text="Subscribed Computers" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+    <custom_sites text="Writers" imageindex="5" tag="Object">
+      <custom_sites text="Names" imageindex="6" tag="String"/>
+    </custom_sites>
+  </CustomSiteType>
+
+  <ComputerGroupType>
+    <computer_groups text="Automatic Flag" imageindex="0" tag="Boolean"></computer_groups>
+    <computer_groups text="Client Evaluated Flag" imageindex="0" tag="Boolean"></computer_groups>
+    <computer_groups text="Database Id" imageindex="4" tag="Integer"></computer_groups>
+    <computer_groups text="ID" imageindex="4" tag="Integer"></computer_groups>
+    <computer_groups text="Manual Flag" imageindex="0" tag="Boolean"></computer_groups>
+    <computer_groups text="Members" imageindex="5" tag="Object">
+      <computer_groups text="Names" imageindex="6" tag="String"/>
+    </computer_groups>
+    <computer_groups text="Name" imageindex="6" tag="String"></computer_groups>
+    <computer_groups text="Sites" imageindex="5" tag="Object">
+      <computer_groups text="Names" imageindex="6" tag="String"/>
+    </computer_groups>
+  </ComputerGroupType>
+
+  <UserType>
+    <users text="Administered Computers" imageindex="5" tag="Object">
+      <users text="Names" imageindex="6" tag="String"/>
+    </users>
+    <users text="Creation Time" imageindex="7" tag="Time"></users>
+    <users text="Custom Content Flag" imageindex="0" tag="Boolean"></users>
+    <users text="Issued Actions" imageindex="5" tag="Object">
+      <users text="Names" imageindex="6" tag="String"/>
+    </users>
+    <users text="Last Login Time" imageindex="7" tag="Time"></users>
+    <users text="Link Href" imageindex="6" tag="String"></users>
+    <users text="Master Flag" imageindex="0" tag="Boolean"></users>
+    <users text="Name" imageindex="6" tag="String"></users>
+    <users text="Unmanagedasset Privilege Scanpoint Flag" imageindex="0" tag="Boolean"></users>
+    <users text="Unmanagedasset Privilege Showall Flag" imageindex="0" tag="Boolean"></users>
+    <users text="Unmanagedasset Privilege Shownone Flag" imageindex="0" tag="Boolean"></users>
+  </UserType>
+
+  <UnmanagedAssetType>
+    <unmanagedassets text="Client Installed Flag" imageindex="0" tag="Boolean"></unmanagedassets>
+    <unmanagedassets text="Fields" imageindex="5" tag="Object">
+      <unmanagedassets text="Names" imageindex="6" tag="String"/>
+      <unmanagedassets text="Values" imageindex="6" tag="String"/>
+    </unmanagedassets>
+    <unmanagedassets text="ID" imageindex="4" tag="Integer"></unmanagedassets>
+    <unmanagedassets text="Link Href" imageindex="6" tag="String"></unmanagedassets>
+    <unmanagedassets text="Source" imageindex="6" tag="String"></unmanagedassets>
+  </UnmanagedAssetType>
+
+  <UnmanagedAssetFieldType>
+    <unmanagedasset_fields text="Asset" imageindex="5" tag="Object">
+      <unmanagedasset_fields text="Client Installed Flag" imageindex="0" tag="Boolean"/>
+      <unmanagedasset_fields text="ID" imageindex="4" tag="Integer"/>
+      <unmanagedasset_fields text="Source" imageindex="6" tag="String"/>
+    </unmanagedasset_fields>
+    <unmanagedasset_fields text="Editable Flag" imageindex="0" tag="Boolean"></unmanagedasset_fields>
+    <unmanagedasset_fields text="Filterable Flag" imageindex="0" tag="Boolean"></unmanagedasset_fields>
+    <unmanagedasset_fields text="Name" imageindex="6" tag="String"></unmanagedasset_fields>
+    <unmanagedasset_fields text="Value" imageindex="6" tag="String"></unmanagedasset_fields>
+  </UnmanagedAssetFieldType>
+
+  <FixletResultType>
+    <results_of_bes_fixlets text="Computer" imageindex="5" tag="SearchableObject">
+      <results_of_bes_fixlets text="Name" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Operating System" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="IP Addresses" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Last Report Time" imageindex="7" tag="Time"></results_of_bes_fixlets>
+    </results_of_bes_fixlets>
+    <results_of_bes_fixlets text="Fixlet" imageindex="5" tag="SearchableObject">
+      <results_of_bes_fixlets text="Analysis Flag" imageindex="0" tag="Boolean"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Applicable Computer Count" imageindex="4" tag="Integer"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Category" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Download Size" imageindex="4" tag="Integer"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Fixlet Flag" imageindex="0" tag="Boolean"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="ID" imageindex="4" tag="Integer"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Name" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Name of Site" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Open Action Count" imageindex="4" tag="Integer"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Source" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Source ID" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Source Release Date" imageindex="2" tag="Date"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Source Severity" imageindex="6" tag="String"></results_of_bes_fixlets>
+      <results_of_bes_fixlets text="Task Flag" imageindex="0" tag="Boolean"></results_of_bes_fixlets>
+    </results_of_bes_fixlets>
+    <results_of_bes_fixlets text="First Became Relevant" imageindex="7" tag="Time"></results_of_bes_fixlets>
+    <results_of_bes_fixlets text="Last Became Nonrelevant" imageindex="7" tag="Time"></results_of_bes_fixlets>
+    <results_of_bes_fixlets text="Last Became Relevant" imageindex="7" tag="Time"></results_of_bes_fixlets>
+    <results_of_bes_fixlets text="Relevant Flag" imageindex="0" tag="Boolean"></results_of_bes_fixlets>
+  </FixletResultType>
+
+  <ActionResultType>
+    <results_of_bes_actions text="Action" imageindex="5" tag="SearchableObject">
+      <results_of_bes_actions text="ID" imageindex="4" tag="Integer"></results_of_bes_actions>
+      <results_of_bes_actions text="Name of Issuer" imageindex="6" tag="String"></results_of_bes_actions>
+      <results_of_bes_actions text="Multiple Flag" imageindex="0" tag="Boolean"></results_of_bes_actions>
+      <results_of_bes_actions text="Name" imageindex="6" tag="String"></results_of_bes_actions>
+      <results_of_bes_actions text="State" imageindex="6" tag="String"></results_of_bes_actions>
+      <results_of_bes_actions text="Time Issued" imageindex="7" tag="Time"></results_of_bes_actions>
+    </results_of_bes_actions>
+    <results_of_bes_actions text="Apply Count" imageindex="4" tag="Integer"></results_of_bes_actions>
+    <results_of_bes_actions text="Computer" imageindex="5" tag="Object">
+      <results_of_bes_actions text="Name" imageindex="6" tag="String"></results_of_bes_actions>
+      <results_of_bes_actions text="Operating System" imageindex="6" tag="String"></results_of_bes_actions>
+      <results_of_bes_actions text="IP Addresses" imageindex="6" tag="String"></results_of_bes_actions>
+      <results_of_bes_actions text="Last Report Time" imageindex="7" tag="Time"></results_of_bes_actions>
+    </results_of_bes_actions>
+    <results_of_bes_actions text="Detailed Status" imageindex="6" tag="String"></results_of_bes_actions>
+    <results_of_bes_actions text="Line Number" imageindex="4" tag="Integer"></results_of_bes_actions>
+    <results_of_bes_actions text="Retry Count" imageindex="4" tag="Integer"></results_of_bes_actions>
+    <results_of_bes_actions text="Status" imageindex="6" tag="String">
+    </results_of_bes_actions>
+  </ActionResultType>
+
+</BES>

@@ -1,0 +1,24 @@
+﻿Changes in version 1.4.0.0
+- (7/26/2010) Clear worksheet formatting when returning results from Session Relevance Editor.
+- (7/26/2010) Refresh content cache when switching Web Reports. 
+
+Changes in version 1.3.0.0
+- (7/26/2010) Fix bug found by Nick Holmes on Forum http://forum.bigfix.com/viewtopic.php?id=5394. The filter does not work against properties with multiple results.
+
+Changes in version 1.2.0.0
+- (7/24/2010) Supports HTTPS connection with private certificates.
+- (7/24/2010) Fixed problem with Web Reports URL with trailing forward slash (e.g. http://server:80/).
+
+Bug fixes in version 1.1.0.0
+- (7/18/2009) comboBoxProperty for filter name not concatenating property if it is a property of an object.
+- (7/18/2009) When Checking a parent node of a list of property names, and if there are children already checked, they get duplicated in the selected list.
+- (7/21/2009) Tab order for fields (3 of them) used to create a filter corrected.
+- (7/24/2009) Missing Analysis properties if multiple activations. Helped fixed by Stephane Minisini of eSpeed.
+
+Enhancements in version 1.1.0.0 
+- (7/20/2009) Added auto-complete functionality to the comboBoxProperty - to select Properties for filtering.
+- (7/21/2009) Combined 2 BES Site queries into one to improve caching speed.
+- (7/21/2009) Added Remediated attribute to BES Fixlets. Also possible to search on Remediated.
+- (7/21/2009) Made the "Value" column in the filter data grid editable. This makes it easier to change a query criteria.
+
+
